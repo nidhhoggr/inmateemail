@@ -13,6 +13,7 @@
  * @property boolean $contacts_approvable
  * @property boolean $emails_approvable
  * @property sfGuardUser $User
+ * @property Doctrine_Collection $Contact
  * @property Doctrine_Collection $InmateContact
  * @property Doctrine_Collection $Email
  * 
@@ -24,6 +25,7 @@
  * @method boolean             getContactsApprovable()  Returns the current record's "contacts_approvable" value
  * @method boolean             getEmailsApprovable()    Returns the current record's "emails_approvable" value
  * @method sfGuardUser         getUser()                Returns the current record's "User" value
+ * @method Doctrine_Collection getContact()             Returns the current record's "Contact" collection
  * @method Doctrine_Collection getInmateContact()       Returns the current record's "InmateContact" collection
  * @method Doctrine_Collection getEmail()               Returns the current record's "Email" collection
  * @method Inmate              setId()                  Sets the current record's "id" value
@@ -34,6 +36,7 @@
  * @method Inmate              setContactsApprovable()  Sets the current record's "contacts_approvable" value
  * @method Inmate              setEmailsApprovable()    Sets the current record's "emails_approvable" value
  * @method Inmate              setUser()                Sets the current record's "User" value
+ * @method Inmate              setContact()             Sets the current record's "Contact" collection
  * @method Inmate              setInmateContact()       Sets the current record's "InmateContact" collection
  * @method Inmate              setEmail()               Sets the current record's "Email" collection
  * 
@@ -85,6 +88,11 @@ abstract class BaseInmate extends sfDoctrineRecord
              'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
+
+        $this->hasMany('Contact', array(
+             'refClass' => 'InmateContact',
+             'local' => 'contact_id',
+             'foreign' => 'inmate_id'));
 
         $this->hasMany('InmateContact', array(
              'local' => 'id',

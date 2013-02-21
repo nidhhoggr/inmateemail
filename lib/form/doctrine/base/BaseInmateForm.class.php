@@ -24,6 +24,7 @@ abstract class BaseInmateForm extends BaseFormDoctrine
       'emails_approvable'   => new sfWidgetFormInputCheckbox(),
       'created_at'          => new sfWidgetFormDateTime(),
       'updated_at'          => new sfWidgetFormDateTime(),
+      'contact_list'        => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Contact')),
     ));
 
     $this->setValidators(array(
@@ -36,6 +37,7 @@ abstract class BaseInmateForm extends BaseFormDoctrine
       'emails_approvable'   => new sfValidatorBoolean(array('required' => false)),
       'created_at'          => new sfValidatorDateTime(),
       'updated_at'          => new sfValidatorDateTime(),
+      'contact_list'        => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Contact', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('inmate[%s]');
@@ -50,6 +52,62 @@ abstract class BaseInmateForm extends BaseFormDoctrine
   public function getModelName()
   {
     return 'Inmate';
+  }
+
+  public function updateDefaultsFromObject()
+  {
+    parent::updateDefaultsFromObject();
+
+    if (isset($this->widgetSchema['contact_list']))
+    {
+      $this->setDefault('contact_list', $this->object->Contact->getPrimaryKeys());
+    }
+
+  }
+
+  protected function doSave($con = null)
+  {
+    $this->saveContactList($con);
+
+    parent::doSave($con);
+  }
+
+  public function saveContactList($con = null)
+  {
+    if (!$this->isValid())
+    {
+      throw $this->getErrorSchema();
+    }
+
+    if (!isset($this->widgetSchema['contact_list']))
+    {
+      // somebody has unset this widget
+      return;
+    }
+
+    if (null === $con)
+    {
+      $con = $this->getConnection();
+    }
+
+    $existing = $this->object->Contact->getPrimaryKeys();
+    $values = $this->getValue('contact_list');
+    if (!is_array($values))
+    {
+      $values = array();
+    }
+
+    $unlink = array_diff($existing, $values);
+    if (count($unlink))
+    {
+      $this->object->unlink('Contact', array_values($unlink));
+    }
+
+    $link = array_diff($values, $existing);
+    if (count($link))
+    {
+      $this->object->link('Contact', array_values($link));
+    }
   }
 
 }

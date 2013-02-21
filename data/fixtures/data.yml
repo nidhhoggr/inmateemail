@@ -1,3 +1,12 @@
+Contact:
+  Contact_1:
+    email_address: cstraka@hotmail.com
+    first_name: Chris
+    last_name: Straka
+    phone_number: '1232343456'
+    is_approved: true
+    created_at: '2013-02-21 11:19:49'
+    updated_at: '2013-02-21 11:19:49'
 Inmate:
   Inmate_1:
     User: sfGuardUser_2
@@ -48,7 +57,7 @@ sfGuardUser:
     username: admin
     algorithm: sha1
     salt: 90455947d1672479de8bba866841c36f
-    password: b3ce8b3f353902ffaa00900a67d2ffe00a80451f
+    password: 65f0c7e4bc72e6209a026da35ed0a0b544617e48
     is_active: true
     is_super_admin: true
     last_login: null
@@ -64,12 +73,34 @@ sfGuardUser:
     username: '10293847'
     algorithm: sha1
     salt: 5a3ae194163162dd96fcaacd286ca4f0
-    password: d2dfd63c5a686f0ed77719b8b2fcd0bff796ce5d
+    password: 084a6f9228e4fe811fbe248afec30bbbcb9c48a8
     is_active: true
     is_super_admin: false
     last_login: null
     created_at: '2013-02-21 08:57:15'
     updated_at: '2013-02-21 08:57:15'
+  sfGuardUser_3:
+    first_name: sgt
+    middle_name: ''
+    last_name: baker
+    prefix: ''
+    suffix: ''
+    email_address: ''
+    username: sgtbaker
+    algorithm: sha1
+    salt: 885807d6945b17ea86177dfa342e9713
+    password: 165b205207186d0d3de805ac582cf1399cbbdc17
+    is_active: true
+    is_super_admin: true
+    last_login: '2013-02-21 11:18:59'
+    created_at: '2013-02-21 11:18:53'
+    updated_at: '2013-02-21 11:18:59'
+Officer:
+  Officer_1:
+    badge_number: '12334566'
+    User: sfGuardUser_3
+    created_at: '2013-02-21 11:18:53'
+    updated_at: '2013-02-21 11:18:53'
 AuditLogger:
   AuditLogger_1:
     User: sfGuardUser_1
@@ -127,6 +158,26 @@ AuditLogger:
     params: 'a:2:{s:7:"keyword";a:5:{s:2:"id";s:0:"";s:7:"flag_id";s:1:"1";s:4:"name";s:4:"cunt";s:11:"description";s:0:"";s:6:"weight";s:1:"0";}s:13:"_save_and_add";s:12:"Save and add";}'
     created_at: '2013-02-21 09:22:59'
     updated_at: '2013-02-21 09:22:59'
+  AuditLogger_8:
+    User: sfGuardUser_1
+    module: officer
+    action: create
+    object_id: null
+    params: 'a:2:{s:7:"officer";a:3:{s:2:"id";s:0:"";s:12:"badge_number";s:8:"12334566";s:4:"User";a:12:{s:10:"first_name";s:3:"sgt";s:11:"middle_name";s:0:"";s:9:"last_name";s:5:"baker";s:6:"prefix";s:0:"";s:6:"suffix";s:0:"";s:13:"email_address";s:0:"";s:8:"username";s:8:"sgtbaker";s:8:"password";s:8:"sgtbaker";s:14:"password_again";s:8:"sgtbaker";s:9:"is_active";s:2:"on";s:14:"is_super_admin";s:2:"on";s:2:"id";s:0:"";}}s:13:"_save_and_add";s:12:"Save and add";}'
+    created_at: '2013-02-21 11:18:53'
+    updated_at: '2013-02-21 11:18:53'
+  AuditLogger_9:
+    User: sfGuardUser_3
+    module: contact
+    action: create
+    object_id: null
+    params: 'a:2:{s:7:"contact";a:7:{s:2:"id";s:0:"";s:13:"email_address";s:19:"cstraka@hotmail.com";s:10:"first_name";s:5:"Chris";s:9:"last_name";s:6:"Straka";s:12:"phone_number";s:10:"1232343456";s:11:"is_approved";s:2:"on";s:11:"inmate_list";a:1:{i:0;s:1:"1";}}s:13:"_save_and_add";s:12:"Save and add";}'
+    created_at: '2013-02-21 11:19:48'
+    updated_at: '2013-02-21 11:19:48'
+InmateContact:
+  InmateContact_1:
+    Inmate: Inmate_1
+    Contact: Contact_1
 Keyword:
   Keyword_1:
     Flag: Flag_1

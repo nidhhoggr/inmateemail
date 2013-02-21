@@ -23,6 +23,7 @@ abstract class BaseContactForm extends BaseFormDoctrine
       'is_approved'   => new sfWidgetFormInputCheckbox(),
       'created_at'    => new sfWidgetFormDateTime(),
       'updated_at'    => new sfWidgetFormDateTime(),
+      'inmate_list'   => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Inmate')),
     ));
 
     $this->setValidators(array(
@@ -34,6 +35,7 @@ abstract class BaseContactForm extends BaseFormDoctrine
       'is_approved'   => new sfValidatorBoolean(array('required' => false)),
       'created_at'    => new sfValidatorDateTime(),
       'updated_at'    => new sfValidatorDateTime(),
+      'inmate_list'   => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Inmate', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('contact[%s]');
@@ -48,6 +50,62 @@ abstract class BaseContactForm extends BaseFormDoctrine
   public function getModelName()
   {
     return 'Contact';
+  }
+
+  public function updateDefaultsFromObject()
+  {
+    parent::updateDefaultsFromObject();
+
+    if (isset($this->widgetSchema['inmate_list']))
+    {
+      $this->setDefault('inmate_list', $this->object->Inmate->getPrimaryKeys());
+    }
+
+  }
+
+  protected function doSave($con = null)
+  {
+    $this->saveInmateList($con);
+
+    parent::doSave($con);
+  }
+
+  public function saveInmateList($con = null)
+  {
+    if (!$this->isValid())
+    {
+      throw $this->getErrorSchema();
+    }
+
+    if (!isset($this->widgetSchema['inmate_list']))
+    {
+      // somebody has unset this widget
+      return;
+    }
+
+    if (null === $con)
+    {
+      $con = $this->getConnection();
+    }
+
+    $existing = $this->object->Inmate->getPrimaryKeys();
+    $values = $this->getValue('inmate_list');
+    if (!is_array($values))
+    {
+      $values = array();
+    }
+
+    $unlink = array_diff($existing, $values);
+    if (count($unlink))
+    {
+      $this->object->unlink('Inmate', array_values($unlink));
+    }
+
+    $link = array_diff($values, $existing);
+    if (count($link))
+    {
+      $this->object->link('Inmate', array_values($link));
+    }
   }
 
 }

@@ -21,6 +21,7 @@ abstract class BaseInmateFormFilter extends BaseFormFilterDoctrine
       'emails_approvable'   => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'created_at'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'          => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'contact_list'        => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Contact')),
     ));
 
     $this->setValidators(array(
@@ -32,6 +33,7 @@ abstract class BaseInmateFormFilter extends BaseFormFilterDoctrine
       'emails_approvable'   => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'created_at'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'          => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'contact_list'        => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Contact', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('inmate_filters[%s]');
@@ -41,6 +43,24 @@ abstract class BaseInmateFormFilter extends BaseFormFilterDoctrine
     $this->setupInheritance();
 
     parent::setup();
+  }
+
+  public function addContactListColumnQuery(Doctrine_Query $query, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $query
+      ->leftJoin($query->getRootAlias().'.InmateContact InmateContact')
+      ->andWhereIn('InmateContact.inmate_id', $values)
+    ;
   }
 
   public function getModelName()
@@ -60,6 +80,7 @@ abstract class BaseInmateFormFilter extends BaseFormFilterDoctrine
       'emails_approvable'   => 'Boolean',
       'created_at'          => 'Date',
       'updated_at'          => 'Date',
+      'contact_list'        => 'ManyKey',
     );
   }
 }

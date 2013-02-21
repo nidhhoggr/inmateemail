@@ -37,6 +37,12 @@ Inmate:
       type: one
       foreignType: one
       onDelete: CASCADE
+    Contact:
+      class: Contact
+      refClass: InmateContact
+      local: contact_id
+      foreign: inmate_id
+
 
 Officer:
   actAs: [Timestampable]
@@ -58,15 +64,21 @@ Contact:
   columns:
     id:                  {type: integer, primary: true, autoincrement: true}
     email_address:       {type: string(128) }
-    first_name:               {type: string(32) }
-    last_name:               {type: string(32) }
+    first_name:          {type: string(32) }
+    last_name:           {type: string(32) }
     phone_number:        {type: integer(10) }
     is_approved:         {type: boolean, notnull: true, default: false} 
+  relations:
+    Inmate:
+      class: Inmate
+      refClass: InmateContact
+      local: inmate_id
+      foreign: contact_id
 
 InmateContact:
   columns:
-    inmate_id:           {type: integer, notnull:true}
-    contact_id:          {type: integer, notnull: true}
+    inmate_id:             {type: integer, notnull: true}
+    contact_id:            {type: integer, notnull: true}
 
 Email:
   actAs: [Timestampable]

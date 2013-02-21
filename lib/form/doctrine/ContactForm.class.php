@@ -12,11 +12,8 @@ class ContactForm extends BaseContactForm
 {
   public function configure()
   {
+      $this->unsetTimestampable();
 
-      $this->setWidget('inmate_list', new sfWidgetFormDoctrineChoice(array(
-          'multiple'=>true,
-          'model'=>'Inmate',
-          'renderer_class'=>'sfWidgetFormSelectDoubleList'
-      )));
+      $this->widgetSchema['inmate_list']->setOption('renderer_class', 'sfWidgetFormSelectDoubleList');
   }
 }

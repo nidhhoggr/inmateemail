@@ -11,6 +11,7 @@
  * @property string $last_name
  * @property integer $phone_number
  * @property boolean $is_approved
+ * @property Doctrine_Collection $Inmate
  * @property Doctrine_Collection $InmateContact
  * @property Doctrine_Collection $Email
  * 
@@ -20,6 +21,7 @@
  * @method string              getLastName()      Returns the current record's "last_name" value
  * @method integer             getPhoneNumber()   Returns the current record's "phone_number" value
  * @method boolean             getIsApproved()    Returns the current record's "is_approved" value
+ * @method Doctrine_Collection getInmate()        Returns the current record's "Inmate" collection
  * @method Doctrine_Collection getInmateContact() Returns the current record's "InmateContact" collection
  * @method Doctrine_Collection getEmail()         Returns the current record's "Email" collection
  * @method Contact             setId()            Sets the current record's "id" value
@@ -28,6 +30,7 @@
  * @method Contact             setLastName()      Sets the current record's "last_name" value
  * @method Contact             setPhoneNumber()   Sets the current record's "phone_number" value
  * @method Contact             setIsApproved()    Sets the current record's "is_approved" value
+ * @method Contact             setInmate()        Sets the current record's "Inmate" collection
  * @method Contact             setInmateContact() Sets the current record's "InmateContact" collection
  * @method Contact             setEmail()         Sets the current record's "Email" collection
  * 
@@ -72,6 +75,11 @@ abstract class BaseContact extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
+        $this->hasMany('Inmate', array(
+             'refClass' => 'InmateContact',
+             'local' => 'inmate_id',
+             'foreign' => 'contact_id'));
+
         $this->hasMany('InmateContact', array(
              'local' => 'id',
              'foreign' => 'contact_id'));

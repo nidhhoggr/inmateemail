@@ -14,7 +14,8 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+        display: [first_name,last_name,is_approved]
       filter:  ~
       form:    ~
       edit:    ~
