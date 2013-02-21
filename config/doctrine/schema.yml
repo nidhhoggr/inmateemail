@@ -1,0 +1,115 @@
+detect_relations: true
+
+AuditLogger:
+  actAs: [Timestampable]
+  columns:
+    id:               { type: integer, primary: true, autoincrement: true }
+    user_id:          { type: integer, notnull: true }
+    module:           { type: string(96) }
+    action:           { type: string(96) }
+    object_id:        { type: integer }
+    params:           { type: clob }
+  relations:
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
+      foreignType: one
+      foreignAlias: AuditLogger
+      onDelete: CASCADE
+
+Inmate:
+  actAs: [Timestampable]
+  columns:
+    id:                  {type: integer, primary: true, autoincrement: true }
+    user_id:             {type: integer, notnull: true}
+    email_number:        {type: integer, notnull: true }
+    jail_number:         {type: integer}
+    balance:             {type: double}
+    contacts_approvable: {type: boolean, notnull: true, default: false}
+    emails_approvable:   {type: boolean, notnull: true, default: false}
+  relations:
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
+      foreignType: one
+      onDelete: CASCADE
+
+Officer:
+  actAs: [Timestampable]
+  columns:
+    id:                  {type: integer, primary: true, autoincrement: true }
+    badge_number:        {type: string(32)}
+    user_id:             {type: integer, notnull: true}
+  relations:
+    User:
+      class: sfGuardUser
+      local: user_id
+      foreign: id
+      type: one
+      foreignType: one
+      onDelete: CASCADE
+
+Contact:
+  actAs: [Timestampable]
+  columns:
+    id:                  {type: integer, primary: true, autoincrement: true}
+    email_address:       {type: string(128) }
+    first_name:               {type: string(32) }
+    last_name:               {type: string(32) }
+    phone_number:        {type: integer(10) }
+    is_approved:         {type: boolean, notnull: true, default: false} 
+
+InmateContact:
+  columns:
+    inmate_id:           {type: integer, notnull:true}
+    contact_id:          {type: integer, notnull: true}
+
+Email:
+  actAs: [Timestampable]
+  columns:
+    id:                  {type: integer, primary: true, autoincrement: true}
+    email_type:          {type: enum, values: [incoming, outgoing]} 
+    inmate_id:           {type: integer}
+    contact_id:          {type: integer}
+    scanned:             {type: boolean, notnull: true, default: false} 
+    date_scanned:        {type: timestamp}
+    subject:             {type: string(128)} 
+    message:             {type: text}
+
+EmailOutgoing:
+  columns:
+    id:                  {type: integer, primary: true, autoincrement: true}
+    email_id:            {type: integer, notnull: true}
+    recipient_email:     {type: string(128)}
+
+EmailIncoming:
+  columns:
+    id:                  {type: integer, primary: true, autoincrement: true}
+    email_id:            {type: integer, notnull: true}
+    sender_email:        {type: string(128)}
+    inmate_viewed:       {type: boolean, notnull: true, default: false} 
+    date_inmate_viewed:  {type: timestamp}
+
+Flag:
+  columns:
+    id:                  {type: integer, primary: true, autoincrement: true}
+    name:                {type: string(32)}
+    description:         {type: text}
+    weight:              {type: integer,notnull:true,default: 0}
+
+Keyword:   
+  columns:
+    id:                  {type: integer, primary: true, autoincrement: true}
+    flag_id:             {type: integer, notnull: true}
+    name:                {type: string(32)}
+    description:         {type: text}
+    weight:              {type: integer,notnull:true,default: 0}
+
+EmailKeyword: 
+  columns:
+    email_id:            {type: integer, notnull: true}
+    keyword_id:          {type: integer, notnull: true}

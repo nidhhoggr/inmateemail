@@ -1,0 +1,22 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Inmate
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          inmate_inmate
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields: ~ 
+      list:  
+        display: [User,email_number,jail_number,balance]
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

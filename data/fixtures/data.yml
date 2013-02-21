@@ -1,0 +1,155 @@
+Inmate:
+  Inmate_1:
+    User: sfGuardUser_2
+    email_number: '10293847'
+    jail_number: '10293847'
+    balance: '20.00'
+    contacts_approvable: true
+    emails_approvable: false
+    created_at: '2013-02-21 08:57:15'
+    updated_at: '2013-02-21 08:57:15'
+Flag:
+  Flag_1:
+    name: profanity
+    description: 'all profane language not necessarily of any particular threat of malicious intent'
+    weight: '0'
+sfGuardGroupPermission:
+  sfGuardGroupPermission_1_1:
+    Group: sfGuardGroup_1
+    Permission: sfGuardPermission_1
+    created_at: '2013-02-21 08:51:34'
+    updated_at: '2013-02-21 08:51:34'
+sfGuardPermission:
+  sfGuardPermission_1:
+    name: admin
+    description: 'Administrator permission'
+    created_at: '2013-02-21 08:51:34'
+    updated_at: '2013-02-21 08:51:34'
+sfGuardUserGroup:
+  sfGuardUserGroup_1_1:
+    User: sfGuardUser_1
+    Group: sfGuardGroup_1
+    created_at: '2013-02-21 08:51:34'
+    updated_at: '2013-02-21 08:51:34'
+sfGuardGroup:
+  sfGuardGroup_1:
+    name: admin
+    description: 'Administrator group'
+    created_at: '2013-02-21 08:51:34'
+    updated_at: '2013-02-21 08:51:34'
+sfGuardUser:
+  sfGuardUser_1:
+    first_name: John
+    middle_name: null
+    last_name: Doe
+    prefix: null
+    suffix: null
+    email_address: john.doe@gmail.com
+    username: admin
+    algorithm: sha1
+    salt: 90455947d1672479de8bba866841c36f
+    password: b3ce8b3f353902ffaa00900a67d2ffe00a80451f
+    is_active: true
+    is_super_admin: true
+    last_login: null
+    created_at: '2013-02-21 08:51:34'
+    updated_at: '2013-02-21 08:51:34'
+  sfGuardUser_2:
+    first_name: Joseph
+    middle_name: ''
+    last_name: Persie
+    prefix: ''
+    suffix: ''
+    email_address: null
+    username: '10293847'
+    algorithm: sha1
+    salt: 5a3ae194163162dd96fcaacd286ca4f0
+    password: d2dfd63c5a686f0ed77719b8b2fcd0bff796ce5d
+    is_active: true
+    is_super_admin: false
+    last_login: null
+    created_at: '2013-02-21 08:57:15'
+    updated_at: '2013-02-21 08:57:15'
+AuditLogger:
+  AuditLogger_1:
+    User: sfGuardUser_1
+    module: inmate
+    action: create
+    object_id: null
+    params: 'a:2:{s:6:"inmate";a:6:{s:2:"id";s:0:"";s:12:"email_number";s:8:"10293847";s:11:"jail_number";s:8:"10293847";s:7:"balance";s:5:"20.00";s:19:"contacts_approvable";s:2:"on";s:4:"User";a:9:{s:10:"first_name";s:6:"Joseph";s:11:"middle_name";s:0:"";s:9:"last_name";s:6:"Persie";s:6:"prefix";s:0:"";s:6:"suffix";s:0:"";s:8:"username";s:8:"10293847";s:8:"password";s:4:"fart";s:14:"password_again";s:4:"fart";s:2:"id";s:0:"";}}s:13:"_save_and_add";s:12:"Save and add";}'
+    created_at: '2013-02-21 08:57:15'
+    updated_at: '2013-02-21 08:57:15'
+  AuditLogger_2:
+    User: sfGuardUser_1
+    module: flag
+    action: create
+    object_id: null
+    params: 'a:2:{s:4:"flag";a:4:{s:2:"id";s:0:"";s:4:"name";s:9:"profanity";s:11:"description";s:81:"all profane language not necessarily of any particular threat of malicious intent";s:6:"weight";s:1:"0";}s:13:"_save_and_add";s:12:"Save and add";}'
+    created_at: '2013-02-21 09:22:28'
+    updated_at: '2013-02-21 09:22:28'
+  AuditLogger_3:
+    User: sfGuardUser_1
+    module: keyword
+    action: create
+    object_id: null
+    params: 'a:2:{s:7:"keyword";a:5:{s:2:"id";s:0:"";s:7:"flag_id";s:1:"1";s:4:"name";s:4:"fuck";s:11:"description";s:0:"";s:6:"weight";s:1:"0";}s:13:"_save_and_add";s:12:"Save and add";}'
+    created_at: '2013-02-21 09:22:48'
+    updated_at: '2013-02-21 09:22:48'
+  AuditLogger_4:
+    User: sfGuardUser_1
+    module: keyword
+    action: create
+    object_id: null
+    params: 'a:2:{s:7:"keyword";a:5:{s:2:"id";s:0:"";s:7:"flag_id";s:1:"1";s:4:"name";s:4:"shit";s:11:"description";s:0:"";s:6:"weight";s:1:"0";}s:13:"_save_and_add";s:12:"Save and add";}'
+    created_at: '2013-02-21 09:22:51'
+    updated_at: '2013-02-21 09:22:51'
+  AuditLogger_5:
+    User: sfGuardUser_1
+    module: keyword
+    action: create
+    object_id: null
+    params: 'a:2:{s:7:"keyword";a:5:{s:2:"id";s:0:"";s:7:"flag_id";s:1:"1";s:4:"name";s:4:"piss";s:11:"description";s:0:"";s:6:"weight";s:1:"0";}s:13:"_save_and_add";s:12:"Save and add";}'
+    created_at: '2013-02-21 09:22:54'
+    updated_at: '2013-02-21 09:22:54'
+  AuditLogger_6:
+    User: sfGuardUser_1
+    module: keyword
+    action: create
+    object_id: null
+    params: 'a:2:{s:7:"keyword";a:5:{s:2:"id";s:0:"";s:7:"flag_id";s:1:"1";s:4:"name";s:3:"ass";s:11:"description";s:0:"";s:6:"weight";s:1:"0";}s:13:"_save_and_add";s:12:"Save and add";}'
+    created_at: '2013-02-21 09:22:57'
+    updated_at: '2013-02-21 09:22:57'
+  AuditLogger_7:
+    User: sfGuardUser_1
+    module: keyword
+    action: create
+    object_id: null
+    params: 'a:2:{s:7:"keyword";a:5:{s:2:"id";s:0:"";s:7:"flag_id";s:1:"1";s:4:"name";s:4:"cunt";s:11:"description";s:0:"";s:6:"weight";s:1:"0";}s:13:"_save_and_add";s:12:"Save and add";}'
+    created_at: '2013-02-21 09:22:59'
+    updated_at: '2013-02-21 09:22:59'
+Keyword:
+  Keyword_1:
+    Flag: Flag_1
+    name: fuck
+    description: ''
+    weight: '0'
+  Keyword_2:
+    Flag: Flag_1
+    name: shit
+    description: ''
+    weight: '0'
+  Keyword_3:
+    Flag: Flag_1
+    name: piss
+    description: ''
+    weight: '0'
+  Keyword_4:
+    Flag: Flag_1
+    name: ass
+    description: ''
+    weight: '0'
+  Keyword_5:
+    Flag: Flag_1
+    name: cunt
+    description: ''
+    weight: '0'
