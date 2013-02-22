@@ -113,7 +113,7 @@ audit_logger:
 # default rules
 homepage:
   url:   /
-  param: { action: index }
+  param: { module: inmate, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules

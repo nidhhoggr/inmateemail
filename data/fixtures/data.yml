@@ -56,8 +56,7 @@ sfGuardUser:
     email_address: john.doe@gmail.com
     username: admin
     algorithm: sha1
-    salt: 90455947d1672479de8bba866841c36f
-    password: 65f0c7e4bc72e6209a026da35ed0a0b544617e48
+    password: admin
     is_active: true
     is_super_admin: true
     last_login: null
@@ -72,8 +71,7 @@ sfGuardUser:
     email_address: null
     username: '10293847'
     algorithm: sha1
-    salt: 5a3ae194163162dd96fcaacd286ca4f0
-    password: 084a6f9228e4fe811fbe248afec30bbbcb9c48a8
+    password: fart
     is_active: true
     is_super_admin: false
     last_login: null
@@ -88,8 +86,7 @@ sfGuardUser:
     email_address: ''
     username: sgtbaker
     algorithm: sha1
-    salt: 885807d6945b17ea86177dfa342e9713
-    password: 165b205207186d0d3de805ac582cf1399cbbdc17
+    password: sgtbaker
     is_active: true
     is_super_admin: true
     last_login: '2013-02-21 11:18:59'

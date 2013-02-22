@@ -2,7 +2,7 @@
 <html lang="en">	
     <head>		
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />       
-        <title>SuperAccountant</title>
+        <title>InmateEmail</title>
         <!--[if IE 6]>
             <link rel="stylesheet" href="/css/bobo/ie6.css" />
         <![endif]--> 
