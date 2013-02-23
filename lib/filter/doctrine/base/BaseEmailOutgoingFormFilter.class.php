@@ -14,12 +14,14 @@ abstract class BaseEmailOutgoingFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'email_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Email'), 'add_empty' => true)),
-      'recipient_email' => new sfWidgetFormFilterInput(),
+      'recipient_email' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'sent'            => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
       'email_id'        => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Email'), 'column' => 'id')),
       'recipient_email' => new sfValidatorPass(array('required' => false)),
+      'sent'            => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
     $this->widgetSchema->setNameFormat('email_outgoing_filters[%s]');
@@ -42,6 +44,7 @@ abstract class BaseEmailOutgoingFormFilter extends BaseFormFilterDoctrine
       'id'              => 'Number',
       'email_id'        => 'ForeignKey',
       'recipient_email' => 'Text',
+      'sent'            => 'Boolean',
     );
   }
 }

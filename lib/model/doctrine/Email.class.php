@@ -12,4 +12,22 @@
  */
 class Email extends BaseEmail
 {
+
+    public function getWhenCreated($format = 'M d, Y h:i a') {
+
+        return $this->getDateTimeObject('created_at')->format($format);
+    }
+
+    public static function calculatePendingCharges() {
+        $price = sfConfig::get('sf_send_email_price');
+
+        $unsent_emails = Doctrine_Query::create() 
+        ->select('eo.id')
+        ->from('EmailOutgoing eo, eo.Email e')
+        ->where('e.inmate_id = ?', InmateTable::loggedIn()->getId())
+        ->andWhere('eo.sent = ?',0)
+        ->fetchArray();
+
+        return number_format(round(count($unsent_emails) * $price,2),2);
+    }
 }

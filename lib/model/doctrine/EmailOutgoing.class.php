@@ -12,4 +12,32 @@
  */
 class EmailOutgoing extends BaseEmailOutgoing
 {
+
+    public function getRecipient() {
+
+        $contact = trim($this->getEmail()->getContact()->__toString());
+
+        if(!empty($contact)){
+            $recipient = $this->getEmail()->getContact();
+        }
+        else {
+            $recipient = $this->getRecipientEmail();
+        } 
+
+        return $recipient;
+    }
+
+    public function getInmate() {
+        
+        return $this->getEmail()->getInmate();
+    }
+
+    public static function getAuthorizedEmailById($id) {
+    
+        return Doctrine_Query::create()
+        ->from('EmailOutgoing eo, eo.Email e')
+        ->where('eo.id = ?',$id)
+        ->andWhere('e.inmate_id = ?',InmateTable::loggedIn()->getId())
+        ->fetchOne();
+    }
 }

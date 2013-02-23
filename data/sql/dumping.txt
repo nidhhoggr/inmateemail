@@ -1,0 +1,1 @@
+mysqldump -u root -p --opt --skip-add-drop-table --complete_insert inmateemail > data.sql;

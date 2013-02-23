@@ -150,3 +150,8 @@ div#bool_true {
     height: 16px;
     background-image: url('../sfDoctrinePlugin/images/tick.png');
 }
+
+.error_list li {
+    font-weight: bold;
+    color: red;
+}

@@ -16,4 +16,33 @@ class InmateTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Inmate');
     }
+
+    public static function getLoggedIn() {
+
+      $q = Doctrine_Query::create()
+      ->from('Inmate i')
+      ->where('i.user_id = ?',myUser::getLoggedIn()->getId());
+
+      return $q;
+    }
+
+    public static function loggedIn() {
+      return InmateTable::getLoggedIn()->fetchOne();
+    }
+
+    public function getByUserId($user_id) {
+
+        return Doctrine_Query::create()
+               ->from('Inmate i')
+               ->where('i.user_id = ?',$user_id)
+               ->limit(1)
+               ->fetchOne();
+    }
+
+    public static function getCurrentBalance() {
+
+        $calc =  self::loggedIn()->getBalance() - Email::calculatePendingCharges();
+
+        return number_format(round($calc,2),2);
+    }
 }

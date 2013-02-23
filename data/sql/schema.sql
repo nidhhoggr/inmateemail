@@ -1,9 +1,9 @@
 CREATE TABLE audit_logger (id BIGINT AUTO_INCREMENT, user_id BIGINT NOT NULL, module VARCHAR(96), action VARCHAR(96), object_id BIGINT, params LONGTEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE contact (id BIGINT AUTO_INCREMENT, email_address VARCHAR(128), first_name VARCHAR(32), last_name VARCHAR(32), phone_number BIGINT, is_approved TINYINT(1) DEFAULT '0' NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE email (id BIGINT AUTO_INCREMENT, email_type VARCHAR(255), inmate_id BIGINT, contact_id BIGINT, scanned TINYINT(1) DEFAULT '0' NOT NULL, date_scanned DATETIME, subject VARCHAR(128), message text, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX inmate_id_idx (inmate_id), INDEX contact_id_idx (contact_id), PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE email_incoming (id BIGINT AUTO_INCREMENT, email_id BIGINT NOT NULL, sender_email VARCHAR(128), inmate_viewed TINYINT(1) DEFAULT '0' NOT NULL, date_inmate_viewed DATETIME, INDEX email_id_idx (email_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE contact (id BIGINT AUTO_INCREMENT, email_address VARCHAR(128) NOT NULL, first_name VARCHAR(32) NOT NULL, last_name VARCHAR(32) NOT NULL, phone_number BIGINT, is_approved TINYINT(1) DEFAULT '0' NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE email (id BIGINT AUTO_INCREMENT, email_type VARCHAR(255), inmate_id BIGINT NOT NULL, contact_id BIGINT, scanned TINYINT(1) DEFAULT '0' NOT NULL, date_scanned DATETIME, subject VARCHAR(128) NOT NULL, message LONGTEXT NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX inmate_id_idx (inmate_id), INDEX contact_id_idx (contact_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE email_incoming (id BIGINT AUTO_INCREMENT, email_id BIGINT NOT NULL, sender_email VARCHAR(128) NOT NULL, inmate_viewed TINYINT(1) DEFAULT '0' NOT NULL, date_inmate_viewed DATETIME, INDEX email_id_idx (email_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE email_keyword (id BIGINT AUTO_INCREMENT, email_id BIGINT NOT NULL, keyword_id BIGINT NOT NULL, INDEX email_id_idx (email_id), INDEX keyword_id_idx (keyword_id), PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE email_outgoing (id BIGINT AUTO_INCREMENT, email_id BIGINT NOT NULL, recipient_email VARCHAR(128), INDEX email_id_idx (email_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE email_outgoing (id BIGINT AUTO_INCREMENT, email_id BIGINT NOT NULL, recipient_email VARCHAR(128) NOT NULL, sent TINYINT(1) DEFAULT '0' NOT NULL, INDEX email_id_idx (email_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE flag (id BIGINT AUTO_INCREMENT, name VARCHAR(32), description text, weight BIGINT DEFAULT 0 NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE inmate (id BIGINT AUTO_INCREMENT, user_id BIGINT NOT NULL, email_number BIGINT NOT NULL, jail_number BIGINT, balance DOUBLE(18, 2), contacts_approvable TINYINT(1) DEFAULT '0' NOT NULL, emails_approvable TINYINT(1) DEFAULT '0' NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE inmate_contact (id BIGINT AUTO_INCREMENT, inmate_id BIGINT NOT NULL, contact_id BIGINT NOT NULL, INDEX inmate_id_idx (inmate_id), INDEX contact_id_idx (contact_id), PRIMARY KEY(id)) ENGINE = INNODB;
@@ -20,10 +20,10 @@ CREATE TABLE sf_guard_user_permission (user_id BIGINT, permission_id BIGINT, cre
 ALTER TABLE audit_logger ADD CONSTRAINT audit_logger_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE email ADD CONSTRAINT email_inmate_id_inmate_id FOREIGN KEY (inmate_id) REFERENCES inmate(id);
 ALTER TABLE email ADD CONSTRAINT email_contact_id_contact_id FOREIGN KEY (contact_id) REFERENCES contact(id);
-ALTER TABLE email_incoming ADD CONSTRAINT email_incoming_email_id_email_id FOREIGN KEY (email_id) REFERENCES email(id);
+ALTER TABLE email_incoming ADD CONSTRAINT email_incoming_email_id_email_id FOREIGN KEY (email_id) REFERENCES email(id) ON DELETE CASCADE;
 ALTER TABLE email_keyword ADD CONSTRAINT email_keyword_keyword_id_keyword_id FOREIGN KEY (keyword_id) REFERENCES keyword(id);
 ALTER TABLE email_keyword ADD CONSTRAINT email_keyword_email_id_email_id FOREIGN KEY (email_id) REFERENCES email(id);
-ALTER TABLE email_outgoing ADD CONSTRAINT email_outgoing_email_id_email_id FOREIGN KEY (email_id) REFERENCES email(id);
+ALTER TABLE email_outgoing ADD CONSTRAINT email_outgoing_email_id_email_id FOREIGN KEY (email_id) REFERENCES email(id) ON DELETE CASCADE;
 ALTER TABLE inmate ADD CONSTRAINT inmate_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
 ALTER TABLE inmate_contact ADD CONSTRAINT inmate_contact_inmate_id_inmate_id FOREIGN KEY (inmate_id) REFERENCES inmate(id);
 ALTER TABLE inmate_contact ADD CONSTRAINT inmate_contact_contact_id_contact_id FOREIGN KEY (contact_id) REFERENCES contact(id);

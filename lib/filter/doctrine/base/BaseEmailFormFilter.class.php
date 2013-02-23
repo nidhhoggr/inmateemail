@@ -18,8 +18,8 @@ abstract class BaseEmailFormFilter extends BaseFormFilterDoctrine
       'contact_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Contact'), 'add_empty' => true)),
       'scanned'      => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'date_scanned' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
-      'subject'      => new sfWidgetFormFilterInput(),
-      'message'      => new sfWidgetFormFilterInput(),
+      'subject'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'message'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'created_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));

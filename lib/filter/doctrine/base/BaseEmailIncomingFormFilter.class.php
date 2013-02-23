@@ -14,7 +14,7 @@ abstract class BaseEmailIncomingFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'email_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Email'), 'add_empty' => true)),
-      'sender_email'       => new sfWidgetFormFilterInput(),
+      'sender_email'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'inmate_viewed'      => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'date_inmate_viewed' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
     ));

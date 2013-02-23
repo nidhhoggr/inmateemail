@@ -51,14 +51,17 @@ abstract class BaseContact extends sfDoctrineRecord
              ));
         $this->hasColumn('email_address', 'string', 128, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => 128,
              ));
         $this->hasColumn('first_name', 'string', 32, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => 32,
              ));
         $this->hasColumn('last_name', 'string', 32, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => 32,
              ));
         $this->hasColumn('phone_number', 'integer', 10, array(

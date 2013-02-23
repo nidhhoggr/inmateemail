@@ -5,6 +5,7 @@ prod:
   .settings:
     no_script_name:         false
     logging_enabled:        false
+    js_inmates_url:         /inmates.php/
 
 dev:
   .settings:
@@ -13,6 +14,7 @@ dev:
     cache:                  false
     no_script_name:         false
     etag:                   false
+    js_inmates_url:         /inmates_dev.php/
 
 test:
   .settings:
@@ -33,3 +35,16 @@ all:
 
     # Enable the database manager
     use_database:           true
+
+    enabled_modules:        [default, sfGuardAuth, sfGuardGroup, sfGuardUser, sfGuardPermission, sfGuardForgotPassword]
+    # Email pricing
+    send_email_price:              1.25
+    recieve_email_price:           1.25
+
+  .actions:
+    login_module: sfGuardAuth
+    login_action: signin
+
+    secure_module: sfGuardAuth
+    secure_action: secure
+

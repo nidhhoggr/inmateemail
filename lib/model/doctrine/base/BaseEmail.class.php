@@ -12,7 +12,7 @@
  * @property boolean $scanned
  * @property timestamp $date_scanned
  * @property string $subject
- * @property text $message
+ * @property clob $message
  * @property Inmate $Inmate
  * @property Contact $Contact
  * @property Doctrine_Collection $EmailOutgoing
@@ -26,7 +26,7 @@
  * @method boolean             getScanned()       Returns the current record's "scanned" value
  * @method timestamp           getDateScanned()   Returns the current record's "date_scanned" value
  * @method string              getSubject()       Returns the current record's "subject" value
- * @method text                getMessage()       Returns the current record's "message" value
+ * @method clob                getMessage()       Returns the current record's "message" value
  * @method Inmate              getInmate()        Returns the current record's "Inmate" value
  * @method Contact             getContact()       Returns the current record's "Contact" value
  * @method Doctrine_Collection getEmailOutgoing() Returns the current record's "EmailOutgoing" collection
@@ -71,6 +71,7 @@ abstract class BaseEmail extends sfDoctrineRecord
              ));
         $this->hasColumn('inmate_id', 'integer', 8, array(
              'type' => 'integer',
+             'notnull' => true,
              'length' => 8,
              ));
         $this->hasColumn('contact_id', 'integer', 8, array(
@@ -87,10 +88,12 @@ abstract class BaseEmail extends sfDoctrineRecord
              ));
         $this->hasColumn('subject', 'string', 128, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => 128,
              ));
-        $this->hasColumn('message', 'text', null, array(
-             'type' => 'text',
+        $this->hasColumn('message', 'clob', null, array(
+             'type' => 'clob',
+             'notnull' => true,
              ));
     }
 

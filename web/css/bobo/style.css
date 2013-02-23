@@ -158,3 +158,118 @@ tr,td { padding: 4px; }
 #nav-pages li:hover {
     background-color: #C6E2FF;
 }
+
+#account_banner {
+    font-weight: bold;
+    font-size: 18px;
+    height: 30px; 
+}
+
+#account_banner #account_holder {
+    float: left;
+    padding-left: 30px;
+}
+
+#account_banner #account_balance span {
+    color: green;
+}
+
+#account_banner #pending_charges span {
+    color: red;
+}
+#account_banner #account_balance,
+#account_banner #pending_charges {
+    float: right;
+    padding-right: 30px;
+}
+
+#account_banner:after {
+    clear both;
+}
+
+.inmate-table {
+    padding: 20px; 
+    border: 1px solid #000;
+    background-color:#F5FFFA;
+    -moz-border-radius: 12px/*{cornerRadius}*/;
+    -webkit-border-radius: 12px/*{cornerRadius}*/;
+    -khtml-border-radius: 12px/*{cornerRadius}*/;
+    border-radius: 12px/*{cornerRadius}*/;
+}
+
+.inmate-table th {
+    font-weight: bold;
+    padding: 5px;
+}
+
+.inmate-table .contacts tr,
+.inmate-table .messages tr {
+    background-color: #fff;
+}
+
+.inmate-table .contacts tr:last-child td,
+.inmate-table .messages tr:last-child td {
+    border-bottom: none;
+}
+
+.inmate-table .contacts tr:hover,
+.inmate-table .messages tr:hover {
+    background-color: #F0F8FF;
+}
+
+.inmate-table .messages td.viewed {
+    background-image: url(../../images/opened-envelope.gif);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-color: #FFF !important;
+    width: 30px;
+}
+
+.inmate-table .messages td.not-viewed {
+    background-image: url(../../images/closed-envelope.gif);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-color: #FFF !important;
+    width: 30px;
+}
+
+.inmate-table .messages td.sent {
+    background-image: url(../../images/message-sent.gif);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-color: #FFF !important;
+    width: 30px;
+}
+
+.inmate-table .messages td.not-sent {
+    background-image: url(../../images/message-not-sent.gif);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-color: #FFF !important;
+    width: 30px;
+}
+
+
+.inmate-table .messages td {
+    padding: 5px;
+    height: 35px;
+    border-bottom: 1px solid #000;
+}
+
+#viewing-email {
+    font-weight: bold;
+} 
+#viewing-email #sender, 
+#viewing-email #subject, 
+#viewing-email #message {
+    font-weight: normal;
+    width: 50%;
+    padding: 7px;
+    border: 2px solid #F0F8FF;
+    background-color: #FFF;
+    -moz-border-radius: 12px/*{cornerRadius}*/;
+    -webkit-border-radius: 12px/*{cornerRadius}*/;
+    -khtml-border-radius: 12px/*{cornerRadius}*/;
+    border-radius: 12px/*{cornerRadius}*/;
+    margin: 0 0 10px 10px;
+}

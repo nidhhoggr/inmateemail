@@ -8,15 +8,18 @@
  * @property integer $id
  * @property integer $email_id
  * @property string $recipient_email
+ * @property boolean $sent
  * @property Email $Email
  * 
  * @method integer       getId()              Returns the current record's "id" value
  * @method integer       getEmailId()         Returns the current record's "email_id" value
  * @method string        getRecipientEmail()  Returns the current record's "recipient_email" value
+ * @method boolean       getSent()            Returns the current record's "sent" value
  * @method Email         getEmail()           Returns the current record's "Email" value
  * @method EmailOutgoing setId()              Sets the current record's "id" value
  * @method EmailOutgoing setEmailId()         Sets the current record's "email_id" value
  * @method EmailOutgoing setRecipientEmail()  Sets the current record's "recipient_email" value
+ * @method EmailOutgoing setSent()            Sets the current record's "sent" value
  * @method EmailOutgoing setEmail()           Sets the current record's "Email" value
  * 
  * @package    projectname
@@ -34,14 +37,19 @@ abstract class BaseEmailOutgoing extends sfDoctrineRecord
              'primary' => true,
              'autoincrement' => true,
              ));
-        $this->hasColumn('email_id', 'integer', 8, array(
+        $this->hasColumn('email_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
-             'length' => 8,
              ));
         $this->hasColumn('recipient_email', 'string', 128, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => 128,
+             ));
+        $this->hasColumn('sent', 'boolean', null, array(
+             'type' => 'boolean',
+             'notnull' => true,
+             'default' => false,
              ));
     }
 
@@ -50,6 +58,10 @@ abstract class BaseEmailOutgoing extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('Email', array(
              'local' => 'email_id',
-             'foreign' => 'id'));
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE',
+             'cascade' => array(
+             0 => 'delete',
+             )));
     }
 }

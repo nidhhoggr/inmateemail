@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [main.css]
 
-  javascripts:    []
+  javascripts:    [jquery,inmates]
 
   has_layout:     true
   layout:         layout

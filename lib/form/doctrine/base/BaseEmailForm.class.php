@@ -17,12 +17,12 @@ abstract class BaseEmailForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'           => new sfWidgetFormInputHidden(),
       'email_type'   => new sfWidgetFormChoice(array('choices' => array('incoming' => 'incoming', 'outgoing' => 'outgoing'))),
-      'inmate_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Inmate'), 'add_empty' => true)),
+      'inmate_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Inmate'), 'add_empty' => false)),
       'contact_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Contact'), 'add_empty' => true)),
       'scanned'      => new sfWidgetFormInputCheckbox(),
       'date_scanned' => new sfWidgetFormDateTime(),
       'subject'      => new sfWidgetFormInputText(),
-      'message'      => new sfWidgetFormInputText(),
+      'message'      => new sfWidgetFormTextarea(),
       'created_at'   => new sfWidgetFormDateTime(),
       'updated_at'   => new sfWidgetFormDateTime(),
     ));
@@ -30,12 +30,12 @@ abstract class BaseEmailForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'           => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'email_type'   => new sfValidatorChoice(array('choices' => array(0 => 'incoming', 1 => 'outgoing'), 'required' => false)),
-      'inmate_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Inmate'), 'required' => false)),
+      'inmate_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Inmate'))),
       'contact_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Contact'), 'required' => false)),
       'scanned'      => new sfValidatorBoolean(array('required' => false)),
       'date_scanned' => new sfValidatorDateTime(array('required' => false)),
-      'subject'      => new sfValidatorString(array('max_length' => 128, 'required' => false)),
-      'message'      => new sfValidatorPass(array('required' => false)),
+      'subject'      => new sfValidatorString(array('max_length' => 128)),
+      'message'      => new sfValidatorString(),
       'created_at'   => new sfValidatorDateTime(),
       'updated_at'   => new sfValidatorDateTime(),
     ));

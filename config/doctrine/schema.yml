@@ -63,9 +63,9 @@ Contact:
   actAs: [Timestampable]
   columns:
     id:                  {type: integer, primary: true, autoincrement: true}
-    email_address:       {type: string(128) }
-    first_name:          {type: string(32) }
-    last_name:           {type: string(32) }
+    email_address:       {type: string(128), notnull: true}
+    first_name:          {type: string(32), notnull: true }
+    last_name:           {type: string(32), notnull: true }
     phone_number:        {type: integer(10) }
     is_approved:         {type: boolean, notnull: true, default: false} 
   relations:
@@ -85,26 +85,35 @@ Email:
   columns:
     id:                  {type: integer, primary: true, autoincrement: true}
     email_type:          {type: enum, values: [incoming, outgoing]} 
-    inmate_id:           {type: integer}
+    inmate_id:           {type: integer,notnull:true}
     contact_id:          {type: integer}
     scanned:             {type: boolean, notnull: true, default: false} 
     date_scanned:        {type: timestamp}
-    subject:             {type: string(128)} 
-    message:             {type: text}
+    subject:             {type: string(128),notnull: true} 
+    message:             {type: clob,notnull: true}
 
 EmailOutgoing:
   columns:
     id:                  {type: integer, primary: true, autoincrement: true}
     email_id:            {type: integer, notnull: true}
-    recipient_email:     {type: string(128)}
+    recipient_email:     {type: string(128),notnull:true}
+    sent:                {type: boolean, notnull: true, default: false}
+  relations:
+    Email:
+      onDelete: CASCADE
+      cascade: [delete] 
 
 EmailIncoming:
   columns:
     id:                  {type: integer, primary: true, autoincrement: true}
     email_id:            {type: integer, notnull: true}
-    sender_email:        {type: string(128)}
+    sender_email:        {type: string(128),notnull: true}
     inmate_viewed:       {type: boolean, notnull: true, default: false} 
     date_inmate_viewed:  {type: timestamp}
+  relations:
+    Email:
+      onDelete: CASCADE
+      cascade: [delete] 
 
 Flag:
   columns:

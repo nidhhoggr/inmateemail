@@ -13,9 +13,9 @@ abstract class BaseContactFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'email_address' => new sfWidgetFormFilterInput(),
-      'first_name'    => new sfWidgetFormFilterInput(),
-      'last_name'     => new sfWidgetFormFilterInput(),
+      'email_address' => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'first_name'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'last_name'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'phone_number'  => new sfWidgetFormFilterInput(),
       'is_approved'   => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'created_at'    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),

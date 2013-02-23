@@ -25,7 +25,7 @@ abstract class BaseEmailIncomingForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'                 => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'email_id'           => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Email'))),
-      'sender_email'       => new sfValidatorString(array('max_length' => 128, 'required' => false)),
+      'sender_email'       => new sfValidatorString(array('max_length' => 128)),
       'inmate_viewed'      => new sfValidatorBoolean(array('required' => false)),
       'date_inmate_viewed' => new sfValidatorDateTime(array('required' => false)),
     ));

@@ -7,15 +7,6 @@ audit_logger_audit_log:
     column:               id
     with_wildcard_routes: true
 
-audit_logger_audit log:
-  class: sfDoctrineRouteCollection
-  options:
-    model:                AuditLogger
-    module:               audit log
-    prefix_path:          /audit log
-    column:               id
-    with_wildcard_routes: true
-
 officer:
   class: sfDoctrineRouteCollection
   options:

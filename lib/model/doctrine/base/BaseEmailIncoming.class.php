@@ -40,13 +40,13 @@ abstract class BaseEmailIncoming extends sfDoctrineRecord
              'primary' => true,
              'autoincrement' => true,
              ));
-        $this->hasColumn('email_id', 'integer', 8, array(
+        $this->hasColumn('email_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
-             'length' => 8,
              ));
         $this->hasColumn('sender_email', 'string', 128, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => 128,
              ));
         $this->hasColumn('inmate_viewed', 'boolean', null, array(
@@ -64,6 +64,10 @@ abstract class BaseEmailIncoming extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('Email', array(
              'local' => 'email_id',
-             'foreign' => 'id'));
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE',
+             'cascade' => array(
+             0 => 'delete',
+             )));
     }
 }
