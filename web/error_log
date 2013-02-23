@@ -1568,3 +1568,95 @@ Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/web/index.php(6): sfProjectConfiguration::getApplicationConfiguration('frontend', 'dev', true)
 #1 {main}
   thrown in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php on line 609
+[21-Feb-2013 20:34:16] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'The application "frontend" does not exist.' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php:609
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/web/index.php(6): sfProjectConfiguration::getApplicationConfiguration('frontend', 'dev', true)
+#1 {main}
+  thrown in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php on line 609
+[21-Feb-2013 20:34:19] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'The application "frontend" does not exist.' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php:609
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/web/index.php(6): sfProjectConfiguration::getApplicationConfiguration('frontend', 'dev', true)
+#1 {main}
+  thrown in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php on line 609
+[21-Feb-2013 20:34:33] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'The application "frontend" does not exist.' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php:609
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/web/index.php(6): sfProjectConfiguration::getApplicationConfiguration('frontend', 'dev', true)
+#1 {main}
+  thrown in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php on line 609
+[21-Feb-2013 20:34:34] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'The application "frontend" does not exist.' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php:609
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/web/index.php(6): sfProjectConfiguration::getApplicationConfiguration('frontend', 'dev', true)
+#1 {main}
+  thrown in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php on line 609
+[21-Feb-2013 20:34:36] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'The application "frontend" does not exist.' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php:609
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/web/index.php(6): sfProjectConfiguration::getApplicationConfiguration('frontend', 'dev', true)
+#1 {main}
+  thrown in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php on line 609
+[21-Feb-2013 20:34:38] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'The application "frontend" does not exist.' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php:609
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/web/index.php(6): sfProjectConfiguration::getApplicationConfiguration('frontend', 'dev', true)
+#1 {main}
+  thrown in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php on line 609
+[21-Feb-2013 20:34:39] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'The application "frontend" does not exist.' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php:609
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/web/index.php(6): sfProjectConfiguration::getApplicationConfiguration('frontend', 'dev', true)
+#1 {main}
+  thrown in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php on line 609
+[21-Feb-2013 20:34:43] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'The application "frontend" does not exist.' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php:609
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/web/index.php(6): sfProjectConfiguration::getApplicationConfiguration('frontend', 'dev', true)
+#1 {main}
+  thrown in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php on line 609
+[21-Feb-2013 20:34:46] PHP Fatal error:  Uncaught exception 'InvalidArgumentException' with message 'The application "frontend" does not exist.' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php:609
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/web/index.php(6): sfProjectConfiguration::getApplicationConfiguration('frontend', 'dev', true)
+#1 {main}
+  thrown in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfProjectConfiguration.class.php on line 609
+[22-Feb-2013 23:32:14] Action "css/images" does not exist.
+[22-Feb-2013 23:32:23] PHP Fatal error:  Call to a member function getBalance() on a non-object in /home/zmijevik/public_html/clients/inmateemail/lib/model/doctrine/InmateTable.class.php on line 44
+[22-Feb-2013 23:32:23] Action "css/images" does not exist.
+[22-Feb-2013 23:32:49] Action "css/images" does not exist.
+[22-Feb-2013 23:33:10] Action "css/images" does not exist.
+[22-Feb-2013 23:33:18] PHP Fatal error:  Call to a member function getBalance() on a non-object in /home/zmijevik/public_html/clients/inmateemail/lib/model/doctrine/InmateTable.class.php on line 44
+[22-Feb-2013 23:33:18] Action "css/images" does not exist.
+[22-Feb-2013 23:33:25] Action "css/images" does not exist.
+[22-Feb-2013 23:33:29] Action "css/images" does not exist.
+[22-Feb-2013 23:34:10] PHP Notice:  Undefined index:  id in /home/zmijevik/public_html/clients/inmateemail/apps/backend/lib/auditLoggerFilter.class.php on line 26
+[22-Feb-2013 23:34:10] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/zmijevik/public_html/clients/inmateemail/apps/backend/lib/auditLoggerFilter.class.php:26) in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/response/sfWebResponse.class.php on line 336
+[22-Feb-2013 23:34:10] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/zmijevik/public_html/clients/inmateemail/apps/backend/lib/auditLoggerFilter.class.php:26) in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/response/sfWebResponse.class.php on line 357
+[22-Feb-2013 23:34:10] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/zmijevik/public_html/clients/inmateemail/apps/backend/lib/auditLoggerFilter.class.php:26) in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/response/sfWebResponse.class.php on line 357
+[22-Feb-2013 23:34:11] Action "css/images" does not exist.
+[22-Feb-2013 23:34:17] Action "css/images" does not exist.
+[22-Feb-2013 23:34:32] Action "css/images" does not exist.
+[22-Feb-2013 23:34:44] Action "css/images" does not exist.
+[22-Feb-2013 23:34:46] Action "css/images" does not exist.
+[22-Feb-2013 23:34:52] Action "css/images" does not exist.
+[22-Feb-2013 23:34:56] Action "css/images" does not exist.
+[22-Feb-2013 23:35:04] Action "css/images" does not exist.
+[22-Feb-2013 23:35:10] Action "css/images" does not exist.
+[22-Feb-2013 23:35:17] Action "css/images" does not exist.
+[22-Feb-2013 23:35:22] Action "clients/inmateemail" does not exist.
+[22-Feb-2013 23:35:24] Action "clients/inmateemail" does not exist.
+[22-Feb-2013 23:35:26] Action "clients/inmateemail" does not exist.
+[22-Feb-2013 23:35:29] Action "clients/inmateemail" does not exist.
+[22-Feb-2013 23:35:34] Action "clients/inmateemail" does not exist.
+[22-Feb-2013 23:37:05] Action "css/images" does not exist.
+[22-Feb-2013 23:37:07] Action "clients/inmateemail" does not exist.
+[22-Feb-2013 23:37:13] Action "css/images" does not exist.
+[22-Feb-2013 23:37:16] Action "css/images" does not exist.
+[22-Feb-2013 23:40:11] Action "css/images" does not exist.
+[22-Feb-2013 23:40:15] Action "css/images" does not exist.
+[22-Feb-2013 23:40:26] Action "css/images" does not exist.
+[22-Feb-2013 23:40:28] Action "css/images" does not exist.
+[22-Feb-2013 23:40:35] Action "css/images" does not exist.
+[22-Feb-2013 23:40:38] Action "css/images" does not exist.
+[22-Feb-2013 23:40:43] Action "css/images" does not exist.
+[22-Feb-2013 23:40:46] Action "css/images" does not exist.
+[22-Feb-2013 23:41:04] Action "css/images" does not exist.
+[22-Feb-2013 23:41:11] Action "css/images" does not exist.
+[22-Feb-2013 23:41:19] Action "css/images" does not exist.
+[22-Feb-2013 23:41:32] Action "css/images" does not exist.
+[22-Feb-2013 23:41:37] Action "css/images" does not exist.
+[22-Feb-2013 23:41:54] Action "css/images" does not exist.
+[22-Feb-2013 23:42:05] Action "css/images" does not exist.

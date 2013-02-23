@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.63, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.5.23, for Linux (x86_64)
 --
--- Host: localhost    Database: inmateemail
+-- Host: localhost    Database: zmijevik_inmateemail
 -- ------------------------------------------------------
--- Server version	5.1.63-0ubuntu0.11.10.1
+-- Server version	5.5.23-55
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,16 +24,16 @@
 CREATE TABLE `audit_logger` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL,
-  `module` varchar(96) DEFAULT NULL,
-  `action` varchar(96) DEFAULT NULL,
+  `module` varchar(96) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `action` varchar(96) COLLATE utf8_unicode_ci DEFAULT NULL,
   `object_id` bigint(20) DEFAULT NULL,
-  `params` longtext,
+  `params` longtext COLLATE utf8_unicode_ci,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `audit_logger_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `audit_logger` (
 
 LOCK TABLES `audit_logger` WRITE;
 /*!40000 ALTER TABLE `audit_logger` DISABLE KEYS */;
-INSERT INTO `audit_logger` (`id`, `user_id`, `module`, `action`, `object_id`, `params`, `created_at`, `updated_at`) VALUES (1,1,'inmate','create',NULL,'a:2:{s:6:\"inmate\";a:6:{s:2:\"id\";s:0:\"\";s:12:\"email_number\";s:8:\"10293847\";s:11:\"jail_number\";s:8:\"10293847\";s:7:\"balance\";s:5:\"20.00\";s:19:\"contacts_approvable\";s:2:\"on\";s:4:\"User\";a:9:{s:10:\"first_name\";s:6:\"Joseph\";s:11:\"middle_name\";s:0:\"\";s:9:\"last_name\";s:6:\"Persie\";s:6:\"prefix\";s:0:\"\";s:6:\"suffix\";s:0:\"\";s:8:\"username\";s:8:\"10293847\";s:8:\"password\";s:4:\"fart\";s:14:\"password_again\";s:4:\"fart\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 08:57:15','2013-02-21 08:57:15'),(2,1,'flag','create',NULL,'a:2:{s:4:\"flag\";a:4:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:9:\"profanity\";s:11:\"description\";s:81:\"all profane language not necessarily of any particular threat of malicious intent\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:28','2013-02-21 09:22:28'),(3,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"fuck\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:48','2013-02-21 09:22:48'),(4,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"shit\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:51','2013-02-21 09:22:51'),(5,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"piss\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:54','2013-02-21 09:22:54'),(6,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:3:\"ass\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:57','2013-02-21 09:22:57'),(7,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"cunt\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:59','2013-02-21 09:22:59'),(8,1,'officer','create',NULL,'a:2:{s:7:\"officer\";a:3:{s:2:\"id\";s:0:\"\";s:12:\"badge_number\";s:8:\"12334566\";s:4:\"User\";a:12:{s:10:\"first_name\";s:3:\"sgt\";s:11:\"middle_name\";s:0:\"\";s:9:\"last_name\";s:5:\"baker\";s:6:\"prefix\";s:0:\"\";s:6:\"suffix\";s:0:\"\";s:13:\"email_address\";s:0:\"\";s:8:\"username\";s:8:\"sgtbaker\";s:8:\"password\";s:8:\"sgtbaker\";s:14:\"password_again\";s:8:\"sgtbaker\";s:9:\"is_active\";s:2:\"on\";s:14:\"is_super_admin\";s:2:\"on\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 11:18:53','2013-02-21 11:18:53'),(9,3,'contact','create',NULL,'a:2:{s:7:\"contact\";a:7:{s:2:\"id\";s:0:\"\";s:13:\"email_address\";s:19:\"cstraka@hotmail.com\";s:10:\"first_name\";s:5:\"Chris\";s:9:\"last_name\";s:6:\"Straka\";s:12:\"phone_number\";s:10:\"1232343456\";s:11:\"is_approved\";s:2:\"on\";s:11:\"inmate_list\";a:1:{i:0;s:1:\"1\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 11:19:48','2013-02-21 11:19:48'),(10,2,'email_incoming','create',NULL,'a:2:{s:14:\"email_incoming\";a:4:{s:2:\"id\";s:0:\"\";s:12:\"sender_email\";s:19:\"drake22@husmail.com\";s:18:\"date_inmate_viewed\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:5:\"Email\";a:7:{s:10:\"email_type\";s:8:\"incoming\";s:9:\"inmate_id\";s:1:\"1\";s:10:\"contact_id\";s:0:\"\";s:12:\"date_scanned\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:7:\"subject\";s:0:\"\";s:7:\"message\";s:0:\"\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-22 17:33:51','2013-02-22 17:33:51'),(11,2,'email_incoming','create',NULL,'a:2:{s:14:\"email_incoming\";a:4:{s:2:\"id\";s:0:\"\";s:12:\"sender_email\";s:19:\"drake22@husmail.com\";s:18:\"date_inmate_viewed\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:5:\"Email\";a:7:{s:10:\"email_type\";s:8:\"incoming\";s:9:\"inmate_id\";s:1:\"1\";s:10:\"contact_id\";s:0:\"\";s:12:\"date_scanned\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:7:\"subject\";s:10:\"commercary\";s:7:\"message\";s:47:\"we comeing to visit and provide some commercary\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-22 17:34:31','2013-02-22 17:34:31');
+INSERT INTO `audit_logger` (`id`, `user_id`, `module`, `action`, `object_id`, `params`, `created_at`, `updated_at`) VALUES (1,1,'inmate','create',NULL,'a:2:{s:6:\"inmate\";a:6:{s:2:\"id\";s:0:\"\";s:12:\"email_number\";s:8:\"10293847\";s:11:\"jail_number\";s:8:\"10293847\";s:7:\"balance\";s:5:\"20.00\";s:19:\"contacts_approvable\";s:2:\"on\";s:4:\"User\";a:9:{s:10:\"first_name\";s:6:\"Joseph\";s:11:\"middle_name\";s:0:\"\";s:9:\"last_name\";s:6:\"Persie\";s:6:\"prefix\";s:0:\"\";s:6:\"suffix\";s:0:\"\";s:8:\"username\";s:8:\"10293847\";s:8:\"password\";s:4:\"fart\";s:14:\"password_again\";s:4:\"fart\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 08:57:15','2013-02-21 08:57:15'),(2,1,'flag','create',NULL,'a:2:{s:4:\"flag\";a:4:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:9:\"profanity\";s:11:\"description\";s:81:\"all profane language not necessarily of any particular threat of malicious intent\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:28','2013-02-21 09:22:28'),(3,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"fuck\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:48','2013-02-21 09:22:48'),(4,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"shit\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:51','2013-02-21 09:22:51'),(5,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"piss\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:54','2013-02-21 09:22:54'),(6,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:3:\"ass\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:57','2013-02-21 09:22:57'),(7,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"cunt\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:59','2013-02-21 09:22:59'),(8,1,'officer','create',NULL,'a:2:{s:7:\"officer\";a:3:{s:2:\"id\";s:0:\"\";s:12:\"badge_number\";s:8:\"12334566\";s:4:\"User\";a:12:{s:10:\"first_name\";s:3:\"sgt\";s:11:\"middle_name\";s:0:\"\";s:9:\"last_name\";s:5:\"baker\";s:6:\"prefix\";s:0:\"\";s:6:\"suffix\";s:0:\"\";s:13:\"email_address\";s:0:\"\";s:8:\"username\";s:8:\"sgtbaker\";s:8:\"password\";s:8:\"sgtbaker\";s:14:\"password_again\";s:8:\"sgtbaker\";s:9:\"is_active\";s:2:\"on\";s:14:\"is_super_admin\";s:2:\"on\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 11:18:53','2013-02-21 11:18:53'),(9,3,'contact','create',NULL,'a:2:{s:7:\"contact\";a:7:{s:2:\"id\";s:0:\"\";s:13:\"email_address\";s:19:\"cstraka@hotmail.com\";s:10:\"first_name\";s:5:\"Chris\";s:9:\"last_name\";s:6:\"Straka\";s:12:\"phone_number\";s:10:\"1232343456\";s:11:\"is_approved\";s:2:\"on\";s:11:\"inmate_list\";a:1:{i:0;s:1:\"1\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 11:19:48','2013-02-21 11:19:48'),(10,2,'email_incoming','create',NULL,'a:2:{s:14:\"email_incoming\";a:4:{s:2:\"id\";s:0:\"\";s:12:\"sender_email\";s:19:\"drake22@husmail.com\";s:18:\"date_inmate_viewed\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:5:\"Email\";a:7:{s:10:\"email_type\";s:8:\"incoming\";s:9:\"inmate_id\";s:1:\"1\";s:10:\"contact_id\";s:0:\"\";s:12:\"date_scanned\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:7:\"subject\";s:0:\"\";s:7:\"message\";s:0:\"\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-22 17:33:51','2013-02-22 17:33:51'),(11,2,'email_incoming','create',NULL,'a:2:{s:14:\"email_incoming\";a:4:{s:2:\"id\";s:0:\"\";s:12:\"sender_email\";s:19:\"drake22@husmail.com\";s:18:\"date_inmate_viewed\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:5:\"Email\";a:7:{s:10:\"email_type\";s:8:\"incoming\";s:9:\"inmate_id\";s:1:\"1\";s:10:\"contact_id\";s:0:\"\";s:12:\"date_scanned\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:7:\"subject\";s:10:\"commercary\";s:7:\"message\";s:47:\"we comeing to visit and provide some commercary\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-22 17:34:31','2013-02-22 17:34:31'),(12,1,'inmate','create',NULL,'a:2:{s:6:\"inmate\";a:5:{s:2:\"id\";s:0:\"\";s:12:\"email_number\";s:8:\"43247329\";s:11:\"jail_number\";s:8:\"43247329\";s:7:\"balance\";s:5:\"$5.00\";s:4:\"User\";a:9:{s:10:\"first_name\";s:3:\"Tim\";s:11:\"middle_name\";s:6:\"Parker\";s:9:\"last_name\";s:0:\"\";s:6:\"prefix\";s:0:\"\";s:6:\"suffix\";s:0:\"\";s:8:\"username\";s:8:\"43247329\";s:8:\"password\";s:4:\"test\";s:14:\"password_again\";s:4:\"test\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-22 23:34:10','2013-02-22 23:34:10');
 /*!40000 ALTER TABLE `audit_logger` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,15 +54,15 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contact` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `email_address` varchar(128) NOT NULL,
-  `first_name` varchar(32) NOT NULL,
-  `last_name` varchar(32) NOT NULL,
+  `email_address` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `first_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `phone_number` bigint(20) DEFAULT NULL,
   `is_approved` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,13 +83,13 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `email` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `email_type` varchar(255) DEFAULT NULL,
+  `email_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `inmate_id` bigint(20) NOT NULL,
   `contact_id` bigint(20) DEFAULT NULL,
   `scanned` tinyint(1) NOT NULL DEFAULT '0',
   `date_scanned` datetime DEFAULT NULL,
-  `subject` varchar(128) NOT NULL,
-  `message` longtext NOT NULL,
+  `subject` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `message` longtext COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -97,7 +97,7 @@ CREATE TABLE `email` (
   KEY `contact_id_idx` (`contact_id`),
   CONSTRAINT `email_contact_id_contact_id` FOREIGN KEY (`contact_id`) REFERENCES `contact` (`id`),
   CONSTRAINT `email_inmate_id_inmate_id` FOREIGN KEY (`inmate_id`) REFERENCES `inmate` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,13 +119,13 @@ UNLOCK TABLES;
 CREATE TABLE `email_incoming` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `email_id` bigint(20) NOT NULL,
-  `sender_email` varchar(128) NOT NULL,
+  `sender_email` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `inmate_viewed` tinyint(1) NOT NULL DEFAULT '0',
   `date_inmate_viewed` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `email_id_idx` (`email_id`),
   CONSTRAINT `email_incoming_email_id_email_id` FOREIGN KEY (`email_id`) REFERENCES `email` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +153,7 @@ CREATE TABLE `email_keyword` (
   KEY `keyword_id_idx` (`keyword_id`),
   CONSTRAINT `email_keyword_email_id_email_id` FOREIGN KEY (`email_id`) REFERENCES `email` (`id`),
   CONSTRAINT `email_keyword_keyword_id_keyword_id` FOREIGN KEY (`keyword_id`) REFERENCES `keyword` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,12 +174,12 @@ UNLOCK TABLES;
 CREATE TABLE `email_outgoing` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `email_id` bigint(20) NOT NULL,
-  `recipient_email` varchar(128) NOT NULL,
+  `recipient_email` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `sent` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `email_id_idx` (`email_id`),
   CONSTRAINT `email_outgoing_email_id_email_id` FOREIGN KEY (`email_id`) REFERENCES `email` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,11 +200,11 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `flag` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) DEFAULT NULL,
-  `description` text,
+  `name` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
   `weight` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -236,7 +236,7 @@ CREATE TABLE `inmate` (
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `inmate_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,7 +245,7 @@ CREATE TABLE `inmate` (
 
 LOCK TABLES `inmate` WRITE;
 /*!40000 ALTER TABLE `inmate` DISABLE KEYS */;
-INSERT INTO `inmate` (`id`, `user_id`, `email_number`, `jail_number`, `balance`, `contacts_approvable`, `emails_approvable`, `created_at`, `updated_at`) VALUES (1,2,10293847,10293847,20.00,1,0,'2013-02-21 08:57:15','2013-02-21 08:57:15');
+INSERT INTO `inmate` (`id`, `user_id`, `email_number`, `jail_number`, `balance`, `contacts_approvable`, `emails_approvable`, `created_at`, `updated_at`) VALUES (1,2,10293847,10293847,20.00,1,0,'2013-02-21 08:57:15','2013-02-21 08:57:15'),(2,4,43247329,43247329,0.00,0,0,'2013-02-22 23:34:10','2013-02-22 23:34:10');
 /*!40000 ALTER TABLE `inmate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,7 +264,7 @@ CREATE TABLE `inmate_contact` (
   KEY `contact_id_idx` (`contact_id`),
   CONSTRAINT `inmate_contact_contact_id_contact_id` FOREIGN KEY (`contact_id`) REFERENCES `contact` (`id`),
   CONSTRAINT `inmate_contact_inmate_id_inmate_id` FOREIGN KEY (`inmate_id`) REFERENCES `inmate` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -286,13 +286,13 @@ UNLOCK TABLES;
 CREATE TABLE `keyword` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `flag_id` bigint(20) NOT NULL,
-  `name` varchar(32) DEFAULT NULL,
-  `description` text,
+  `name` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
   `weight` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `flag_id_idx` (`flag_id`),
   CONSTRAINT `keyword_flag_id_flag_id` FOREIGN KEY (`flag_id`) REFERENCES `flag` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -313,14 +313,14 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `officer` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `badge_number` varchar(32) DEFAULT NULL,
+  `badge_number` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_id` bigint(20) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `officer_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -342,14 +342,14 @@ UNLOCK TABLES;
 CREATE TABLE `sf_guard_forgot_password` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL,
-  `unique_key` varchar(255) DEFAULT NULL,
+  `unique_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `expires_at` datetime NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `sf_guard_forgot_password_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -369,13 +369,13 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sf_guard_group` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `description` text,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -403,7 +403,7 @@ CREATE TABLE `sf_guard_group_permission` (
   KEY `sf_guard_group_permission_permission_id_sf_guard_permission_id` (`permission_id`),
   CONSTRAINT `sf_guard_group_permission_group_id_sf_guard_group_id` FOREIGN KEY (`group_id`) REFERENCES `sf_guard_group` (`id`) ON DELETE CASCADE,
   CONSTRAINT `sf_guard_group_permission_permission_id_sf_guard_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `sf_guard_permission` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -424,13 +424,13 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sf_guard_permission` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `description` text,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -452,14 +452,14 @@ UNLOCK TABLES;
 CREATE TABLE `sf_guard_remember_key` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) DEFAULT NULL,
-  `remember_key` varchar(32) DEFAULT NULL,
-  `ip_address` varchar(50) DEFAULT NULL,
+  `remember_key` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ip_address` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `sf_guard_remember_key_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -479,16 +479,16 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sf_guard_user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(255) DEFAULT NULL,
-  `middle_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `prefix` varchar(16) DEFAULT NULL,
-  `suffix` varchar(16) DEFAULT NULL,
-  `email_address` varchar(255) DEFAULT NULL,
-  `username` varchar(128) NOT NULL,
-  `algorithm` varchar(128) NOT NULL DEFAULT 'sha1',
-  `salt` varchar(128) DEFAULT NULL,
-  `password` varchar(128) DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `middle_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `prefix` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `suffix` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `username` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `algorithm` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'sha1',
+  `salt` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT '1',
   `is_super_admin` tinyint(1) DEFAULT '0',
   `last_login` datetime DEFAULT NULL,
@@ -497,7 +497,7 @@ CREATE TABLE `sf_guard_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `is_active_idx_idx` (`is_active`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -506,7 +506,7 @@ CREATE TABLE `sf_guard_user` (
 
 LOCK TABLES `sf_guard_user` WRITE;
 /*!40000 ALTER TABLE `sf_guard_user` DISABLE KEYS */;
-INSERT INTO `sf_guard_user` (`id`, `first_name`, `middle_name`, `last_name`, `prefix`, `suffix`, `email_address`, `username`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `created_at`, `updated_at`) VALUES (1,'John',NULL,'Doe',NULL,NULL,'john.doe@gmail.com','admin','sha1','66f64897c80c82281f7201c7b7435b10','847dc164501174e5d9280e30ae71083b036fac19',1,1,'2013-02-21 22:12:45','2013-02-21 08:51:34','2013-02-21 22:12:45'),(2,'Joseph','','Persie','','',NULL,'10293847','sha1','e3205e830f8b1a81afaa706c6f2f94e3','e3204fb8d19ccd794339b2ad4020e2d6acb61a80',1,0,'2013-02-22 21:20:00','2013-02-21 08:57:15','2013-02-22 21:20:00'),(3,'sgt','','baker','','','','sgtbaker','sha1','470916fdbdb0d8b30199b6ac358fd27a','43f479839538b3c5581feefc7ea66097ff2cd311',1,1,'2013-02-21 11:18:59','2013-02-21 11:18:53','2013-02-21 11:18:59');
+INSERT INTO `sf_guard_user` (`id`, `first_name`, `middle_name`, `last_name`, `prefix`, `suffix`, `email_address`, `username`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `created_at`, `updated_at`) VALUES (1,'John',NULL,'Doe',NULL,NULL,'john.doe@gmail.com','admin','sha1','66f64897c80c82281f7201c7b7435b10','847dc164501174e5d9280e30ae71083b036fac19',1,1,'2013-02-22 23:40:15','2013-02-21 08:51:34','2013-02-22 23:40:15'),(2,'Joseph','','Persie','','',NULL,'10293847','sha1','e3205e830f8b1a81afaa706c6f2f94e3','e3204fb8d19ccd794339b2ad4020e2d6acb61a80',1,0,'2013-02-22 23:41:53','2013-02-21 08:57:15','2013-02-22 23:41:53'),(3,'sgt','','baker','','','','sgtbaker','sha1','470916fdbdb0d8b30199b6ac358fd27a','43f479839538b3c5581feefc7ea66097ff2cd311',1,1,'2013-02-21 11:18:59','2013-02-21 11:18:53','2013-02-21 11:18:59'),(4,'Tim','Parker','','','',NULL,'43247329','sha1','37deb933cb4323e864dffe988c32562a','b4b6eebc3b66966b51c62c69ed50fe6565ef8973',1,0,NULL,'2013-02-22 23:34:10','2013-02-22 23:34:10');
 /*!40000 ALTER TABLE `sf_guard_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -525,7 +525,7 @@ CREATE TABLE `sf_guard_user_group` (
   KEY `sf_guard_user_group_group_id_sf_guard_group_id` (`group_id`),
   CONSTRAINT `sf_guard_user_group_group_id_sf_guard_group_id` FOREIGN KEY (`group_id`) REFERENCES `sf_guard_group` (`id`) ON DELETE CASCADE,
   CONSTRAINT `sf_guard_user_group_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -553,7 +553,7 @@ CREATE TABLE `sf_guard_user_permission` (
   KEY `sf_guard_user_permission_permission_id_sf_guard_permission_id` (`permission_id`),
   CONSTRAINT `sf_guard_user_permission_permission_id_sf_guard_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `sf_guard_permission` (`id`) ON DELETE CASCADE,
   CONSTRAINT `sf_guard_user_permission_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -574,4 +574,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-02-23  0:25:40
+-- Dump completed on 2013-02-22 23:44:55
