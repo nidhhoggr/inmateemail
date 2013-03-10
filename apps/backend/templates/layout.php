@@ -29,14 +29,17 @@
                 <h2>Inmate Email</h2>           	
                 <div id="nav">
                     <ul id="nav-pages">
-                        <li><?=link_to('Inmates','inmate/index')?></li>
-                        <li><?=link_to('Officers','officer/index')?></li>
-                        <li><?=link_to('Outgoing Emails','email_outgoing/index')?></li>
-                        <li><?=link_to('Incoming Emails','email_incoming/index')?></li>
-                        <li><?=link_to('Contacts','contact/index')?></li>
-                        <li><?=link_to('Flags','flag/index')?></li>
-                        <li><?=link_to('Keywords','keyword/index')?></li>
-                        <li><?=link_to('Audit Log','audit_logger/index')?></li>
+                        <? if($sf_user->isAuthenticated()): ?>
+                          <li><?=link_to('Inmates','inmate/index')?></li>
+                          <li><?=link_to('Officers','officer/index')?></li>
+                          <li><?=link_to('Outgoing Emails','email_outgoing/index')?></li>
+                          <li><?=link_to('Incoming Emails','email_incoming/index')?></li>
+                          <li><?=link_to('Contacts','contact/index')?></li>
+                          <li><?=link_to('Flags','flag/index')?></li>
+                          <li><?=link_to('Keywords','keyword/index')?></li>
+                          <li><?=link_to('Audit Log','audit_logger/index')?></li>
+                          <li><a href="sfGuardAuth/signout" id="logout">Logout</a></li>
+                        <? endif; ?>
                     </ul><!--end nav-pages-->
                 </div><!--end nav-->
             </div><!--end header-->

@@ -10,5 +10,11 @@ audit_logger:
   param:
     condition:   %APP_ENABLE_AUDIT_LOG%%
 
+auth_redirect:
+  class: authRedirectFilter
+  param:
+    moduleRoot: 'backend.php'
+  
+
 cache:     ~
 execution: ~

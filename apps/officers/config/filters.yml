@@ -5,6 +5,10 @@ rendering: ~
 security:  ~
 
 # insert your own filters here
+auth_redirect:
+  class: authRedirectFilter
+  param:
+    moduleRoot: 'officers.php'
 
 cache:     ~
 execution: ~

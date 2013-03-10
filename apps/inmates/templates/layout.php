@@ -17,7 +17,7 @@
         <?php include_javascripts() ?>
         <script type="text/javascript">
         var inmates_url = '<?=sfConfig::get('sf_js_inmates_url')?>';
-    </script>
+        </script>
     </head>
     <body>	
         <div id="wrap">
@@ -28,9 +28,12 @@
                 <h2>Inmate Email</h2>           	
                 <div id="nav">
                     <ul id="nav-pages">
-                        <li><a href="#" id="back-inbox">Inbox</a></li>
-                        <li><a href="#" id="back-outbox">Outbox</a></li>
-                        <li><a href="#" id="back-contacts">Contacts</a></li>
+                        <? if($sf_user->isAuthenticated()): ?>
+                          <li><a href="#" id="back-inbox">Inbox</a></li>
+                          <li><a href="#" id="back-outbox">Outbox</a></li>
+                          <li><a href="#" id="back-contacts">Contacts</a></li>
+                          <li><a href="sfGuardAuth/signout" id="logout">Logout</a></li>
+                        <? endif; ?>
                     </ul><!--end nav-pages-->
                 </div><!--end nav-->
             </div><!--end header-->

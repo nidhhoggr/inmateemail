@@ -10,13 +10,14 @@
  */
 class inboxActions extends sfActions
 {
+
   public function executeIndex(sfWebRequest $request)
   {
+
     $this->email_incomings = Doctrine_Query::create()
       ->from('EmailIncoming ei, ei.Email e')
       ->orderBy('e.created_at DESC')
       ->execute();
-
   }
 
   public function executeView(sfWebRequest $request)

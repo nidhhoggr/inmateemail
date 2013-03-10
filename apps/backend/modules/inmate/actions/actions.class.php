@@ -13,4 +13,20 @@ require_once dirname(__FILE__).'/../lib/inmateGeneratorHelper.class.php';
  */
 class inmateActions extends autoInmateActions
 {
+
+    private function handleAuthRedirect() {
+        $url = $this->getUser()->getAuthRedirectUrl();
+        if(!strstr($url,'backend'))
+        $this->redirect($url);
+    }
+
+
+    public function executeIndex(sfWebRequest $request) {
+
+         $this->handleAuthRedirect();
+
+
+         parent::executeIndex($request);
+
+    }
 }

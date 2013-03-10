@@ -6,5 +6,11 @@ security:  ~
 
 # insert your own filters here
 
+auth_redirect:
+  class: authRedirectFilter
+  param:
+    moduleRoot: 'inmates.php'
+
+
 cache:     ~
 execution: ~
