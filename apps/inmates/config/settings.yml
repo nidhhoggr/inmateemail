@@ -5,7 +5,8 @@ prod:
   .settings:
     no_script_name:         false
     logging_enabled:        false
-    js_inmates_url:         /clients/inmateemail/web/inmates.php/
+    app_root_path:          /clients/inmateemail/web/
+    app_root_script:        inmates.php
 
 dev:
   .settings:
@@ -14,7 +15,8 @@ dev:
     cache:                  false
     no_script_name:         false
     etag:                   false
-    js_inmates_url:         /clients/inmateemail/web/inmates_dev.php/
+    app_root_path:          /clients/inmateemail/web/
+    app_root_script:        inmates_dev.php
 
 sandbox:
   .settings:
@@ -23,7 +25,8 @@ sandbox:
     web_debug:              false
     no_script_name:         false
     etag:                   false
-    js_inmates_url:         /inmates_sandbox.php/
+    app_root_path:          /
+    app_root_script:        inmates_sandbox.php
 
 all:
   .settings:

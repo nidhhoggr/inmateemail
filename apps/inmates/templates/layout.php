@@ -16,7 +16,7 @@
         <?php include_stylesheets() ?>
         <?php include_javascripts() ?>
         <script type="text/javascript">
-        var inmates_url = '<?=sfConfig::get('sf_js_inmates_url')?>';
+        var inmates_url = '<?=sfConfig::get('sf_app_root_path') . sfConfig::get('sf_app_root_script')?>';
         </script>
     </head>
     <body>	

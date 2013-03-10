@@ -16,8 +16,7 @@
         <?php include_stylesheets() ?>
         <?php include_javascripts() ?>
         <script type="text/javascript">
-        var frontend_root = '<?=sfConfig::get('sf_js_frontend_root')?>';
-        var backend_root = '<?=sfConfig::get('sf_js_backend_root')?>';
+        var backend_root = '<?=sfConfig::get('sf_app_root_path') . sfConfig::get('sf_app_root_script')?>';
     </script>
     </head>
     <body>	

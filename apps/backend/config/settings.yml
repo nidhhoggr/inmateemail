@@ -5,8 +5,8 @@ prod:
   .settings:
     no_script_name:         false
     logging_enabled:        false
-    js_frontend_root:       /index.php
-    js_backend_root:        /backend.php
+    app_root_path:          /clients/inmateemail/web/
+    app_root_script:        backend.php
 
 dev:
   .settings:
@@ -15,8 +15,8 @@ dev:
     cache:                  false
     no_script_name:         false
     etag:                   false
-    js_frontend_root:       /frontend_dev.php
-    js_backend_root:        /backend_dev.php
+    app_root_path:          /clients/inmateemail/web/
+    app_root_script:        backend_dev.php
 
 test:
   .settings:
@@ -25,9 +25,12 @@ test:
     web_debug:              false
     no_script_name:         false
     etag:                   false
+    app_root_path:          /
+    app_root_script:        backend_sandbox.php
 
 all:
   .settings:
+
     # Form security secret (CSRF protection)
     csrf_secret:            728d8cc8986ec0797624653eb9cb9501e6817a24
 
