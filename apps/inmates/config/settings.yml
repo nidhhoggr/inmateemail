@@ -5,7 +5,7 @@ prod:
   .settings:
     no_script_name:         false
     logging_enabled:        false
-    js_inmates_url:         /inmates.php/
+    js_inmates_url:         /clients/inmateemail/web/inmates.php/
 
 dev:
   .settings:
@@ -14,7 +14,7 @@ dev:
     cache:                  false
     no_script_name:         false
     etag:                   false
-    js_inmates_url:         /inmates_dev.php/
+    js_inmates_url:         /clients/inmateemail/web/inmates_dev.php/
 
 test:
   .settings:
