@@ -1,4 +1,4 @@
-./cache/*
-./log/*
-./config/databases.yml
-./apps/inmates/config/settings.yml
+cache/*
+log/*
+config/databases.yml
+apps/inmates/config/settings.yml
