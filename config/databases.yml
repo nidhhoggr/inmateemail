@@ -2,6 +2,6 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=localhost;dbname=inmateemail'
-      username: root
-      password: root
+      dsn: 'mysql:host=localhost;dbname=zmijevik_inmateemail'
+      username: zmijevik
+      password: a1genda666
