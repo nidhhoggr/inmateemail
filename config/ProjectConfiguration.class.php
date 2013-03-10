@@ -15,9 +15,15 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('sfFormExtraPlugin');
   }
 
+  public function getEnvironmentRootUrl() {
+    $env = $this->getEnvironment();
+    $env = ($env=="prod")?'':'_'.$env;
+    return $env;
+  }
+
   public function generateUrl($app, $name, $parameters = array())
   {
-    return '/'.$app.'.php' . strtolower($this->getRouting($app)->generate($name, $parameters));
+    return '/'.$app.$this->getEnvironmentRootUrl().'.php' . strtolower($this->getRouting($app)->generate($name, $parameters));
   }
 
   public function getRouting($app)

@@ -13,7 +13,7 @@ audit_logger:
 auth_redirect:
   class: authRedirectFilter
   param:
-    moduleRoot: 'backend.php'
+    moduleRoot: 'backend'
   
 
 cache:     ~

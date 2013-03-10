@@ -8,7 +8,7 @@ security:  ~
 auth_redirect:
   class: authRedirectFilter
   param:
-    moduleRoot: 'officers.php'
+    moduleRoot: 'officers'
 
 cache:     ~
 execution: ~

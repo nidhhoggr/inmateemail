@@ -16,13 +16,14 @@ dev:
     etag:                   false
     js_inmates_url:         /clients/inmateemail/web/inmates_dev.php/
 
-test:
+sandbox:
   .settings:
     error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
     cache:                  false
     web_debug:              false
     no_script_name:         false
     etag:                   false
+    js_inmates_url:         /inmates_sandbox.php/
 
 all:
   .settings:

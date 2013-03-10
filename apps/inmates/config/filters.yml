@@ -9,7 +9,7 @@ security:  ~
 auth_redirect:
   class: authRedirectFilter
   param:
-    moduleRoot: 'inmates.php'
+    moduleRoot: 'inmates'
 
 
 cache:     ~
