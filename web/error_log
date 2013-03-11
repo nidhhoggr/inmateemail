@@ -1685,3 +1685,39 @@ Stack trace:
 [10-Mar-2013 11:14:39] Action "css/images" does not exist.
 [10-Mar-2013 11:24:36] Action "css/images" does not exist.
 [10-Mar-2013 13:18:54] Action "css/images" does not exist.
+[10-Mar-2013 16:58:56] Action "css/images" does not exist.
+[10-Mar-2013 16:59:03] Action "css/images" does not exist.
+[10-Mar-2013 16:59:07] Action "css/images" does not exist.
+[10-Mar-2013 16:59:57] Action "css/images" does not exist.
+[10-Mar-2013 17:00:19] Action "css/images" does not exist.
+[10-Mar-2013 17:00:25] Empty module and/or action after parsing the URL "/inmates.phpinbox/index" (/).
+[10-Mar-2013 17:00:26] Empty module and/or action after parsing the URL "/inmates.phpoutbox/index" (/).
+[10-Mar-2013 17:00:34] Empty module and/or action after parsing the URL "/inmates.phpoutbox/index" (/).
+[10-Mar-2013 17:03:05] Action "css/images" does not exist.
+[10-Mar-2013 17:03:28] Action "css/images" does not exist.
+[10-Mar-2013 17:03:38] Action "css/images" does not exist.
+[10-Mar-2013 17:03:44] Action "css/images" does not exist.
+[10-Mar-2013 17:18:54] Action "css/images" does not exist.
+[10-Mar-2013 17:18:57] Action "css/images" does not exist.
+[10-Mar-2013 17:19:28] Action "css/images" does not exist.
+[10-Mar-2013 17:19:35] Action "css/images" does not exist.
+[10-Mar-2013 17:19:40] Action "css/images" does not exist.
+[10-Mar-2013 17:28:15] Action "css/images" does not exist.
+[10-Mar-2013 17:28:26] Action "css/images" does not exist.
+[10-Mar-2013 17:28:32] Action "officer/1" does not exist.
+[10-Mar-2013 17:51:47] Action "css/images" does not exist.
+[10-Mar-2013 17:51:49] Action "css/images" does not exist.
+[10-Mar-2013 17:52:22] Action "css/images" does not exist.
+[10-Mar-2013 18:20:18] Action "css/images" does not exist.
+[10-Mar-2013 18:20:21] Action "css/images" does not exist.
+[10-Mar-2013 18:20:25] Action "css/images" does not exist.
+[10-Mar-2013 22:56:00] Action "css/images" does not exist.
+[10-Mar-2013 22:56:04] Action "css/images" does not exist.
+[10-Mar-2013 22:56:10] Action "css/images" does not exist.
+[10-Mar-2013 22:56:45] Action "css/images" does not exist.
+[10-Mar-2013 22:56:52] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'e2.sufficient' in 'field list'
+[10-Mar-2013 22:57:44] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'e2.sufficient' in 'field list'
+[10-Mar-2013 22:59:46] Action "css/images" does not exist.
+[10-Mar-2013 23:00:21] Action "css/images" does not exist.
+[10-Mar-2013 23:00:36] Action "css/images" does not exist.
+[10-Mar-2013 23:01:52] Action "css/images" does not exist.
