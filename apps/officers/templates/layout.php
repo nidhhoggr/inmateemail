@@ -16,8 +16,7 @@
         <?php include_stylesheets() ?>
         <?php include_javascripts() ?>
         <script type="text/javascript">
-        var frontend_root = '<?=sfConfig::get('sf_js_frontend_root')?>';
-        var backend_root = '<?=sfConfig::get('sf_js_backend_root')?>';
+        var officers_url = '<?=sfConfig::get('sf_app_root_path') . sfConfig::get('sf_app_root_script')?>';
     </script>
     </head>
     <body>	
@@ -29,21 +28,33 @@
                 <h2>Inmate Email</h2>           	
                 <div id="nav">
                     <ul id="nav-pages">
-                        <li><?=link_to('Inmates','inmate/index')?></li>
-                        <li><?=link_to('Officers','officer/index')?></li>
-                        <li><?=link_to('Outgoing Emails','email_outgoing/index')?></li>
-                        <li><?=link_to('Incoming Emails','email_incoming/index')?></li>
-                        <li><?=link_to('Contacts','contact/index')?></li>
-                        <li><?=link_to('Flags','flag/index')?></li>
-                        <li><?=link_to('Keywords','keyword/index')?></li>
-                        <li><?=link_to('Audit Log','audit_logger/index')?></li>
+                        <? if($sf_user->isAuthenticated()): ?>
+                          <li><a href="#" id="link-incoming">Incoming</a></li>
+                          <li><a href="#" id="link-outgoing">Outgoing</a></li>
+                          <li><a href="<?=url_for('sfGuardAuth/signout')?>" id="logout">Logout</a></li>
+                        <? endif; ?>
                     </ul><!--end nav-pages-->
                 </div><!--end nav-->
             </div><!--end header-->
             <div id="frontpage-content">      
     			
     			<div id="frontpage-intro">   	
-                                    <?php echo $sf_content ?>
+
+                            <div id="account_banner">
+                                <? if($sf_user->isAuthenticated()): ?>
+                                <div id="account_holder">
+                                    <?=myUser::getLoggedIn()?>
+                                </div>
+                                <div id="account_balance">
+                                    Unscanned Emails:<?=Email::getByScan(false)->count()?>
+                                </div>
+                                <? endif; ?>
+                            </div>
+                            <hr />
+                            <div id="officer-content">
+                              <?php echo $sf_content ?>
+                            </div>
+
 <!--
     					<a href="[ADD LINK TO PROJECT PAGE]" title="[ADD LINK TITLE]"><img class="featured-project-image" src="images/[ADD IMAGE FILE NAME]" alt="[ADD ALTERNATIVE TEXT]" /></a>
     					<a href="[ADD LINK TO PROJECT PAGE]" title="[ADD LINK TITLE]"><img class="featured-project-image" src="images/[ADD IMAGE FILE NAME]" alt="[ADD ALTERNATIVE TEXT]" /></a>

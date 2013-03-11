@@ -18,6 +18,14 @@ class Email extends BaseEmail
         return $this->getDateTimeObject('created_at')->format($format);
     }
 
+    public static function getByScan($scanned) {
+
+        return Doctrine_Query::create() 
+        ->from('Email e')
+        ->where('e.scanned = ?',$scanned)
+        ->execute();
+    }
+
     public static function calculatePendingCharges() {
         $price = sfConfig::get('sf_send_email_price');
 

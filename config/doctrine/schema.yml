@@ -91,6 +91,7 @@ Email:
     date_scanned:        {type: timestamp}
     subject:             {type: string(128),notnull: true} 
     message:             {type: clob,notnull: true}
+    sufficient:          {type: boolean, notnull: true, default: false} 
 
 EmailOutgoing:
   columns:

@@ -260,6 +260,7 @@ tr,td { padding: 4px; }
     font-weight: bold;
 } 
 #viewing-email #sender, 
+#viewing-email #recipient, 
 #viewing-email #subject, 
 #viewing-email #message {
     font-weight: normal;

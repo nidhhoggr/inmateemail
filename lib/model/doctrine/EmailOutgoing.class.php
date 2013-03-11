@@ -32,6 +32,22 @@ class EmailOutgoing extends BaseEmailOutgoing
         return $this->getEmail()->getInmate();
     }
 
+    public function getScanned() {
+        return $this->getEmail()->getScanned();
+    }
+
+    public function getSufficient() {
+        return $this->getEmail()->getSufficient();
+    }
+
+    public static function getById($id) {
+
+        return Doctrine_Query::create()
+        ->from('EmailOutgoing eo, eo.Email e')
+        ->where('eo.id = ?',$id)
+        ->fetchOne();
+    }
+
     public static function getAuthorizedEmailById($id) {
     
         return Doctrine_Query::create()
@@ -39,5 +55,14 @@ class EmailOutgoing extends BaseEmailOutgoing
         ->where('eo.id = ?',$id)
         ->andWhere('e.inmate_id = ?',InmateTable::loggedIn()->getId())
         ->fetchOne();
+    }
+
+    public function getByScanAndCount($scanned,$count) {
+
+        return Doctrine_Query::create()
+        ->from('EmailOutgoing ei, ei.Email e')
+        ->where('e.scanned = ?',$scanned)
+        ->limit($count)
+        ->execute();
     }
 }

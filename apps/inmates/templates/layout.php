@@ -32,7 +32,7 @@
                           <li><a href="#" id="back-inbox">Inbox</a></li>
                           <li><a href="#" id="back-outbox">Outbox</a></li>
                           <li><a href="#" id="back-contacts">Contacts</a></li>
-                          <li><a href="sfGuardAuth/signout" id="logout">Logout</a></li>
+                          <li><a href="<?=url_for('sfGuardAuth/signout')?>" id="logout">Logout</a></li>
                         <? endif; ?>
                     </ul><!--end nav-pages-->
                 </div><!--end nav-->
@@ -43,7 +43,7 @@
                             <div id="account_banner">
                                 <? if($sf_user->isAuthenticated()): ?>
                                 <div id="account_holder">
-                                    <?=InmateTable::loggedIn()?>
+                                    <?=myUser::getLoggedIn()?>
                                 </div>
                                 <div id="account_balance">
                                     Balance: <span>$<?=InmateTable::getCurrentBalance()?></span>

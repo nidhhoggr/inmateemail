@@ -13,6 +13,7 @@
  * @property timestamp $date_scanned
  * @property string $subject
  * @property clob $message
+ * @property boolean $sufficient
  * @property Inmate $Inmate
  * @property Contact $Contact
  * @property Doctrine_Collection $EmailOutgoing
@@ -27,6 +28,7 @@
  * @method timestamp           getDateScanned()   Returns the current record's "date_scanned" value
  * @method string              getSubject()       Returns the current record's "subject" value
  * @method clob                getMessage()       Returns the current record's "message" value
+ * @method boolean             getSufficient()    Returns the current record's "sufficient" value
  * @method Inmate              getInmate()        Returns the current record's "Inmate" value
  * @method Contact             getContact()       Returns the current record's "Contact" value
  * @method Doctrine_Collection getEmailOutgoing() Returns the current record's "EmailOutgoing" collection
@@ -40,6 +42,7 @@
  * @method Email               setDateScanned()   Sets the current record's "date_scanned" value
  * @method Email               setSubject()       Sets the current record's "subject" value
  * @method Email               setMessage()       Sets the current record's "message" value
+ * @method Email               setSufficient()    Sets the current record's "sufficient" value
  * @method Email               setInmate()        Sets the current record's "Inmate" value
  * @method Email               setContact()       Sets the current record's "Contact" value
  * @method Email               setEmailOutgoing() Sets the current record's "EmailOutgoing" collection
@@ -94,6 +97,11 @@ abstract class BaseEmail extends sfDoctrineRecord
         $this->hasColumn('message', 'clob', null, array(
              'type' => 'clob',
              'notnull' => true,
+             ));
+        $this->hasColumn('sufficient', 'boolean', null, array(
+             'type' => 'boolean',
+             'notnull' => true,
+             'default' => false,
              ));
     }
 

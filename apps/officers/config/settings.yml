@@ -5,6 +5,8 @@ prod:
   .settings:
     no_script_name:         false
     logging_enabled:        false
+    app_root_path:          /clients/inmateemail/web/
+    app_root_script:        officers.php
 
 dev:
   .settings:
@@ -13,14 +15,18 @@ dev:
     cache:                  false
     no_script_name:         false
     etag:                   false
+    app_root_path:          /clients/inmateemail/web/
+    app_root_script:        officers_dev.php
 
-test:
+sandbox:
   .settings:
     error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
     cache:                  false
     web_debug:              false
     no_script_name:         false
     etag:                   false
+    app_root_path:          /
+    app_root_script:        officers_sandbox.php
 
 all:
   .settings:
@@ -33,3 +39,13 @@ all:
 
     # Enable the database manager
     use_database:           true
+
+    enabled_modules:        [default, sfGuardAuth, sfGuardGroup, sfGuardUser, sfGuardPermission, sfGuardForgotPassword]
+
+  .actions:
+    login_module: sfGuardAuth
+    login_action: signin
+
+    secure_module: sfGuardAuth
+    secure_action: secure
+
