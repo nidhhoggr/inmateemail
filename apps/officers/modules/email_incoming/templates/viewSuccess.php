@@ -14,7 +14,7 @@ Subject:
 </div>
 Message:
 <div id="message">
-<?=$email->getEmail()->getMessage()?>
+<?=$email->getEmail()->getRaw('message')?>
 </div>
 <a id="link-incoming" href="#">Back to Incoming Emails</a>
 </div>

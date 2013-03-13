@@ -14,6 +14,7 @@ class outboxActions extends sfActions
   {
     $this->email_outgoings = Doctrine_Query::create()
       ->from('EmailOutgoing eo, eo.Email e')
+      ->where('e.inmate_id = ?',InmateTable::loggedIn()->getId())
       ->orderBy('e.created_at DESC')
       ->execute();
   }

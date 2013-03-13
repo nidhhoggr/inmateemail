@@ -333,8 +333,6 @@ class sfCoreAutoload
     'sfstreamlogger' => 'log/sfStreamLogger.class.php',
     'sfvarlogger' => 'log/sfVarLogger.class.php',
     'sfwebdebuglogger' => 'log/sfWebDebugLogger.class.php',
-    'sfmailer' => 'mailer/sfMailer.class.php',
-    'sfmailermessageloggerplugin' => 'mailer/sfMailerMessageLoggerPlugin.class.php',
     'sfpearconfig' => 'plugin/sfPearConfig.class.php',
     'sfpeardownloader' => 'plugin/sfPearDownloader.class.php',
     'sfpearenvironment' => 'plugin/sfPearEnvironment.class.php',

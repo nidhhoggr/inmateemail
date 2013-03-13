@@ -37,7 +37,7 @@
                           <li><?=link_to('Flags','flag/index')?></li>
                           <li><?=link_to('Keywords','keyword/index')?></li>
                           <li><?=link_to('Audit Log','audit_logger/index')?></li>
-                          <li><a href="sfGuardAuth/signout" id="logout">Logout</a></li>
+                          <li><a href="<?=url_for('sfGuardAuth/signout')?>" id="logout">Logout</a></li>
                         <? endif; ?>
                     </ul><!--end nav-pages-->
                 </div><!--end nav-->

@@ -1,3 +1,21 @@
+config:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Config
+    module:               config
+    prefix_path:          /config
+    column:               id
+    with_wildcard_routes: true
+
+configuration:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Configuration
+    module:               configuration
+    prefix_path:          /configuration
+    column:               id
+    with_wildcard_routes: true
+
 audit_logger_audit_log:
   class: sfDoctrineRouteCollection
   options:

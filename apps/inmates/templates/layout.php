@@ -49,7 +49,7 @@
                                     Balance: <span>$<?=InmateTable::getCurrentBalance()?></span>
                                 </div>
                                 <div id="pending_charges">
-                                    Pending Charges: <span>$<?=Email::calculatePendingCharges()?></span>
+                                    Pending Charges: <span>$<?=Inmate::calculatePendingChargesByLoggedIn()?></span>
                                 </div>
                                 <? endif; ?>
                             </div>    

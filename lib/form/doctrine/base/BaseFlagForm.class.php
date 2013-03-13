@@ -18,6 +18,8 @@ abstract class BaseFlagForm extends BaseFormDoctrine
       'id'          => new sfWidgetFormInputHidden(),
       'name'        => new sfWidgetFormInputText(),
       'description' => new sfWidgetFormInputText(),
+      'color'       => new sfWidgetFormInputText(),
+      'cssClass'    => new sfWidgetFormInputText(),
       'weight'      => new sfWidgetFormInputText(),
     ));
 
@@ -25,6 +27,8 @@ abstract class BaseFlagForm extends BaseFormDoctrine
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'name'        => new sfValidatorString(array('max_length' => 32, 'required' => false)),
       'description' => new sfValidatorPass(array('required' => false)),
+      'color'       => new sfValidatorString(array('max_length' => 32, 'required' => false)),
+      'cssClass'    => new sfValidatorString(array('max_length' => 32, 'required' => false)),
       'weight'      => new sfValidatorInteger(array('required' => false)),
     ));
 

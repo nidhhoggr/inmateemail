@@ -8,20 +8,26 @@
  * @property integer $id
  * @property integer $email_id
  * @property string $sender_email
+ * @property string $sender_name
  * @property boolean $inmate_viewed
+ * @property timestamp $date_sender_sent
  * @property timestamp $date_inmate_viewed
  * @property Email $Email
  * 
  * @method integer       getId()                 Returns the current record's "id" value
  * @method integer       getEmailId()            Returns the current record's "email_id" value
  * @method string        getSenderEmail()        Returns the current record's "sender_email" value
+ * @method string        getSenderName()         Returns the current record's "sender_name" value
  * @method boolean       getInmateViewed()       Returns the current record's "inmate_viewed" value
+ * @method timestamp     getDateSenderSent()     Returns the current record's "date_sender_sent" value
  * @method timestamp     getDateInmateViewed()   Returns the current record's "date_inmate_viewed" value
  * @method Email         getEmail()              Returns the current record's "Email" value
  * @method EmailIncoming setId()                 Sets the current record's "id" value
  * @method EmailIncoming setEmailId()            Sets the current record's "email_id" value
  * @method EmailIncoming setSenderEmail()        Sets the current record's "sender_email" value
+ * @method EmailIncoming setSenderName()         Sets the current record's "sender_name" value
  * @method EmailIncoming setInmateViewed()       Sets the current record's "inmate_viewed" value
+ * @method EmailIncoming setDateSenderSent()     Sets the current record's "date_sender_sent" value
  * @method EmailIncoming setDateInmateViewed()   Sets the current record's "date_inmate_viewed" value
  * @method EmailIncoming setEmail()              Sets the current record's "Email" value
  * 
@@ -49,10 +55,17 @@ abstract class BaseEmailIncoming extends sfDoctrineRecord
              'notnull' => true,
              'length' => 128,
              ));
+        $this->hasColumn('sender_name', 'string', 128, array(
+             'type' => 'string',
+             'length' => 128,
+             ));
         $this->hasColumn('inmate_viewed', 'boolean', null, array(
              'type' => 'boolean',
              'notnull' => true,
              'default' => false,
+             ));
+        $this->hasColumn('date_sender_sent', 'timestamp', null, array(
+             'type' => 'timestamp',
              ));
         $this->hasColumn('date_inmate_viewed', 'timestamp', null, array(
              'type' => 'timestamp',

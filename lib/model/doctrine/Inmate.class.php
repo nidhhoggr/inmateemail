@@ -13,6 +13,50 @@
 class Inmate extends BaseInmate
 {
 
+
+    public static function findByEmailNumber($email_number) {
+
+        return Doctrine_Query::create() 
+        ->from('Inmate i')
+        ->where('i.email_number = ?',trim($email_number))
+        ->fetchOne();
+    }
+
+  
+    public static function getCurrentBalance($inmate_id) {
+
+        $inmate = Doctrine_Core::getTable('Inmate')->find($inmate_id);
+
+        $calc = 0;
+
+        if($inmate) {
+            $calc =  $inmate->getBalance() - Inmate::calculatePendingChargesByInmateId($inmate_id);
+        }
+
+        return number_format(round($calc,2),2);
+    }
+
+    public static function calculatePendingChargesByLoggedIn() {
+
+        $inmate_id = InmateTable::loggedIn()->getId();
+
+        return Inmate::calculatePendingChargesByInmateId($inmate_id);
+    }
+
+    public static function calculatePendingChargesByInmateId($inmate_id) {
+
+        $price = Config::getVal('send_email_price');
+
+        $unsent_emails = Doctrine_Query::create()
+        ->select('eo.id')
+        ->from('EmailOutgoing eo, eo.Email e')
+        ->where('e.inmate_id = ?', $inmate_id)
+        ->andWhere('eo.sent = ?',0)
+        ->fetchArray();
+
+        return number_format(round(count($unsent_emails) * $price,2),2);
+    }
+
     public function __toString() {
         return $this->getUser()->__toString();
     }

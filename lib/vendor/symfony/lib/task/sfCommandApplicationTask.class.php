@@ -119,8 +119,6 @@ abstract class sfCommandApplicationTask extends sfTask
 
   protected function initializeMailer()
   {
-    require_once sfConfig::get('sf_symfony_lib_dir').'/vendor/swiftmailer/classes/Swift.php';
-    Swift::registerAutoload();
     sfMailer::initialize();
 
     $config = sfFactoryConfigHandler::getConfiguration($this->configuration->getConfigPaths('config/factories.yml'));

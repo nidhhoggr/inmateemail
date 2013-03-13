@@ -41,7 +41,7 @@ class InmateTable extends Doctrine_Table
 
     public static function getCurrentBalance() {
 
-        $calc =  self::loggedIn()->getBalance() - Email::calculatePendingCharges();
+        $calc =  self::loggedIn()->getBalance() - Inmate::calculatePendingChargesByLoggedIn();
 
         return number_format(round($calc,2),2);
     }

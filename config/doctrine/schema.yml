@@ -92,6 +92,7 @@ Email:
     subject:             {type: string(128),notnull: true} 
     message:             {type: clob,notnull: true}
     sufficient:          {type: boolean, notnull: true, default: false} 
+    points:              {type: integer}
 
 EmailOutgoing:
   columns:
@@ -109,7 +110,9 @@ EmailIncoming:
     id:                  {type: integer, primary: true, autoincrement: true}
     email_id:            {type: integer, notnull: true}
     sender_email:        {type: string(128),notnull: true}
+    sender_name:         {type: string(128)}
     inmate_viewed:       {type: boolean, notnull: true, default: false} 
+    date_sender_sent:    {type: timestamp}
     date_inmate_viewed:  {type: timestamp}
   relations:
     Email:
@@ -121,6 +124,8 @@ Flag:
     id:                  {type: integer, primary: true, autoincrement: true}
     name:                {type: string(32)}
     description:         {type: text}
+    color:               {type: string(32)}
+    cssClass:            {type: string(32)}
     weight:              {type: integer,notnull:true,default: 0}
 
 Keyword:   
@@ -135,3 +140,11 @@ EmailKeyword:
   columns:
     email_id:            {type: integer, notnull: true}
     keyword_id:          {type: integer, notnull: true}
+
+Config:
+  columns:
+    id:                  {type: integer, primary: true, autoincrement: true}
+    title:               {type: string(32)} 
+    description:         {type: text}
+    config_key:          {type: string(32)}
+    config_value:        {type: text}

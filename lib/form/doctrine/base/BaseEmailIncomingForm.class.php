@@ -18,7 +18,9 @@ abstract class BaseEmailIncomingForm extends BaseFormDoctrine
       'id'                 => new sfWidgetFormInputHidden(),
       'email_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Email'), 'add_empty' => false)),
       'sender_email'       => new sfWidgetFormInputText(),
+      'sender_name'        => new sfWidgetFormInputText(),
       'inmate_viewed'      => new sfWidgetFormInputCheckbox(),
+      'date_sender_sent'   => new sfWidgetFormDateTime(),
       'date_inmate_viewed' => new sfWidgetFormDateTime(),
     ));
 
@@ -26,7 +28,9 @@ abstract class BaseEmailIncomingForm extends BaseFormDoctrine
       'id'                 => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'email_id'           => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Email'))),
       'sender_email'       => new sfValidatorString(array('max_length' => 128)),
+      'sender_name'        => new sfValidatorString(array('max_length' => 128, 'required' => false)),
       'inmate_viewed'      => new sfValidatorBoolean(array('required' => false)),
+      'date_sender_sent'   => new sfValidatorDateTime(array('required' => false)),
       'date_inmate_viewed' => new sfValidatorDateTime(array('required' => false)),
     ));
 

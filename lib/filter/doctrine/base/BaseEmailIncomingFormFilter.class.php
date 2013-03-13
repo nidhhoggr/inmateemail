@@ -15,14 +15,18 @@ abstract class BaseEmailIncomingFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'email_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Email'), 'add_empty' => true)),
       'sender_email'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'sender_name'        => new sfWidgetFormFilterInput(),
       'inmate_viewed'      => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'date_sender_sent'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'date_inmate_viewed' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
     ));
 
     $this->setValidators(array(
       'email_id'           => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Email'), 'column' => 'id')),
       'sender_email'       => new sfValidatorPass(array('required' => false)),
+      'sender_name'        => new sfValidatorPass(array('required' => false)),
       'inmate_viewed'      => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'date_sender_sent'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'date_inmate_viewed' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
 
@@ -46,7 +50,9 @@ abstract class BaseEmailIncomingFormFilter extends BaseFormFilterDoctrine
       'id'                 => 'Number',
       'email_id'           => 'ForeignKey',
       'sender_email'       => 'Text',
+      'sender_name'        => 'Text',
       'inmate_viewed'      => 'Boolean',
+      'date_sender_sent'   => 'Date',
       'date_inmate_viewed' => 'Date',
     );
   }

@@ -15,12 +15,16 @@ abstract class BaseFlagFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'name'        => new sfWidgetFormFilterInput(),
       'description' => new sfWidgetFormFilterInput(),
+      'color'       => new sfWidgetFormFilterInput(),
+      'cssClass'    => new sfWidgetFormFilterInput(),
       'weight'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
     ));
 
     $this->setValidators(array(
       'name'        => new sfValidatorPass(array('required' => false)),
       'description' => new sfValidatorPass(array('required' => false)),
+      'color'       => new sfValidatorPass(array('required' => false)),
+      'cssClass'    => new sfValidatorPass(array('required' => false)),
       'weight'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
@@ -44,6 +48,8 @@ abstract class BaseFlagFormFilter extends BaseFormFilterDoctrine
       'id'          => 'Number',
       'name'        => 'Text',
       'description' => 'Text',
+      'color'       => 'Text',
+      'cssClass'    => 'Text',
       'weight'      => 'Number',
     );
   }

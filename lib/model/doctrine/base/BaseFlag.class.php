@@ -8,17 +8,23 @@
  * @property integer $id
  * @property string $name
  * @property text $description
+ * @property string $color
+ * @property string $cssClass
  * @property integer $weight
  * @property Doctrine_Collection $Keyword
  * 
  * @method integer             getId()          Returns the current record's "id" value
  * @method string              getName()        Returns the current record's "name" value
  * @method text                getDescription() Returns the current record's "description" value
+ * @method string              getColor()       Returns the current record's "color" value
+ * @method string              getCssClass()    Returns the current record's "cssClass" value
  * @method integer             getWeight()      Returns the current record's "weight" value
  * @method Doctrine_Collection getKeyword()     Returns the current record's "Keyword" collection
  * @method Flag                setId()          Sets the current record's "id" value
  * @method Flag                setName()        Sets the current record's "name" value
  * @method Flag                setDescription() Sets the current record's "description" value
+ * @method Flag                setColor()       Sets the current record's "color" value
+ * @method Flag                setCssClass()    Sets the current record's "cssClass" value
  * @method Flag                setWeight()      Sets the current record's "weight" value
  * @method Flag                setKeyword()     Sets the current record's "Keyword" collection
  * 
@@ -43,6 +49,14 @@ abstract class BaseFlag extends sfDoctrineRecord
              ));
         $this->hasColumn('description', 'text', null, array(
              'type' => 'text',
+             ));
+        $this->hasColumn('color', 'string', 32, array(
+             'type' => 'string',
+             'length' => 32,
+             ));
+        $this->hasColumn('cssClass', 'string', 32, array(
+             'type' => 'string',
+             'length' => 32,
              ));
         $this->hasColumn('weight', 'integer', null, array(
              'type' => 'integer',

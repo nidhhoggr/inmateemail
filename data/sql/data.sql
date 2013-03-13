@@ -33,7 +33,7 @@ CREATE TABLE `audit_logger` (
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `audit_logger_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,8 +42,59 @@ CREATE TABLE `audit_logger` (
 
 LOCK TABLES `audit_logger` WRITE;
 /*!40000 ALTER TABLE `audit_logger` DISABLE KEYS */;
-INSERT INTO `audit_logger` (`id`, `user_id`, `module`, `action`, `object_id`, `params`, `created_at`, `updated_at`) VALUES (1,1,'inmate','create',NULL,'a:2:{s:6:\"inmate\";a:6:{s:2:\"id\";s:0:\"\";s:12:\"email_number\";s:8:\"10293847\";s:11:\"jail_number\";s:8:\"10293847\";s:7:\"balance\";s:5:\"20.00\";s:19:\"contacts_approvable\";s:2:\"on\";s:4:\"User\";a:9:{s:10:\"first_name\";s:6:\"Joseph\";s:11:\"middle_name\";s:0:\"\";s:9:\"last_name\";s:6:\"Persie\";s:6:\"prefix\";s:0:\"\";s:6:\"suffix\";s:0:\"\";s:8:\"username\";s:8:\"10293847\";s:8:\"password\";s:4:\"fart\";s:14:\"password_again\";s:4:\"fart\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 08:57:15','2013-02-21 08:57:15'),(2,1,'flag','create',NULL,'a:2:{s:4:\"flag\";a:4:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:9:\"profanity\";s:11:\"description\";s:81:\"all profane language not necessarily of any particular threat of malicious intent\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:28','2013-02-21 09:22:28'),(3,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"fuck\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:48','2013-02-21 09:22:48'),(4,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"shit\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:51','2013-02-21 09:22:51'),(5,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"piss\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:54','2013-02-21 09:22:54'),(6,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:3:\"ass\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:57','2013-02-21 09:22:57'),(7,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"cunt\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:59','2013-02-21 09:22:59'),(8,1,'officer','create',NULL,'a:2:{s:7:\"officer\";a:3:{s:2:\"id\";s:0:\"\";s:12:\"badge_number\";s:8:\"12334566\";s:4:\"User\";a:12:{s:10:\"first_name\";s:3:\"sgt\";s:11:\"middle_name\";s:0:\"\";s:9:\"last_name\";s:5:\"baker\";s:6:\"prefix\";s:0:\"\";s:6:\"suffix\";s:0:\"\";s:13:\"email_address\";s:0:\"\";s:8:\"username\";s:8:\"sgtbaker\";s:8:\"password\";s:8:\"sgtbaker\";s:14:\"password_again\";s:8:\"sgtbaker\";s:9:\"is_active\";s:2:\"on\";s:14:\"is_super_admin\";s:2:\"on\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 11:18:53','2013-02-21 11:18:53'),(9,3,'contact','create',NULL,'a:2:{s:7:\"contact\";a:7:{s:2:\"id\";s:0:\"\";s:13:\"email_address\";s:19:\"cstraka@hotmail.com\";s:10:\"first_name\";s:5:\"Chris\";s:9:\"last_name\";s:6:\"Straka\";s:12:\"phone_number\";s:10:\"1232343456\";s:11:\"is_approved\";s:2:\"on\";s:11:\"inmate_list\";a:1:{i:0;s:1:\"1\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 11:19:48','2013-02-21 11:19:48'),(10,2,'email_incoming','create',NULL,'a:2:{s:14:\"email_incoming\";a:4:{s:2:\"id\";s:0:\"\";s:12:\"sender_email\";s:19:\"drake22@husmail.com\";s:18:\"date_inmate_viewed\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:5:\"Email\";a:7:{s:10:\"email_type\";s:8:\"incoming\";s:9:\"inmate_id\";s:1:\"1\";s:10:\"contact_id\";s:0:\"\";s:12:\"date_scanned\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:7:\"subject\";s:0:\"\";s:7:\"message\";s:0:\"\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-22 17:33:51','2013-02-22 17:33:51'),(11,2,'email_incoming','create',NULL,'a:2:{s:14:\"email_incoming\";a:4:{s:2:\"id\";s:0:\"\";s:12:\"sender_email\";s:19:\"drake22@husmail.com\";s:18:\"date_inmate_viewed\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:5:\"Email\";a:7:{s:10:\"email_type\";s:8:\"incoming\";s:9:\"inmate_id\";s:1:\"1\";s:10:\"contact_id\";s:0:\"\";s:12:\"date_scanned\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:7:\"subject\";s:10:\"commercary\";s:7:\"message\";s:47:\"we comeing to visit and provide some commercary\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-22 17:34:31','2013-02-22 17:34:31'),(12,1,'inmate','create',NULL,'a:2:{s:6:\"inmate\";a:5:{s:2:\"id\";s:0:\"\";s:12:\"email_number\";s:8:\"43247329\";s:11:\"jail_number\";s:8:\"43247329\";s:7:\"balance\";s:5:\"$5.00\";s:4:\"User\";a:9:{s:10:\"first_name\";s:3:\"Tim\";s:11:\"middle_name\";s:6:\"Parker\";s:9:\"last_name\";s:0:\"\";s:6:\"prefix\";s:0:\"\";s:6:\"suffix\";s:0:\"\";s:8:\"username\";s:8:\"43247329\";s:8:\"password\";s:4:\"test\";s:14:\"password_again\";s:4:\"test\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-22 23:34:10','2013-02-22 23:34:10');
+INSERT INTO `audit_logger` (`id`, `user_id`, `module`, `action`, `object_id`, `params`, `created_at`, `updated_at`) VALUES (1,1,'inmate','create',NULL,'a:2:{s:6:\"inmate\";a:6:{s:2:\"id\";s:0:\"\";s:12:\"email_number\";s:8:\"10293847\";s:11:\"jail_number\";s:8:\"10293847\";s:7:\"balance\";s:5:\"20.00\";s:19:\"contacts_approvable\";s:2:\"on\";s:4:\"User\";a:9:{s:10:\"first_name\";s:6:\"Joseph\";s:11:\"middle_name\";s:0:\"\";s:9:\"last_name\";s:6:\"Persie\";s:6:\"prefix\";s:0:\"\";s:6:\"suffix\";s:0:\"\";s:8:\"username\";s:8:\"10293847\";s:8:\"password\";s:4:\"fart\";s:14:\"password_again\";s:4:\"fart\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 08:57:15','2013-02-21 08:57:15'),(2,1,'flag','create',NULL,'a:2:{s:4:\"flag\";a:4:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:9:\"profanity\";s:11:\"description\";s:81:\"all profane language not necessarily of any particular threat of malicious intent\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:28','2013-02-21 09:22:28'),(3,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"fuck\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:48','2013-02-21 09:22:48'),(4,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"shit\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:51','2013-02-21 09:22:51'),(5,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"piss\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:54','2013-02-21 09:22:54'),(6,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:3:\"ass\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:57','2013-02-21 09:22:57'),(7,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"1\";s:4:\"name\";s:4:\"cunt\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 09:22:59','2013-02-21 09:22:59'),(8,1,'officer','create',NULL,'a:2:{s:7:\"officer\";a:3:{s:2:\"id\";s:0:\"\";s:12:\"badge_number\";s:8:\"12334566\";s:4:\"User\";a:12:{s:10:\"first_name\";s:3:\"sgt\";s:11:\"middle_name\";s:0:\"\";s:9:\"last_name\";s:5:\"baker\";s:6:\"prefix\";s:0:\"\";s:6:\"suffix\";s:0:\"\";s:13:\"email_address\";s:0:\"\";s:8:\"username\";s:8:\"sgtbaker\";s:8:\"password\";s:8:\"sgtbaker\";s:14:\"password_again\";s:8:\"sgtbaker\";s:9:\"is_active\";s:2:\"on\";s:14:\"is_super_admin\";s:2:\"on\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 11:18:53','2013-02-21 11:18:53'),(9,3,'contact','create',NULL,'a:2:{s:7:\"contact\";a:7:{s:2:\"id\";s:0:\"\";s:13:\"email_address\";s:19:\"cstraka@hotmail.com\";s:10:\"first_name\";s:5:\"Chris\";s:9:\"last_name\";s:6:\"Straka\";s:12:\"phone_number\";s:10:\"1232343456\";s:11:\"is_approved\";s:2:\"on\";s:11:\"inmate_list\";a:1:{i:0;s:1:\"1\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-21 11:19:48','2013-02-21 11:19:48'),(10,2,'email_incoming','create',NULL,'a:2:{s:14:\"email_incoming\";a:4:{s:2:\"id\";s:0:\"\";s:12:\"sender_email\";s:19:\"drake22@husmail.com\";s:18:\"date_inmate_viewed\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:5:\"Email\";a:7:{s:10:\"email_type\";s:8:\"incoming\";s:9:\"inmate_id\";s:1:\"1\";s:10:\"contact_id\";s:0:\"\";s:12:\"date_scanned\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:7:\"subject\";s:0:\"\";s:7:\"message\";s:0:\"\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-22 17:33:51','2013-02-22 17:33:51'),(11,2,'email_incoming','create',NULL,'a:2:{s:14:\"email_incoming\";a:4:{s:2:\"id\";s:0:\"\";s:12:\"sender_email\";s:19:\"drake22@husmail.com\";s:18:\"date_inmate_viewed\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:5:\"Email\";a:7:{s:10:\"email_type\";s:8:\"incoming\";s:9:\"inmate_id\";s:1:\"1\";s:10:\"contact_id\";s:0:\"\";s:12:\"date_scanned\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:7:\"subject\";s:10:\"commercary\";s:7:\"message\";s:47:\"we comeing to visit and provide some commercary\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-22 17:34:31','2013-02-22 17:34:31'),(12,1,'inmate','create',NULL,'a:2:{s:6:\"inmate\";a:5:{s:2:\"id\";s:0:\"\";s:12:\"email_number\";s:8:\"43247329\";s:11:\"jail_number\";s:8:\"43247329\";s:7:\"balance\";s:5:\"$5.00\";s:4:\"User\";a:9:{s:10:\"first_name\";s:3:\"Tim\";s:11:\"middle_name\";s:6:\"Parker\";s:9:\"last_name\";s:0:\"\";s:6:\"prefix\";s:0:\"\";s:6:\"suffix\";s:0:\"\";s:8:\"username\";s:8:\"43247329\";s:8:\"password\";s:4:\"test\";s:14:\"password_again\";s:4:\"test\";s:2:\"id\";s:0:\"\";}}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-02-22 23:34:10','2013-02-22 23:34:10'),(13,1,'config','create',NULL,'a:2:{s:6:\"config\";a:5:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:16:\"Send email price\";s:11:\"description\";s:37:\"the current rate for sending an email\";s:10:\"config_key\";s:16:\"send_email_price\";s:12:\"config_value\";s:4:\"1.25\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-03-12 23:00:28','2013-03-12 23:00:28'),(14,1,'config','create',NULL,'a:2:{s:6:\"config\";a:5:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:19:\"Receive email price\";s:11:\"description\";s:40:\"the current price for receiving an email\";s:10:\"config_key\";s:19:\"receive_email_price\";s:12:\"config_value\";s:4:\"1.25\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-03-12 23:01:03','2013-03-12 23:01:03'),(15,1,'flag','create',NULL,'a:2:{s:4:\"flag\";a:6:{s:2:\"id\";s:0:\"\";s:4:\"name\";s:8:\"violence\";s:11:\"description\";s:0:\"\";s:5:\"color\";s:6:\"orange\";s:8:\"cssClass\";s:13:\"flag_violence\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-03-12 23:06:11','2013-03-12 23:06:11'),(16,1,'flag','update',1,'a:1:{s:4:\"flag\";a:6:{s:2:\"id\";s:1:\"1\";s:4:\"name\";s:9:\"profanity\";s:11:\"description\";s:81:\"all profane language not necessarily of any particular threat of malicious intent\";s:5:\"color\";s:3:\"red\";s:8:\"cssClass\";s:12:\"flag_profane\";s:6:\"weight\";s:1:\"0\";}}','2013-03-12 23:06:47','2013-03-12 23:06:47'),(17,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"2\";s:4:\"name\";s:4:\"kill\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-03-12 23:08:01','2013-03-12 23:08:01'),(18,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"2\";s:4:\"name\";s:5:\"punch\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-03-12 23:08:10','2013-03-12 23:08:10'),(19,1,'keyword','create',NULL,'a:2:{s:7:\"keyword\";a:5:{s:2:\"id\";s:0:\"\";s:7:\"flag_id\";s:1:\"2\";s:4:\"name\";s:4:\"stab\";s:11:\"description\";s:0:\"\";s:6:\"weight\";s:1:\"0\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-03-12 23:08:16','2013-03-12 23:08:16'),(20,1,'contact','create',NULL,'a:2:{s:7:\"contact\";a:5:{s:2:\"id\";s:0:\"\";s:13:\"email_address\";s:20:\"zmijevik@hotmail.com\";s:10:\"first_name\";s:6:\"Joseph\";s:9:\"last_name\";s:6:\"Persie\";s:12:\"phone_number\";s:10:\"2343345456\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-03-12 23:42:01','2013-03-12 23:42:01'),(21,1,'config','create',NULL,'a:2:{s:6:\"config\";a:5:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:13:\"IMAP Username\";s:11:\"description\";s:0:\"\";s:10:\"config_key\";s:13:\"imap_username\";s:12:\"config_value\";s:37:\"inmateemail@supraliminalsolutions.com\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-03-13 00:07:31','2013-03-13 00:07:31'),(22,1,'config','create',NULL,'a:2:{s:6:\"config\";a:5:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:13:\"IMAP Password\";s:11:\"description\";s:0:\"\";s:10:\"config_key\";s:13:\"imap_password\";s:12:\"config_value\";s:10:\"a1genda666\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-03-13 00:08:06','2013-03-13 00:08:06'),(23,1,'config','create',NULL,'a:2:{s:6:\"config\";a:5:{s:2:\"id\";s:0:\"\";s:5:\"title\";s:15:\"IMAP Connection\";s:11:\"description\";s:0:\"\";s:10:\"config_key\";s:15:\"imap_connection\";s:12:\"config_value\";s:66:\"{mail.supraliminalsolutions.com:993/imap/novalidate-cert/ssl}INBOX\";}s:13:\"_save_and_add\";s:12:\"Save and add\";}','2013-03-13 00:08:35','2013-03-13 00:08:35'),(24,1,'email_incoming','update',5,'a:1:{s:14:\"email_incoming\";a:6:{s:2:\"id\";s:1:\"5\";s:12:\"sender_email\";s:20:\"zmijevik@hotmail.com\";s:11:\"sender_name\";s:14:\"Joseph Persico\";s:16:\"date_sender_sent\";a:5:{s:5:\"month\";s:1:\"3\";s:3:\"day\";s:2:\"13\";s:4:\"year\";s:4:\"2013\";s:4:\"hour\";s:1:\"0\";s:6:\"minute\";s:2:\"10\";}s:18:\"date_inmate_viewed\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:5:\"Email\";a:9:{s:10:\"email_type\";s:8:\"incoming\";s:9:\"inmate_id\";s:1:\"2\";s:10:\"contact_id\";s:1:\"2\";s:12:\"date_scanned\";a:5:{s:5:\"month\";s:0:\"\";s:3:\"day\";s:0:\"\";s:4:\"year\";s:0:\"\";s:4:\"hour\";s:0:\"\";s:6:\"minute\";s:0:\"\";}s:7:\"subject\";s:8:\"43247329\";s:7:\"message\";s:53:\"give me the fucking commecary shit brains 		 	   		  \";s:10:\"sufficient\";s:2:\"on\";s:6:\"points\";s:0:\"\";s:2:\"id\";s:2:\"17\";}}}','2013-03-13 00:31:16','2013-03-13 00:31:16');
 /*!40000 ALTER TABLE `audit_logger` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `config`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `config` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `config_key` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `config_value` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `config`
+--
+
+LOCK TABLES `config` WRITE;
+/*!40000 ALTER TABLE `config` DISABLE KEYS */;
+INSERT INTO `config` (`id`, `title`, `description`, `config_key`, `config_value`) VALUES (1,'Send email price','the current rate for sending an email','send_email_price','1.25'),(2,'Receive email price','the current price for receiving an email','receive_email_price','1.25'),(3,'IMAP Username','','imap_username','inmateemail@supraliminalsolutions.com'),(4,'IMAP Password','','imap_password','a1genda666'),(5,'IMAP Connection','','imap_connection','{mail.supraliminalsolutions.com:993/imap/novalidate-cert/ssl}INBOX');
+/*!40000 ALTER TABLE `config` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `configuration`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `configuration` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `config_key` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `config_value` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `configuration`
+--
+
+LOCK TABLES `configuration` WRITE;
+/*!40000 ALTER TABLE `configuration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `configuration` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -62,7 +113,7 @@ CREATE TABLE `contact` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +122,7 @@ CREATE TABLE `contact` (
 
 LOCK TABLES `contact` WRITE;
 /*!40000 ALTER TABLE `contact` DISABLE KEYS */;
-INSERT INTO `contact` (`id`, `email_address`, `first_name`, `last_name`, `phone_number`, `is_approved`, `created_at`, `updated_at`) VALUES (1,'cstraka@hotmail.com','Chris','Straka',1232343456,1,'2013-02-21 11:19:49','2013-02-21 11:19:49');
+INSERT INTO `contact` (`id`, `email_address`, `first_name`, `last_name`, `phone_number`, `is_approved`, `created_at`, `updated_at`) VALUES (1,'cstraka@hotmail.com','Chris','Straka',1232343456,1,'2013-02-21 11:19:49','2013-02-21 11:19:49'),(2,'zmijevik@hotmail.com','Joseph','Persie',2343345456,0,'2013-03-12 23:42:01','2013-03-12 23:42:01');
 /*!40000 ALTER TABLE `contact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,6 +141,8 @@ CREATE TABLE `email` (
   `date_scanned` datetime DEFAULT NULL,
   `subject` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `message` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `sufficient` tinyint(1) NOT NULL DEFAULT '0',
+  `points` bigint(20) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -97,7 +150,7 @@ CREATE TABLE `email` (
   KEY `contact_id_idx` (`contact_id`),
   CONSTRAINT `email_contact_id_contact_id` FOREIGN KEY (`contact_id`) REFERENCES `contact` (`id`),
   CONSTRAINT `email_inmate_id_inmate_id` FOREIGN KEY (`inmate_id`) REFERENCES `inmate` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -106,7 +159,7 @@ CREATE TABLE `email` (
 
 LOCK TABLES `email` WRITE;
 /*!40000 ALTER TABLE `email` DISABLE KEYS */;
-INSERT INTO `email` (`id`, `email_type`, `inmate_id`, `contact_id`, `scanned`, `date_scanned`, `subject`, `message`, `created_at`, `updated_at`) VALUES (1,'outgoing',1,1,0,NULL,'bail money','i need one of you to bail me out of here on some bogus charges. ','2013-02-22 12:51:34','2013-02-22 12:51:34'),(2,'incoming',1,NULL,0,NULL,'commecary','i need some cach for commecary please update my email balance as well','2013-02-22 13:13:26','2013-02-22 13:13:26'),(6,'outgoing',1,NULL,0,NULL,'WHore','You got me arrested bitch im going to kill you','2013-02-22 14:38:13','2013-02-22 14:38:13'),(7,'outgoing',1,NULL,0,NULL,'revenge','you got me arrested fool im gonna bust a cap in your ass when i get outta here','2013-02-22 14:40:54','2013-02-22 14:40:54'),(8,'incoming',1,NULL,0,NULL,'visitation','when can i come to visit?','2013-02-22 15:33:43','2013-02-22 15:33:43'),(9,'incoming',1,NULL,0,NULL,'commercary','we comeing to visit and provide some commercary','2013-02-22 17:34:31','2013-02-22 17:34:31'),(14,'outgoing',1,1,0,NULL,'still alive','are you still alive respond to my email!','2013-02-22 23:33:07','2013-02-22 23:33:07');
+INSERT INTO `email` (`id`, `email_type`, `inmate_id`, `contact_id`, `scanned`, `date_scanned`, `subject`, `message`, `sufficient`, `points`, `created_at`, `updated_at`) VALUES (1,'outgoing',1,1,0,NULL,'bail money','i need one of you to bail me out of here on some bogus charges. ',0,NULL,'2013-02-22 12:51:34','2013-02-22 12:51:34'),(2,'incoming',1,NULL,0,NULL,'commecary','i need some cach for commecary please update my email balance as well',0,NULL,'2013-02-22 13:13:26','2013-02-22 13:13:26'),(6,'outgoing',1,NULL,0,NULL,'WHore','You got me arrested bitch im going to kill you',0,NULL,'2013-02-22 14:38:13','2013-02-22 14:38:13'),(7,'outgoing',1,NULL,0,NULL,'revenge','you got me arrested fool im gonna bust a cap in your ass when i get outta here',0,NULL,'2013-02-22 14:40:54','2013-02-22 14:40:54'),(8,'incoming',1,NULL,0,NULL,'visitation','when can i come to visit?',0,NULL,'2013-02-22 15:33:43','2013-02-22 15:33:43'),(9,'incoming',1,NULL,0,NULL,'commercary','we comeing to visit and provide some commercary',0,NULL,'2013-02-22 17:34:31','2013-02-22 17:34:31'),(14,'outgoing',1,1,0,NULL,'still alive','are you still alive respond to my email!',0,NULL,'2013-02-22 23:33:07','2013-02-22 23:33:07'),(15,'incoming',1,NULL,0,NULL,'10293847','i am going to <span class=\"flag_violence\" style=\"color:orange\" >punch</span> and <span class=\"flag_violence\" style=\"color:orange\" >stab</span> you to <span class=\"flag_violence\" style=\"color:orange\" >kill</span> you bitch you are a <span class=\"flag_profane\" style=\"color:red\" >cunt</span> 		 	 		 ',0,4,'2013-03-12 23:40:17','2013-03-12 23:40:17'),(16,'incoming',1,2,0,NULL,'10293847','i am going to <span class=\"flag_violence\" style=\"color:orange\" >punch</span> and <span class=\"flag_violence\" style=\"color:orange\" >stab</span> you to <span class=\"flag_violence\" style=\"color:orange\" >kill</span> you bitch you are a <span class=\"flag_profane\" style=\"color:red\" >cunt</span> 		 	 		 ',1,4,'2013-03-12 23:48:13','2013-03-12 23:48:13'),(17,'incoming',2,2,0,NULL,'43247329','give me the fucking commecary shit brains 		 	   		  ',1,NULL,'2013-03-13 00:11:23','2013-03-13 00:31:16'),(18,'incoming',2,2,0,NULL,'43247329','give me the fucking commecary shit brains 		 	   		  ',0,NULL,'2013-03-13 00:15:14','2013-03-13 00:15:14'),(19,'incoming',2,2,0,NULL,'43247329','give me the fucking commecary shit brains 		 	   		  ',0,NULL,'2013-03-13 00:15:33','2013-03-13 00:15:33'),(20,'incoming',2,2,0,NULL,'43247329','give me the fucking commecary <span class=\"flag_profane\" style=\"color:red\" >shit</span> brains 		 	 		 ',0,1,'2013-03-13 00:20:47','2013-03-13 00:20:47'),(21,'incoming',2,2,0,NULL,'43247329','give me the fucking commecary <span class=\"flag_profane\" style=\"color:red\" >shit</span> brains 		 	 		 ',0,1,'2013-03-13 00:23:50','2013-03-13 00:23:50');
 /*!40000 ALTER TABLE `email` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,12 +173,14 @@ CREATE TABLE `email_incoming` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `email_id` bigint(20) NOT NULL,
   `sender_email` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `sender_name` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `inmate_viewed` tinyint(1) NOT NULL DEFAULT '0',
+  `date_sender_sent` datetime DEFAULT NULL,
   `date_inmate_viewed` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `email_id_idx` (`email_id`),
   CONSTRAINT `email_incoming_email_id_email_id` FOREIGN KEY (`email_id`) REFERENCES `email` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +189,7 @@ CREATE TABLE `email_incoming` (
 
 LOCK TABLES `email_incoming` WRITE;
 /*!40000 ALTER TABLE `email_incoming` DISABLE KEYS */;
-INSERT INTO `email_incoming` (`id`, `email_id`, `sender_email`, `inmate_viewed`, `date_inmate_viewed`) VALUES (1,8,'milemans@gmail.com',1,'2013-02-22 16:12:52'),(2,9,'drake22@husmail.com',1,'2013-02-22 18:42:49');
+INSERT INTO `email_incoming` (`id`, `email_id`, `sender_email`, `sender_name`, `inmate_viewed`, `date_sender_sent`, `date_inmate_viewed`) VALUES (1,8,'milemans@gmail.com',NULL,1,NULL,'2013-02-22 16:12:52'),(2,9,'drake22@husmail.com',NULL,1,NULL,'2013-02-22 18:42:49'),(3,15,'zmijevik@hotmail.com','Joseph Persico',1,'2013-03-12 23:39:03','2013-03-12 23:49:59'),(4,16,'zmijevik@hotmail.com','Joseph Persico',1,'2013-03-12 23:39:03','2013-03-13 00:17:46'),(5,17,'zmijevik@hotmail.com','Joseph Persico',1,'2013-03-13 00:10:00','2013-03-13 00:31:44'),(6,18,'zmijevik@hotmail.com','Joseph Persico',0,'2013-03-13 00:10:46',NULL),(7,19,'zmijevik@hotmail.com','Joseph Persico',0,'2013-03-13 00:10:46',NULL),(8,20,'zmijevik@hotmail.com','Joseph Persico',0,'2013-03-13 00:10:46',NULL),(9,21,'zmijevik@hotmail.com','Joseph Persico',1,'2013-03-13 00:10:46','2013-03-13 00:25:43');
 /*!40000 ALTER TABLE `email_incoming` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +208,7 @@ CREATE TABLE `email_keyword` (
   KEY `keyword_id_idx` (`keyword_id`),
   CONSTRAINT `email_keyword_email_id_email_id` FOREIGN KEY (`email_id`) REFERENCES `email` (`id`),
   CONSTRAINT `email_keyword_keyword_id_keyword_id` FOREIGN KEY (`keyword_id`) REFERENCES `keyword` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,6 +217,7 @@ CREATE TABLE `email_keyword` (
 
 LOCK TABLES `email_keyword` WRITE;
 /*!40000 ALTER TABLE `email_keyword` DISABLE KEYS */;
+INSERT INTO `email_keyword` (`id`, `email_id`, `keyword_id`) VALUES (1,15,5),(2,15,6),(3,15,7),(4,15,8),(5,16,5),(6,16,6),(7,16,7),(8,16,8),(9,20,2),(10,21,2);
 /*!40000 ALTER TABLE `email_keyword` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,9 +258,11 @@ CREATE TABLE `flag` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8_unicode_ci,
+  `color` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cssclass` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `weight` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -213,7 +271,7 @@ CREATE TABLE `flag` (
 
 LOCK TABLES `flag` WRITE;
 /*!40000 ALTER TABLE `flag` DISABLE KEYS */;
-INSERT INTO `flag` (`id`, `name`, `description`, `weight`) VALUES (1,'profanity','all profane language not necessarily of any particular threat of malicious intent',0);
+INSERT INTO `flag` (`id`, `name`, `description`, `color`, `cssclass`, `weight`) VALUES (1,'profanity','all profane language not necessarily of any particular threat of malicious intent','red','flag_profane',0),(2,'violence','','orange','flag_violence',0);
 /*!40000 ALTER TABLE `flag` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -245,7 +303,7 @@ CREATE TABLE `inmate` (
 
 LOCK TABLES `inmate` WRITE;
 /*!40000 ALTER TABLE `inmate` DISABLE KEYS */;
-INSERT INTO `inmate` (`id`, `user_id`, `email_number`, `jail_number`, `balance`, `contacts_approvable`, `emails_approvable`, `created_at`, `updated_at`) VALUES (1,2,10293847,10293847,20.00,1,0,'2013-02-21 08:57:15','2013-02-21 08:57:15'),(2,4,43247329,43247329,0.00,0,0,'2013-02-22 23:34:10','2013-02-22 23:34:10');
+INSERT INTO `inmate` (`id`, `user_id`, `email_number`, `jail_number`, `balance`, `contacts_approvable`, `emails_approvable`, `created_at`, `updated_at`) VALUES (1,2,10293847,10293847,18.75,1,0,'2013-02-21 08:57:15','2013-03-12 23:48:13'),(2,4,43247329,43247329,0.00,0,0,'2013-02-22 23:34:10','2013-02-22 23:34:10');
 /*!40000 ALTER TABLE `inmate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,7 +350,7 @@ CREATE TABLE `keyword` (
   PRIMARY KEY (`id`),
   KEY `flag_id_idx` (`flag_id`),
   CONSTRAINT `keyword_flag_id_flag_id` FOREIGN KEY (`flag_id`) REFERENCES `flag` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -301,7 +359,7 @@ CREATE TABLE `keyword` (
 
 LOCK TABLES `keyword` WRITE;
 /*!40000 ALTER TABLE `keyword` DISABLE KEYS */;
-INSERT INTO `keyword` (`id`, `flag_id`, `name`, `description`, `weight`) VALUES (1,1,'fuck','',0),(2,1,'shit','',0),(3,1,'piss','',0),(4,1,'ass','',0),(5,1,'cunt','',0);
+INSERT INTO `keyword` (`id`, `flag_id`, `name`, `description`, `weight`) VALUES (1,1,'fuck','',0),(2,1,'shit','',0),(3,1,'piss','',0),(4,1,'ass','',0),(5,1,'cunt','',0),(6,2,'kill','',0),(7,2,'punch','',0),(8,2,'stab','',0);
 /*!40000 ALTER TABLE `keyword` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -506,7 +564,7 @@ CREATE TABLE `sf_guard_user` (
 
 LOCK TABLES `sf_guard_user` WRITE;
 /*!40000 ALTER TABLE `sf_guard_user` DISABLE KEYS */;
-INSERT INTO `sf_guard_user` (`id`, `first_name`, `middle_name`, `last_name`, `prefix`, `suffix`, `email_address`, `username`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `created_at`, `updated_at`) VALUES (1,'John',NULL,'Doe',NULL,NULL,'john.doe@gmail.com','admin','sha1','66f64897c80c82281f7201c7b7435b10','847dc164501174e5d9280e30ae71083b036fac19',1,1,'2013-02-22 23:40:15','2013-02-21 08:51:34','2013-02-22 23:40:15'),(2,'Joseph','','Persie','','',NULL,'10293847','sha1','e3205e830f8b1a81afaa706c6f2f94e3','e3204fb8d19ccd794339b2ad4020e2d6acb61a80',1,0,'2013-02-22 23:41:53','2013-02-21 08:57:15','2013-02-22 23:41:53'),(3,'sgt','','baker','','','','sgtbaker','sha1','470916fdbdb0d8b30199b6ac358fd27a','43f479839538b3c5581feefc7ea66097ff2cd311',1,1,'2013-02-21 11:18:59','2013-02-21 11:18:53','2013-02-21 11:18:59'),(4,'Tim','Parker','','','',NULL,'43247329','sha1','37deb933cb4323e864dffe988c32562a','b4b6eebc3b66966b51c62c69ed50fe6565ef8973',1,0,NULL,'2013-02-22 23:34:10','2013-02-22 23:34:10');
+INSERT INTO `sf_guard_user` (`id`, `first_name`, `middle_name`, `last_name`, `prefix`, `suffix`, `email_address`, `username`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `created_at`, `updated_at`) VALUES (1,'John',NULL,'Doe',NULL,NULL,'john.doe@gmail.com','admin','sha1','66f64897c80c82281f7201c7b7435b10','847dc164501174e5d9280e30ae71083b036fac19',1,1,'2013-03-13 00:32:04','2013-02-21 08:51:34','2013-03-13 00:32:04'),(2,'Joseph','','Persie','','',NULL,'10293847','sha1','e3205e830f8b1a81afaa706c6f2f94e3','e3204fb8d19ccd794339b2ad4020e2d6acb61a80',1,0,'2013-03-13 00:17:19','2013-02-21 08:57:15','2013-03-13 00:17:19'),(3,'sgt','','baker','','','','sgtbaker','sha1','470916fdbdb0d8b30199b6ac358fd27a','43f479839538b3c5581feefc7ea66097ff2cd311',1,1,'2013-03-13 00:16:48','2013-02-21 11:18:53','2013-03-13 00:16:48'),(4,'Tim','Parker','','','',NULL,'43247329','sha1','37deb933cb4323e864dffe988c32562a','b4b6eebc3b66966b51c62c69ed50fe6565ef8973',1,0,'2013-03-13 00:31:32','2013-02-22 23:34:10','2013-03-13 00:31:32');
 /*!40000 ALTER TABLE `sf_guard_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -574,4 +632,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-02-22 23:44:55
+-- Dump completed on 2013-03-13  0:33:42

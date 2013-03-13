@@ -10,7 +10,7 @@ Subject:
 </div>
 Message:
 <div id="message">
-<?=$email->getEmail()->getMessage()?>
+<?=Email::cleanMessage($email->getEmail()->getRaw('message'))?>
 </div>
 <a id="back-inbox" href="#">Back to Inbox</a>
 </div>

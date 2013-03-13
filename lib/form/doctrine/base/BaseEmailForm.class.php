@@ -24,6 +24,7 @@ abstract class BaseEmailForm extends BaseFormDoctrine
       'subject'      => new sfWidgetFormInputText(),
       'message'      => new sfWidgetFormTextarea(),
       'sufficient'   => new sfWidgetFormInputCheckbox(),
+      'points'       => new sfWidgetFormInputText(),
       'created_at'   => new sfWidgetFormDateTime(),
       'updated_at'   => new sfWidgetFormDateTime(),
     ));
@@ -38,6 +39,7 @@ abstract class BaseEmailForm extends BaseFormDoctrine
       'subject'      => new sfValidatorString(array('max_length' => 128)),
       'message'      => new sfValidatorString(),
       'sufficient'   => new sfValidatorBoolean(array('required' => false)),
+      'points'       => new sfValidatorInteger(array('required' => false)),
       'created_at'   => new sfValidatorDateTime(),
       'updated_at'   => new sfValidatorDateTime(),
     ));
