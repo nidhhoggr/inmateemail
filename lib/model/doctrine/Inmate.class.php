@@ -52,9 +52,17 @@ class Inmate extends BaseInmate
         ->from('EmailOutgoing eo, eo.Email e')
         ->where('e.inmate_id = ?', $inmate_id)
         ->andWhere('eo.sent = ?',0)
+        ->orWhere('e.inmate_id = ?', $inmate_id)
+        ->andWhere('e.sufficient = ?',0)
         ->fetchArray();
 
         return number_format(round(count($unsent_emails) * $price,2),2);
+    }
+
+    public function getFullName() {
+
+        return $this->getUser()->getFirstName() . ' ' . $this->getUser()->getLastName();
+
     }
 
     public function __toString() {

@@ -1,701 +1,343 @@
-[13-Mar-2013 04:39:45 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+[13-Mar-2013 15:26:24] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home/zmijevik/public_html/clients/inmateemail/utils/mailer/Mailer.class.php on line 15
+[13-Mar-2013 15:26:24] PHP Parse error:  syntax error, unexpected T_STRING in /home/zmijevik/public_html/clients/inmateemail/utils/mailer/Mailer.class.php on line 15
+[13-Mar-2013 15:26:51] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home/zmijevik/public_html/clients/inmateemail/utils/mailer/Mailer.class.php on line 15
+[13-Mar-2013 15:26:51] PHP Parse error:  syntax error, unexpected T_STRING in /home/zmijevik/public_html/clients/inmateemail/utils/mailer/Mailer.class.php on line 15
+[13-Mar-2013 15:27:11] PHP Fatal error:  Uncaught exception 'Doctrine_Query_Exception' with message 'Unknown column sent' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query.php:752
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Where.php(110): Doctrine_Query->parseClause('e.sent')
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Where.php(98): Doctrine_Query_Where->_buildSql('e.sent', '=', '?')
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Condition.php(92): Doctrine_Query_Where->load('e.sent = ?')
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(2084): Doctrine_Query_Condition->parse('e.sent = ?')
+#4 /home/z in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query.php on line 752
+[13-Mar-2013 15:27:30] PHP Fatal error:  Uncaught exception 'Doctrine_Hydrator_Exception' with message '"Email" with an alias of "e" in your query does not reference the parent component it is related to.' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Hydrator/Graph.php:197
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Hydrator.php(148): Doctrine_Hydrator_Graph->hydrateResultSet(Object(Doctrine_Connection_Statement))
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(1043): Doctrine_Hydrator->hydrateResultSet(Object(Doctrine_Connection_Statement), Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/model/doctrine/EmailOutgoing.class.php(48): Doctrine_Query_Abstract->execute()
+#3 /home/zmijevik/public_html/clients/inmateemail/utils/send_outgoing/run.php(15): EmailOutgoing::get in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Hydrator/Graph.php on line 197
+[13-Mar-2013 15:28:20] PHP Fatal error:  Uncaught exception 'Doctrine_Record_UnknownPropertyException' with message 'Unknown record property / related component "subject" on "EmailOutgoing"' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php:55
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1395): Doctrine_Record_Filter_Standard->filterGet(Object(EmailOutgoing), 'subject')
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1350): Doctrine_Record->_get('subject', true)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Access.php(72): Doctrine_Record->get('subject')
+#3 /home/zmijevik/public_html/clients/inmateemail/utils/send_outgoing/run.php(18): Doctrine_Access->__get('subject')
+#4 {ma in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php on line 55
+[13-Mar-2013 17:37:03] PHP Fatal error:  Uncaught exception 'Doctrine_Record_UnknownPropertyException' with message 'Unknown record property / related component "inmate_id" on "EmailOutgoing"' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php:55
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1395): Doctrine_Record_Filter_Standard->filterGet(Object(EmailOutgoing), 'inmate_id')
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1350): Doctrine_Record->_get('inmate_id', true)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Access.php(72): Doctrine_Record->get('inmate_id')
+#3 /home/zmijevik/public_html/clients/inmateemail/utils/send_outgoing/run.php(20): Doctrine_Access->__get('inmate_i in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php on line 55
+[13-Mar-2013 22:43:55 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:39:45 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[13-Mar-2013 22:43:55 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:39:45 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[13-Mar-2013 22:43:55 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:39:45 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[13-Mar-2013 22:43:55 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:39:45 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 04:39:45 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[13-Mar-2013 22:43:55 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[13-Mar-2013 22:43:55 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:39:45 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[13-Mar-2013 22:43:55 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:39:45 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 04:39:45 UTC] PHP Warning:  date() [<a href='function.date'>function.date</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Chicago' for 'CDT/-5.0/DST' instead in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfRootConfigHandler.class.php on line 91
-[13-Mar-2013 04:39:45 UTC] PHP Warning:  date() [<a href='function.date'>function.date</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Chicago' for 'CDT/-5.0/DST' instead in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfDefineEnvironmentConfigHandler.class.php on line 66
-[13-Mar-2013 04:39:45 UTC] PHP Warning:  date() [<a href='function.date'>function.date</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Chicago' for 'CDT/-5.0/DST' instead in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/config/sfDefineEnvironmentConfigHandler.class.php on line 66
-[13-Mar-2013 04:39:45 UTC] PHP Fatal error:  Call to a member function notifyInmateInsufficieny() on a non-object in /home/zmijevik/public_html/clients/inmateemail/utils/synch_incoming/run.php on line 49
-[13-Mar-2013 04:40:17 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+[13-Mar-2013 22:43:55 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[13-Mar-2013 22:43:56 UTC] PHP Fatal error:  Call to a member function addTo() on a non-object in /home/zmijevik/public_html/clients/inmateemail/utils/mailer/Mailer.class.php on line 49
+[13-Mar-2013 22:44:32 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:40:17 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[13-Mar-2013 22:44:32 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:40:17 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[13-Mar-2013 22:44:32 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:40:17 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[13-Mar-2013 22:44:32 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:40:17 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 04:40:17 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[13-Mar-2013 22:44:32 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[13-Mar-2013 22:44:32 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:40:17 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[13-Mar-2013 22:44:32 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:40:17 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 04:43:51 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+[13-Mar-2013 22:44:32 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[13-Mar-2013 22:44:32 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Record_UnknownPropertyException' with message 'Unknown record property / related component "recipient_email" on "Email"' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php:55
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1395): Doctrine_Record_Filter_Standard->filterGet(Object(Email), 'recipient_email')
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1350): Doctrine_Record->_get('recipient_email', true)
+#2 [internal function]: Doctrine_Record->get('recipient_email')
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/record/sfDoctrineRecord.class.php(186): call_user_func_array(Array, Array)
+#4 /home/zmijevik/public_html/clients/inmateemail in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php on line 55
+[13-Mar-2013 22:46:11 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:43:51 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[13-Mar-2013 22:46:11 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:43:51 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[13-Mar-2013 22:46:11 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:43:51 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[13-Mar-2013 22:46:11 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:43:51 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 04:43:51 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[13-Mar-2013 22:46:11 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[13-Mar-2013 22:46:11 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:43:51 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[13-Mar-2013 22:46:11 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:43:51 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 04:45:39 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+[13-Mar-2013 22:46:11 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[13-Mar-2013 22:46:11 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Record_UnknownPropertyException' with message 'Unknown record property / related component "first_name" on "Inmate"' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php:55
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1395): Doctrine_Record_Filter_Standard->filterGet(Object(Inmate), 'first_name')
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1350): Doctrine_Record->_get('first_name', true)
+#2 [internal function]: Doctrine_Record->get('first_name')
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/record/sfDoctrineRecord.class.php(186): call_user_func_array(Array, Array)
+#4 /home/zmijevik/public_html/clients/inmateemail/lib/model/doctrin in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php on line 55
+[13-Mar-2013 22:46:42 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:45:39 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[13-Mar-2013 22:46:42 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:45:39 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[13-Mar-2013 22:46:42 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:45:39 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[13-Mar-2013 22:46:42 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:45:39 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 04:45:39 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[13-Mar-2013 22:46:42 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[13-Mar-2013 22:46:42 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:45:39 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[13-Mar-2013 22:46:42 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 04:45:39 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 04:45:57 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:45:57 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:45:57 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:45:57 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:45:57 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 04:45:57 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:45:57 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:45:57 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 04:46:24 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:46:24 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:46:24 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:46:24 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:46:24 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 04:46:24 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:46:24 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:46:24 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 04:47:06 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:06 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:06 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:06 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:06 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 04:47:06 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:06 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:06 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 04:47:06 UTC] PHP Fatal error:  Function name must be a string in /home/zmijevik/public_html/clients/inmateemail/lib/model/doctrine/Inmate.class.php on line 32
-[13-Mar-2013 04:47:18 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:18 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:18 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:18 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:18 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 04:47:18 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:18 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:18 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 04:47:40 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:40 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:40 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:40 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:40 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 04:47:40 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:40 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:40 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 04:47:52 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:52 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:52 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:52 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:52 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 04:47:52 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:52 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:47:52 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 04:48:13 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:48:13 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:48:13 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:48:13 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:48:13 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 04:48:13 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:48:13 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 04:48:13 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 05:11:23 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 05:11:23 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 05:11:23 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 05:11:23 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 05:11:23 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 05:11:23 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 05:11:23 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[13-Mar-2013 05:11:23 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 05:11:23 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Record_UnknownPropertyException' with message 'Unknown record property / related component "raw" on "Email"' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php:55
+[13-Mar-2013 22:46:42 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[13-Mar-2013 22:46:42 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Record_UnknownPropertyException' with message 'Unknown record property / related component "raw" on "Email"' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php:55
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1395): Doctrine_Record_Filter_Standard->filterGet(Object(Email), 'raw')
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1350): Doctrine_Record->_get('raw', 'message')
 #2 [internal function]: Doctrine_Record->get('raw', 'message')
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/record/sfDoctrineRecord.class.php(186): call_user_func_array(Array, Array)
-#4 /home/zmijevik/public_html/clients/inmateemail/utils/scan_emails/ScanEmail.cla in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php on line 55
-[13-Mar-2013 05:15:14 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+#4 /home/zmijevik/public_html/clients/inmateemail/utils/mailer/Mailer.class.php(5 in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php on line 55
+[13-Mar-2013 22:47:26 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:14 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[13-Mar-2013 22:47:26 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:14 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[13-Mar-2013 22:47:26 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:14 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[13-Mar-2013 22:47:26 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:14 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 05:15:14 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[13-Mar-2013 22:47:26 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[13-Mar-2013 22:47:26 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:14 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[13-Mar-2013 22:47:26 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:14 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 05:15:14 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Record_UnknownPropertyException' with message 'Unknown record property / related component "email" on "Email"' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php:55
-Stack trace:
-#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1395): Doctrine_Record_Filter_Standard->filterGet(Object(Email), 'email')
-#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1350): Doctrine_Record->_get('email', true)
-#2 [internal function]: Doctrine_Record->get('email')
-#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/record/sfDoctrineRecord.class.php(186): call_user_func_array(Array, Array)
-#4 /home/zmijevik/public_html/clients/inmateemail/utils/scan_emails/ScanEmail.class.php(9 in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php on line 55
-[13-Mar-2013 05:15:33 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+[13-Mar-2013 22:47:26 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[13-Mar-2013 22:54:50 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:33 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[13-Mar-2013 22:54:50 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:33 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[13-Mar-2013 22:54:50 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:33 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[13-Mar-2013 22:54:50 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:33 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 05:15:33 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[13-Mar-2013 22:54:50 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[13-Mar-2013 22:54:50 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:33 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[13-Mar-2013 22:54:50 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:15:33 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 05:15:33 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Record_UnknownPropertyException' with message 'Unknown record property / related component "raw" on "Email"' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php:55
-Stack trace:
-#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1395): Doctrine_Record_Filter_Standard->filterGet(Object(Email), 'raw')
-#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record.php(1350): Doctrine_Record->_get('raw', 'message')
-#2 [internal function]: Doctrine_Record->get('raw', 'message')
-#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/record/sfDoctrineRecord.class.php(186): call_user_func_array(Array, Array)
-#4 /home/zmijevik/public_html/clients/inmateemail/utils/scan_emails/ScanEmail.cla in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Record/Filter/Standard.php on line 55
-[13-Mar-2013 05:20:47 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+[13-Mar-2013 22:54:50 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[13-Mar-2013 22:55:07 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:20:47 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[13-Mar-2013 22:55:07 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:20:47 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[13-Mar-2013 22:55:07 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:20:47 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[13-Mar-2013 22:55:07 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:20:47 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 05:20:47 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[13-Mar-2013 22:55:07 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[13-Mar-2013 22:55:07 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:20:47 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[13-Mar-2013 22:55:07 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:20:47 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[13-Mar-2013 05:23:50 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+[13-Mar-2013 22:55:07 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 00:24:18 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:23:50 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[14-Mar-2013 00:24:18 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:23:50 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[14-Mar-2013 00:24:18 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:23:50 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[14-Mar-2013 00:24:18 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:23:50 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[13-Mar-2013 05:23:50 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[14-Mar-2013 00:24:18 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 00:24:18 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:23:50 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[14-Mar-2013 00:24:18 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[13-Mar-2013 05:23:50 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[14-Mar-2013 01:11:53 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+[14-Mar-2013 00:24:18 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:35:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:11:53 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[14-Mar-2013 01:35:01 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:11:53 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[14-Mar-2013 01:35:01 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:11:53 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[14-Mar-2013 01:35:01 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:11:53 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[14-Mar-2013 01:11:53 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[14-Mar-2013 01:35:01 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:35:01 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:11:53 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[14-Mar-2013 01:35:01 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:11:53 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[14-Mar-2013 01:17:25 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:17:25 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:17:25 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:17:25 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:17:25 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[14-Mar-2013 01:17:25 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:17:25 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:17:25 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[14-Mar-2013 01:24:15 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:15 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:15 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:15 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:15 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[14-Mar-2013 01:24:15 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:15 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:15 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[14-Mar-2013 01:24:35 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:35 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:35 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:35 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:35 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[14-Mar-2013 01:24:35 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:35 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:24:35 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[14-Mar-2013 01:25:47 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:25:47 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:25:47 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:25:47 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:25:47 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[14-Mar-2013 01:25:47 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:25:47 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:25:47 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:35:01 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
 [14-Mar-2013 01:36:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
@@ -733,28 +375,28 @@ Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:37:02 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[14-Mar-2013 01:37:01 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:37:02 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[14-Mar-2013 01:37:01 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:37:02 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[14-Mar-2013 01:37:01 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:37:02 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[14-Mar-2013 01:37:02 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[14-Mar-2013 01:37:01 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:37:01 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:37:02 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[14-Mar-2013 01:37:01 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
@@ -952,38 +594,6 @@ PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
 [14-Mar-2013 01:43:01 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[14-Mar-2013 01:43:06 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:43:06 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:43:06 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:43:06 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:43:06 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[14-Mar-2013 01:43:06 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:43:06 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 01:43:06 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
 [14-Mar-2013 01:44:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
@@ -1176,38 +786,38 @@ PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
 [14-Mar-2013 01:49:01 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[14-Mar-2013 01:50:02 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+[14-Mar-2013 01:50:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:50:02 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[14-Mar-2013 01:50:01 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:50:02 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[14-Mar-2013 01:50:01 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:50:02 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[14-Mar-2013 01:50:01 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:50:02 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[14-Mar-2013 01:50:02 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[14-Mar-2013 01:50:01 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:50:01 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:50:02 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[14-Mar-2013 01:50:01 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 01:50:02 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:50:01 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
 [14-Mar-2013 01:51:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
@@ -1244,7 +854,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 01:52:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1282,7 +892,387 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:52:02 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:02 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:02 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:02 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:02 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:52:02 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:02 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:02 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:52:02 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:52:05 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:05 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:05 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:05 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:05 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:52:05 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:05 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:05 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:52:05 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:52:08 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:08 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:08 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:08 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:08 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:52:08 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:08 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:08 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:52:08 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:52:12 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:12 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:12 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:12 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:12 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:52:12 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:12 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:12 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:52:12 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:52:17 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:17 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:17 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:17 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:17 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:52:17 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:17 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:17 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:52:17 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:52:23 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:23 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:23 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:23 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:23 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:52:23 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:23 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:23 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:52:23 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:52:30 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:30 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:30 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:30 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:30 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:52:30 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:30 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:30 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:52:30 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:52:39 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:39 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:39 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:39 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:39 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:52:39 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:39 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:39 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:52:39 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:52:48 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:48 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:48 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:48 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:48 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:52:48 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:48 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:48 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:52:48 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:52:58 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:58 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:58 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:58 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:58 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:52:58 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:58 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:52:58 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:52:58 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 01:53:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1320,7 +1310,235 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:53:08 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:08 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:08 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:08 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:08 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:53:08 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:08 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:08 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:53:08 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:53:18 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:18 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:18 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:18 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:18 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:53:18 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:18 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:18 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:53:18 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:53:28 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:28 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:28 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:28 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:28 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:53:28 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:28 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:28 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:53:28 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:53:38 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:38 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:38 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:38 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:38 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:53:38 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:38 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:38 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:53:39 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:53:49 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:49 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:49 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:49 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:49 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:53:49 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:49 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:49 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:53:49 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:53:59 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:59 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:59 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:59 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:59 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:53:59 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:59 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:53:59 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:53:59 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 01:54:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1358,7 +1576,121 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:54:09 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:09 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:09 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:09 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:09 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:54:09 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:09 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:09 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:54:09 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:54:19 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:19 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:19 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:19 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:19 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:54:19 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:19 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:19 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:54:19 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
+#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
+[14-Mar-2013 01:54:29 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:29 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:29 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:29 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:29 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 01:54:29 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:29 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 01:54:29 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 01:54:29 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+Stack trace:
+#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
+#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 01:55:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1396,7 +1728,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 01:56:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1434,7 +1766,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 01:57:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1472,7 +1804,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 01:58:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1506,13 +1838,13 @@ PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
 [14-Mar-2013 01:58:01 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[14-Mar-2013 01:58:01 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+[14-Mar-2013 01:58:02 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
-[14-Mar-2013 01:59:02 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+[14-Mar-2013 01:59:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
@@ -1548,7 +1880,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:00:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1586,7 +1918,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:01:02 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1624,7 +1956,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:02:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1662,7 +1994,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:03:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1700,7 +2032,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:04:02 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -1738,7 +2070,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:05:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -2256,7 +2588,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:21:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -2294,7 +2626,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:22:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -2332,7 +2664,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:23:02 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -2370,7 +2702,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:24:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -2408,7 +2740,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:25:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -2446,45 +2778,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
-#3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
-[14-Mar-2013 02:25:51 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 02:25:51 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 02:25:51 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 02:25:51 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 02:25:51 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[14-Mar-2013 02:25:51 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 02:25:51 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
-Module compiled with module API=20060613
-PHP    compiled with module API=20090626
-These options need to match
- in Unknown on line 0
-[14-Mar-2013 02:25:51 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[14-Mar-2013 02:25:51 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
-Stack trace:
-#0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
-#1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:26:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -2518,11 +2812,11 @@ PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
 [14-Mar-2013 02:26:01 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[14-Mar-2013 02:26:02 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
+[14-Mar-2013 02:26:01 UTC] PHP Fatal error:  Uncaught exception 'Doctrine_Connection_Exception' with message 'PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'zmijevik'@'localhost' (using password: YES)' in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php:474
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:27:02 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -2560,7 +2854,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:28:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -2598,7 +2892,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:29:02 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -2636,7 +2930,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:30:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -2674,7 +2968,7 @@ These options need to match
 Stack trace:
 #0 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection/Mysql.php(101): Doctrine_Connection->connect()
 #1 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php(1001): Doctrine_Connection_Mysql->connect()
-#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT c.id AS ...', Array)
+#2 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Query/Abstract.php(983): Doctrine_Connection->execute('SELECT e.id AS ...', Array)
 #3 /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/ven in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/vendor/doctrine/Doctrine/Connection.php on line 474
 [14-Mar-2013 02:31:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
@@ -3220,6 +3514,38 @@ PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
 [14-Mar-2013 02:47:01 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
+[14-Mar-2013 02:47:40 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 02:47:40 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 02:47:40 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 02:47:40 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 02:47:40 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 02:47:40 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 02:47:40 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+Module compiled with module API=20060613
+PHP    compiled with module API=20090626
+These options need to match
+ in Unknown on line 0
+[14-Mar-2013 02:47:40 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
 [14-Mar-2013 02:48:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
@@ -3252,33 +3578,33 @@ PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
 [14-Mar-2013 02:48:01 UTC] PHP Deprecated:  Directive 'register_globals' is deprecated in PHP 5.3 and greater in Unknown on line 0
-[14-Mar-2013 02:49:02 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
+[14-Mar-2013 02:49:01 UTC] PHP Warning:  PHP Startup: magickwand: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 02:49:02 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
+[14-Mar-2013 02:49:01 UTC] PHP Warning:  PHP Startup: imagick: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 02:49:02 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
+[14-Mar-2013 02:49:01 UTC] PHP Warning:  PHP Startup: PDO: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 02:49:02 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
+[14-Mar-2013 02:49:01 UTC] PHP Warning:  PHP Startup: pdo_sqlite: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 02:49:02 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
-[14-Mar-2013 02:49:02 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
+[14-Mar-2013 02:49:01 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so' - /usr/local/lib/php/extensions/no-debug-non-zts-20060613/sqlite.so: undefined symbol: third_arg_force_ref in Unknown on line 0
+[14-Mar-2013 02:49:01 UTC] PHP Warning:  PHP Startup: pdo_mysql: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match
  in Unknown on line 0
-[14-Mar-2013 02:49:02 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
+[14-Mar-2013 02:49:01 UTC] PHP Warning:  PHP Startup: SourceGuardian: Unable to initialize module
 Module compiled with module API=20060613
 PHP    compiled with module API=20090626
 These options need to match

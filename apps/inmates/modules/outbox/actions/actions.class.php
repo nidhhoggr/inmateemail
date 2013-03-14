@@ -53,11 +53,20 @@ class outboxActions extends sfActions
     }
   }
 
+  public function executeAjaxInmateBalance(sfWebRequest $request) {
+      $account_balance = InmateTable::getCurrentBalance();
+      $pending_charges = Inmate::calculatePendingChargesByLoggedIn();
+      echo json_encode(compact('account_balance','pending_charges'));
+      die();
+  }
+
   private function setProtectedValues(&$request) {
 
+      $isSufficient = InmateTable::hasSufficientFundsFor('send_email_price');
       $params = $request->getParameter('email_outgoing');
       $params['Email']['inmate_id'] = InmateTable::loggedIn()->getId();
       $params['Email']['email_type'] = 'outgoing';
+      $params['Email']['sufficient'] = $isSufficient;
       $request->setParameter('email_outgoing',$params);
   }
 }

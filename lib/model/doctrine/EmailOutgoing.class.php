@@ -40,6 +40,15 @@ class EmailOutgoing extends BaseEmailOutgoing
         return $this->getEmail()->getSufficient();
     }
 
+    public static function getQueued() {
+
+        return Doctrine_Query::create()
+        ->from('EmailOutgoing eo, eo.Email e')
+        ->where('eo.sent = ?',false)
+        ->execute();
+
+    }
+
     public static function getById($id) {
 
         return Doctrine_Query::create()

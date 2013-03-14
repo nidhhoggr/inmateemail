@@ -18,7 +18,11 @@ $(function() {
     $('#send-message').live('click',function(e) {
         e.preventDefault();
         var form_data = $('#form-compose-message').serialize();
-        makeAjaxCall('/outbox/create',form_data);
+
+        makeAjaxCallWithCallback('/outbox/create',form_data,function(msg) {
+            updateBalance(); 
+            $('#inmate-content').html(msg);
+        });
     });
 
     $('#save-contact').live('click',function(e) {
@@ -30,13 +34,8 @@ $(function() {
     $('#email_outgoing_Email_contact_id').live('change', function() {
 
         var contact_id = $(this).val();
-        $.ajax({
-            type: 'POST',
-            data: {id: contact_id},
-            url: inmates_url + '/contacts/getContactEmail',
-            success: function(msg){
-                $('#email_outgoing_recipient_email').val(msg);
-            }
+        makeAjaxCallWithCallback('/contacts/getContactEmail',{id: contact_id},function(msg) {
+            $('#email_outgoing_recipient_email').val(msg);
         });
     });
 
@@ -58,6 +57,11 @@ $(function() {
         e.preventDefault();
         makeAjaxCall('/contacts/index',{});
     });
+
+    setInterval(function() {
+        console.log('updating balance');
+        updateBalance();
+    },5000);
 });
 
 makeAjaxCall = function(route,data) {
@@ -69,5 +73,25 @@ makeAjaxCall = function(route,data) {
         success: function(msg){
             $('#inmate-content').html(msg);
         }
+    });
+}
+
+makeAjaxCallWithCallback = function(route,data,callback) {
+    $.ajax({
+        type: 'POST',
+        data: data,
+        url: inmates_url + route,
+        success: function(msg){
+            callback(msg);
+        }
+    });
+}
+
+updateBalance = function() {
+
+    makeAjaxCallWithCallback('/outbox/ajaxInmateBalance',{},function(msg) {
+            msg = $.parseJSON(msg);
+            $('#account_balance span').html('$'+msg.account_balance);
+            $('#pending_charges span').html('$'+msg.pending_charges);
     });
 }

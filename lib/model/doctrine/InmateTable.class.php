@@ -39,6 +39,13 @@ class InmateTable extends Doctrine_Table
                ->fetchOne();
     }
 
+    public static function hasSufficientFundsFor($config_key) {
+
+        $calc = (float)InmateTable::getCurrentBalance() - Config::getVal($config_key);
+
+        return ($calc>=0);
+    }
+
     public static function getCurrentBalance() {
 
         $calc =  self::loggedIn()->getBalance() - Inmate::calculatePendingChargesByLoggedIn();

@@ -10,7 +10,7 @@ class Mailer {
         $this->sendgrid = new SendGrid('inmateemail','a1genda666');
     }
 
-    public function notifyNonexistentInmate(Mail $mail) {
+    public function notifyNonexistentInmate($mail) {
 
         $email = new SendGrid\Mail();
 
@@ -22,15 +22,36 @@ class Mailer {
         $this->sendgrid->web->send($email);
     }
 
-    public function notifyInmateInsufficieny(Inmate $inmate, $sender_email) {
+    public function notifyInmateInsufficiency(Inmate $inmate, $sender_email,$direction) {
 
         $email = new SendGrid\Mail();
 
-        $email->addTo($sender_email)
+        if($direction == "incoming") {
+
+            $email->addTo($sender_email)
             ->setFrom('noreply@emailforinmates.com')
             ->setSubject('Insufficient Funds')
-            ->setHtml('The inmate you sent an email to \''.$inmate.'\' does not have sufficient funds to view the email.<br />Please replenish the inmates account to allow the inmate to view your email.');
+            ->setHtml('The inmate you sent an email to \''.$inmate->getFullName().'\' does not have sufficient funds to view the email.<br />Please replenish the inmates account to allow the inmate to view your email.');
+        }
+        else if($direction == "outgoing") {
+
+            $email->addTo($sender_email)
+            ->setFrom('noreply@emailforinmates.com')
+            ->setSubject($inmate->getFullName() . ' is trying to cantact you')
+            ->setHtml('An inmate by the name of \''.$inmate->getFullName().'\' does not have sufficient funds to send an email and is trying to contact you.<br />Please replenish the inmates account to allow the inmate to send emails to you.');
+        }
 
         $this->sendgrid->web->send($email);
+    }
+
+    public function sendByInmate(Inmate $inmate, EmailOutgoing $email) {
+        $mail = new SendGrid\Mail();
+
+        $mail->addTo($email->getRecipientEmail())
+            ->setFrom('noreply@emailforinmates.com')
+            ->setSubject('Message From '.$inmate->getFullName() .': '.$email->getEmail()->getSubject())
+            ->setHtml('The inmate by the name of \''.$inmate->getFullName().'\' sent you the following message entitled '.$email->getEmail()->getSubject().'.<br /></br />'.$email->getEmail()->getMessage());
+
+        $this->sendgrid->web->send($mail);
     }
 }

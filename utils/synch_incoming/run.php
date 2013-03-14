@@ -26,7 +26,7 @@ foreach($mailbox->searchMailBox('UNSEEN') as $mailId) {
 	// $mailbox->setMailAsSeen($mail->mId);
 	// $mailbox->deleteMail($mail->mId);
 
-        $mailbox->markMessageAsUnread($mail->mId);
+        //$mailbox->markMessageAsUnread($mail->mId);
         
         $inmate = Inmate::findByEmailNumber($mail->subject);
         $contact = Contact::findByEmailAddress($mail->fromAddress);
@@ -48,7 +48,7 @@ foreach($mailbox->searchMailBox('UNSEEN') as $mailId) {
             else { 
                 $e->sufficient = false;
                 //send an email to the sender notifying them of insufficient funds
-                $mh->notifyInmateInsufficieny($inmate,$mail->fromAddress);
+                $mh->notifyInmateInsufficiency($inmate,$mail->fromAddress,'incoming');
             }
 
             $e->inmate_id = $inmate->id;

@@ -11,7 +11,7 @@
   <tbody class="messages">
     <?php foreach ($email_outgoings as $email_outgoing): ?>
     <tr class="email_outgoing" data-email-outgoing-id="<?=$email_outgoing->getId()?>">
-      <td class="<?=($email_outgoing->getSent())?'sent':'not-sent';?>"></td>
+      <td class="<?=($email_outgoing->getSent() && $email_outgoing->getSufficient())?'sent':'not-sent';?>"></td>
       <td><?php echo $email_outgoing->getRecipient() ?></td>
       <td><?php echo $email_outgoing->getEmail()->getSubject() ?></td>
       <td><?php echo $email_outgoing->getEmail()->getWhenCreated() ?></td>
