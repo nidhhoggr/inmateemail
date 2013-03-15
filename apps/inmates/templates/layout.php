@@ -2,7 +2,7 @@
 <html lang="en">	
     <head>		
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />       
-        <title>InmateEmail</title>
+        <title>EmailForInmates</title>
         <!--[if IE 6]>
             <link rel="stylesheet" href="/css/bobo/ie6.css" />
         <![endif]--> 
@@ -25,7 +25,7 @@
                 <a href="#" title="[ADD LINK TITLE]">
                     <!--img src="/images/logo.png" /-->
                 </a>       	
-                <h2>Inmate Email</h2>           	
+                <h2>Email For Inmates</h2>           	
                 <div id="nav">
                     <ul id="nav-pages">
                         <? if($sf_user->isAuthenticated()): ?>
@@ -68,7 +68,7 @@
     		
     		<div id="footer">
 				
-				<p class="copyright">Copyright &copy; 2013 &middot; InmateEmail &middot; All Rights Reserved</p>
+				<p class="copyright">Copyright &copy; 2013 &middot; EmailForInmates &middot; All Rights Reserved</p>
 				   
                 </div><!--end footer-->
             

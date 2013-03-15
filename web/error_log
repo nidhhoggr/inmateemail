@@ -2092,3 +2092,44 @@ Stack trace:
 [13-Mar-2013 21:34:18] Action "css/images" does not exist.
 [13-Mar-2013 21:34:26] Action "css/images" does not exist.
 [13-Mar-2013 21:34:31] Action "css/images" does not exist.
+[14-Mar-2013 21:10:18] PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '/home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/database/sfDoctrineDatabase.class.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/zmijevik/public_html/inmateemail/lib/vendor/symfony/lib/autoload/sfAutoload.class.php on line 188
+[14-Mar-2013 21:10:50] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:10:50] Action "css/images" does not exist.
+[14-Mar-2013 21:10:55] Action "clients/inmateemail" does not exist.
+[14-Mar-2013 21:10:57] Action "clients/inmateemail" does not exist.
+[14-Mar-2013 21:10:58] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:11:08] Action "clients/inmateemail" does not exist.
+[14-Mar-2013 21:11:08] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:12:27] PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '/home/zmijevik/public_html/inmateemail/lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/lib/database/sfDoctrineDatabase.class.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/zmijevik/public_html/clients/inmateemail/lib/vendor/symfony/lib/autoload/sfAutoload.class.php on line 188
+[14-Mar-2013 21:13:50] Action "clients/inmateemail" does not exist.
+[14-Mar-2013 21:13:50] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:15:15] Action "clients/inmateemail" does not exist.
+[14-Mar-2013 21:15:15] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:15:28] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:15:29] Action "css/images" does not exist.
+[14-Mar-2013 21:15:35] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:15:36] Action "css/images" does not exist.
+[14-Mar-2013 21:15:39] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:15:39] Action "css/images" does not exist.
+[14-Mar-2013 21:15:41] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:15:41] Action "css/images" does not exist.
+[14-Mar-2013 21:15:45] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:15:45] Action "css/images" does not exist.
+[14-Mar-2013 21:15:47] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:15:47] Action "css/images" does not exist.
+[14-Mar-2013 21:16:00] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:16:01] Action "css/images" does not exist.
+[14-Mar-2013 21:17:05] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:17:06] Action "css/images" does not exist.
+[14-Mar-2013 21:17:19] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:17:19] Action "css/images" does not exist.
+[14-Mar-2013 21:20:40] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:20:40] Action "css/images" does not exist.
+[14-Mar-2013 21:20:45] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:20:45] Action "css/images" does not exist.
+[14-Mar-2013 21:21:36] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:21:36] Action "css/images" does not exist.
+[14-Mar-2013 21:24:08] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:24:08] Action "css/images" does not exist.
+[14-Mar-2013 21:24:12] Empty module and/or action after parsing the URL "/google_analytics_auto.js" (/).
+[14-Mar-2013 21:24:12] Action "css/images" does not exist.

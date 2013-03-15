@@ -5,7 +5,7 @@ prod:
   .settings:
     no_script_name:         false
     logging_enabled:        false
-    app_root_path:          /clients/inmateemail/web/
+    app_root_path:          /
     app_root_script:        officers.php
 
 dev:
@@ -15,7 +15,7 @@ dev:
     cache:                  false
     no_script_name:         false
     etag:                   false
-    app_root_path:          /clients/inmateemail/web/
+    app_root_path:          /
     app_root_script:        officers_dev.php
 
 sandbox:
