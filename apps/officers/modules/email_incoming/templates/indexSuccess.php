@@ -3,7 +3,6 @@
 <table class="inmate-table">
   <thead>
     <tr>
-      <th>Subject</th>
       <th>Inmate</th>
       <th>Points</th>
       <th>Sufficient</th>
@@ -13,9 +12,8 @@
   <tbody class="messages">
     <?php foreach ($email_incomings as $email_incoming): ?>
     <tr class="email_incoming" data-email-incoming-id="<?=$email_incoming->getId()?>">
-      <td><?php echo $email_incoming->getEmail() ?></td>
       <td><?php echo $email_incoming->getInmate() ?></td>
-      <td></td>
+      <td><?php echo $email_incoming->getEmail()->getPoints()?></td>
       <td><div id="bool_<?=($email_incoming->getSufficient())?'true':'false'; ?>"></div></td>
       <td><div id="bool_<?=($email_incoming->getInmateViewed())?'true':'false'; ?>"></div></td>
     </tr>

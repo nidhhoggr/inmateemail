@@ -13,7 +13,8 @@ class email_incomingActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $ei = new EmailIncoming();
-    $this->email_incomings = $ei->getByScanAndCount(false,3);
+    $ots_limit = Config::getVal('officer_to_scan_limit');
+    $this->email_incomings = $ei->getByScanAndCount(false,$ots_limit);
   }
 
   public function executeView(sfWebRequest $request)
@@ -26,5 +27,19 @@ class email_incomingActions extends sfActions
 
     $this->email = $email_incoming;
     $this->setTemplate('view');
+  }
+
+  public function executeAjaxApproveEmail(sfWebRequest $request) {
+ 
+      $email_id = $request->getParameter('email_id'); 
+       
+      $email = Doctrine_Core::getTable('Email')->find($email_id);
+      $email->scanned = 1;
+      $email->save();
+
+      $email = Email::getNextUnscannedEmail('outgoing');
+ 
+      echo json_encode(array('email_id'=>$email->id));
+      die();
   }
 }

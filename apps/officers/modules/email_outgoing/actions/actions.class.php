@@ -13,7 +13,8 @@ class email_outgoingActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $eo = new EmailOutgoing();
-    $this->email_outgoings = $eo->getByScanAndCount(false,3);
+    $ots_limit = Config::getVal('officer_to_scan_limit');
+    $this->email_outgoings = $eo->getByScanAndCount(false,$ots_limit);
   }
 
 
@@ -23,5 +24,19 @@ class email_outgoingActions extends sfActions
 
     $this->forward404Unless($email_outgoing, sprintf('Object email_outgoing does not exist (%s).', $request->getParameter('id')));
     $this->email = $email_outgoing;
+  }
+
+  public function executeAjaxApproveEmail(sfWebRequest $request) {
+
+      $email_id = $request->getParameter('email_id');
+
+      $email = Doctrine_Core::getTable('Email')->find($email_id);
+      $email->scanned = 1;
+      $email->save();
+
+      $email = Email::getNextUnscannedEmail('outgoing');
+
+      echo json_encode(array('email_id'=>$email->id));
+      die();
   }
 }

@@ -140,7 +140,11 @@ EmailKeyword:
   columns:
     email_id:            {type: integer, notnull: true}
     keyword_id:          {type: integer, notnull: true}
-
+  relations:
+    Email:
+      onDelete: CASCADE
+    Keyword:
+      onDelete: CASCADE
 Config:
   columns:
     id:                  {type: integer, primary: true, autoincrement: true}

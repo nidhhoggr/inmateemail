@@ -15,7 +15,7 @@
     <tr class="email_outgoing" data-email-outgoing-id="<?=$email_outgoing->getId()?>">
       <td><?php echo $email_outgoing->getEmail() ?></td>
       <td><?php echo $email_outgoing->getInmate() ?></td>
-      <td></td>
+      <td><?php echo $email_outgoing->getEmail()->getPoints()?></td>
       <td><div id="bool_<?=($email_outgoing->getSufficient())?'true':'false'; ?>"></div></td>
       <td><div id="bool_<?=($email_outgoing->getSent())?'true':'false'; ?>"></div></td>
 

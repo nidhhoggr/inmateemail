@@ -16,10 +16,10 @@ class ScanEmail {
         foreach($this->getKeywords() as $keyword) {
        
             if(isset($message[$keyword->name])) {
-                $pointCount += substr_count($clean_msg,$keyword->name);
+                $pointCount += substr_count($clean_msg,' '.$keyword->name.' ');
                 $this->createReference($keyword,$email);
                 $tag = $this->buildTag($keyword);
-                $clean_msg = str_replace($keyword->name,$tag,$clean_msg);
+                $clean_msg = str_replace(' '.$keyword->name.' ',' '.$tag.' ',$clean_msg);
             } 
         }
 

@@ -7,7 +7,11 @@ class Mailer {
 
     public function __construct() {
 
-        $this->sendgrid = new SendGrid('inmateemail','a1genda666');
+        $sendgrid_username = Config::getVal('sendgrid_username');
+        $sendgrid_password = Config::getVal('sendgrid_password');
+        $this->noreply_email = Config::getVal('noreply_email');
+        $this->mailbox_email = Config::getVal('mailbox_email');
+        $this->sendgrid = new SendGrid($sendgrid_username,$sendgrid_password);
     }
 
     public function notifyNonexistentInmate($mail) {
@@ -15,7 +19,7 @@ class Mailer {
         $email = new SendGrid\Mail();
 
         $email->addTo($mail->fromAddress)
-            ->setFrom('noreply@emailforinmates.com')
+            ->setFrom($this->noreply_email)
             ->setSubject('Inmate Not Found')
             ->setHtml('The inmate email number you specified \''.$mail->subject.'\' does not exsist.<br />Please provide the inmates inmate number as the subject of the email.');
 
@@ -29,14 +33,14 @@ class Mailer {
         if($direction == "incoming") {
 
             $email->addTo($sender_email)
-            ->setFrom('noreply@emailforinmates.com')
+            ->setFrom($this->noreply_email)
             ->setSubject('Insufficient Funds')
             ->setHtml('The inmate you sent an email to \''.$inmate->getFullName().'\' does not have sufficient funds to view the email.<br />Please replenish the inmates account to allow the inmate to view your email.');
         }
         else if($direction == "outgoing") {
 
             $email->addTo($sender_email)
-            ->setFrom('noreply@emailforinmates.com')
+            ->setFrom($this->noreply_email)
             ->setSubject($inmate->getFullName() . ' is trying to cantact you')
             ->setHtml('An inmate by the name of \''.$inmate->getFullName().'\' does not have sufficient funds to send an email and is trying to contact you.<br />Please replenish the inmates account to allow the inmate to send emails to you.');
         }
@@ -48,9 +52,9 @@ class Mailer {
         $mail = new SendGrid\Mail();
 
         $mail->addTo($email->getRecipientEmail())
-            ->setFrom('noreply@emailforinmates.com')
+            ->setFrom($this->mailbox_email)
             ->setSubject('Message From '.$inmate->getFullName() .': '.$email->getEmail()->getSubject())
-            ->setHtml('The inmate by the name of \''.$inmate->getFullName().'\' sent you the following message entitled '.$email->getEmail()->getSubject().'.<br /></br />'.$email->getEmail()->getMessage());
+            ->setHtml('The inmate by the name of \''.$inmate->getFullName().'\' sent you the following message entitled '.$email->getEmail()->getSubject().'.<br /></br />'.Email::cleanMessage($email->getEmail()->getMessage()));
 
         $this->sendgrid->web->send($mail);
     }

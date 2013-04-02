@@ -2,3 +2,6 @@ cache/*
 log/*
 config/databases.yml
 apps/inmates/config/settings.yml
+*.swp
+*.swo
+*error_log

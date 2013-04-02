@@ -2,7 +2,7 @@
 <html lang="en">	
     <head>		
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />       
-        <title>EmailForInmates</title>
+        <title><?=Config::getVal('site_title')?></title>
         <!--[if IE 6]>
             <link rel="stylesheet" href="/css/bobo/ie6.css" />
         <![endif]--> 
@@ -25,7 +25,7 @@
                 <a href="#" title="[ADD LINK TITLE]">
                     <!--img src="/images/logo.png" /-->
                 </a>       	
-                <h2>Email For Inmates</h2>           	
+                <h2><?=Config::getVal('site_title')?></h2>           	
                 <div id="nav">
                     <ul id="nav-pages">
                         <? if($sf_user->isAuthenticated()): ?>

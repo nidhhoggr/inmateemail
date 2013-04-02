@@ -1,3 +1,4 @@
+<span id="approve_incoming_email" class="approve_email" data-email-id="<?=$email->getEmail()->getId();?>">Approve</span>
 <div id="viewing-email">
 <h1>Viewing Incoming Email</h1>
 From:
@@ -7,10 +8,6 @@ From:
 To:
 <div id="sender">
 <?= $email->getInmate(); ?>
-</div>
-Subject:
-<div id="subject">
-<?=$email->getEmail()->getSubject()?>
 </div>
 Message:
 <div id="message">

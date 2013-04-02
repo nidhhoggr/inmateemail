@@ -5,7 +5,6 @@
     <tr>
       <th></th>
       <th>From</th>
-      <th>Subject</th>
       <th>Date</th>
     </tr>
   </thead>
@@ -14,7 +13,6 @@
     <tr class="email_incoming" data-email-incoming-id="<?=$email_incoming->getId()?>">
       <td class="<?=($email_incoming->getInmateViewed())?'viewed':'not-viewed';?>"></td>
       <td><?php echo $email_incoming->getSender() ?></td>
-      <td><?php echo $email_incoming->getEmail()->getSubject()?></td>
       <td><?php echo $email_incoming->getEmail()->getWhenCreated() ?></td>
     </tr>
     <?php endforeach; ?>

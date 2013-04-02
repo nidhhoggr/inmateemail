@@ -1,3 +1,4 @@
+<span id="approve_outgoing_email" class="approve_email" data-email-id="<?=$email->getEmail()->getId();?>">Approve</span>
 <div id="viewing-email">
 <h1>Viewing Outgoing Email</h1>
 From:

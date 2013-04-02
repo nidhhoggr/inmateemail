@@ -200,6 +200,7 @@ tr,td { padding: 4px; }
 .inmate-table th {
     font-weight: bold;
     padding: 5px;
+    min-width: 50px;
 }
 
 .inmate-table .contacts tr,

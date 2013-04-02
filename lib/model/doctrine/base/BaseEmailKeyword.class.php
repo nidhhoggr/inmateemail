@@ -29,15 +29,13 @@ abstract class BaseEmailKeyword extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('email_keyword');
-        $this->hasColumn('email_id', 'integer', 8, array(
+        $this->hasColumn('email_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
-             'length' => 8,
              ));
-        $this->hasColumn('keyword_id', 'integer', 8, array(
+        $this->hasColumn('keyword_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
-             'length' => 8,
              ));
     }
 
@@ -46,10 +44,12 @@ abstract class BaseEmailKeyword extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('Email', array(
              'local' => 'email_id',
-             'foreign' => 'id'));
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE'));
 
         $this->hasOne('Keyword', array(
              'local' => 'keyword_id',
-             'foreign' => 'id'));
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE'));
     }
 }

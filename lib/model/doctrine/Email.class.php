@@ -34,4 +34,17 @@ class Email extends BaseEmail
 
         return $message;
     }
+
+    public static function getNextUnscannedEmail($direction) {
+
+        $joinModel = 'Email' . ucfirst($direction);
+
+        $email = Doctrine_Query::create()
+        ->from($joinModel . ' jm, jm.Email e')
+        ->where('e.email_type = ?',$direction)
+        ->andWhere('e.scanned = ?',false)
+        ->fetchOne();
+
+        return $email;
+    }
 }

@@ -2,7 +2,7 @@
 <html lang="en">	
     <head>		
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />       
-        <title>EmailForInmates</title>
+        <title><?=Config::getVal('site_title')?></title>
         <!--[if IE 6]>
             <link rel="stylesheet" href="/css/bobo/ie6.css" />
         <![endif]--> 
@@ -25,7 +25,7 @@
                 <a href="#" title="[ADD LINK TITLE]">
                     <!--img src="/images/logo.png" /-->
                 </a>       	
-                <h2>Email For Inmates</h2>           	
+                <h2><?=Config::getVal('site_title')?></h2>           	
                 <div id="nav">
                     <ul id="nav-pages">
                         <? if($sf_user->isAuthenticated()): ?>
@@ -37,6 +37,7 @@
                           <li><?=link_to('Flags','flag/index')?></li>
                           <li><?=link_to('Keywords','keyword/index')?></li>
                           <li><?=link_to('Audit Log','audit_logger/index')?></li>
+                          <li><?=link_to('Configuration','config/index')?></li>
                           <li><a href="<?=url_for('sfGuardAuth/signout')?>" id="logout">Logout</a></li>
                         <? endif; ?>
                     </ul><!--end nav-pages-->

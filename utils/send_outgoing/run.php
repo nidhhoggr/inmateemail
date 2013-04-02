@@ -1,8 +1,6 @@
 <?php
 //imap scanner
 require_once(dirname(__FILE__) . '/../../lib/vendor/php-imap/ImapMailbox.php');
-//get the email scanner
-require_once(dirname(__FILE__) . '/../scan_emails/ScanEmail.class.php');
 //get the mailer
 require_once(dirname(__FILE__) . '/../mailer/Mailer.class.php');
 //bootstrap symfony

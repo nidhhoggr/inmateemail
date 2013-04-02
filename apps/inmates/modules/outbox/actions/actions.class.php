@@ -8,6 +8,8 @@
  * @author     Joseph Persie
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
+require_once(dirname(__FILE__) . '/../../../../../utils/scan_emails/ScanEmail.class.php');
+
 class outboxActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
@@ -49,6 +51,8 @@ class outboxActions extends sfActions
     if ($form->isValid())
     {
       $email_outgoing = $form->save();
+      $se = new ScanEmail();
+      $se->scan($email_outgoing->getEmail());
       $this->redirect('inbox/index');
     }
   }

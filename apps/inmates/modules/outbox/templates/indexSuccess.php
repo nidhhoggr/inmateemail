@@ -3,6 +3,7 @@
 <table class="inmate-table">
   <thead>
     <tr>
+      <th></th>
       <th>Recipient</th>
       <th>Subject</th>
       <th>Date</th>
