@@ -9,7 +9,7 @@
  * @property string $email_address
  * @property string $first_name
  * @property string $last_name
- * @property integer $phone_number
+ * @property string $phone_number
  * @property boolean $is_approved
  * @property Doctrine_Collection $Inmate
  * @property Doctrine_Collection $InmateContact
@@ -19,7 +19,7 @@
  * @method string              getEmailAddress()  Returns the current record's "email_address" value
  * @method string              getFirstName()     Returns the current record's "first_name" value
  * @method string              getLastName()      Returns the current record's "last_name" value
- * @method integer             getPhoneNumber()   Returns the current record's "phone_number" value
+ * @method string              getPhoneNumber()   Returns the current record's "phone_number" value
  * @method boolean             getIsApproved()    Returns the current record's "is_approved" value
  * @method Doctrine_Collection getInmate()        Returns the current record's "Inmate" collection
  * @method Doctrine_Collection getInmateContact() Returns the current record's "InmateContact" collection
@@ -64,9 +64,9 @@ abstract class BaseContact extends sfDoctrineRecord
              'notnull' => true,
              'length' => 32,
              ));
-        $this->hasColumn('phone_number', 'integer', 10, array(
-             'type' => 'integer',
-             'length' => 10,
+        $this->hasColumn('phone_number', 'string', 32, array(
+             'type' => 'string',
+             'length' => 32,
              ));
         $this->hasColumn('is_approved', 'boolean', null, array(
              'type' => 'boolean',

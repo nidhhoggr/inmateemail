@@ -52,8 +52,10 @@ class Inmate extends BaseInmate
         ->from('EmailOutgoing eo, eo.Email e')
         ->where('e.inmate_id = ?', $inmate_id)
         ->andWhere('eo.sent = ?',0)
+        ->andWhere('eo.cancelled = ?',0)
         ->orWhere('e.inmate_id = ?', $inmate_id)
         ->andWhere('e.sufficient = ?',0)
+        ->andWhere('eo.cancelled = ?',0)
         ->fetchArray();
 
         return number_format(round(count($unsent_emails) * $price,2),2);

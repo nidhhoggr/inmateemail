@@ -37,9 +37,29 @@ $(function() {
 
         var email_id = $(this).data('email-id');
 
-        makeAjaxCallWithCallback('/email_outgoing/ajaxApproveEmail',{email_id: email_id},function(msg) {
+        var args = {
+            email_id: email_id
+        }
+
+        makeAjaxCallWithCallback('/email_outgoing/ajaxApproveEmail',args,function(msg) {
             msg = $.parseJSON(msg);
             viewOutgoingByEmailId(msg.email_id);
+            updateCountUnscanned();
+        });
+    });
+
+    $('#disapprove_outgoing_email').live('click',function() {
+
+        var email_id = $(this).data('email-id');
+
+        var args = {
+            email_id: email_id
+        }
+
+        makeAjaxCallWithCallback('/email_outgoing/ajaxDisapproveEmail',args,function(msg) {
+            msg = $.parseJSON(msg);
+            viewOutgoingByEmailId(msg.email_id);
+            updateCountUnscanned();
         });
     });
 
@@ -47,11 +67,37 @@ $(function() {
 
         var email_id = $(this).data('email-id');
 
-        makeAjaxCallWithCallback('/email_incoming/ajaxApproveEmail',{email_id: email_id},function(msg) {
+        var args = {
+            email_id: email_id
+        }
+
+        makeAjaxCallWithCallback('/email_incoming/ajaxApproveEmail',args,function(msg) {
             msg = $.parseJSON(msg);
             viewIncomingByEmailId(msg.email_id);
+            updateCountUnscanned();
         });
     });
+
+    $('#disapprove_incoming_email').live('click',function() {
+
+        var email_id = $(this).data('email-id');
+
+        var args = {
+            email_id: email_id
+        }
+
+        makeAjaxCallWithCallback('/email_incoming/ajaxDisapproveEmail',args,function(msg) {
+            msg = $.parseJSON(msg);
+            viewIncomingByEmailId(msg.email_id);
+            updateCountUnscanned();
+        });
+    });
+
+    $(document).tooltip();
+
+    setInterval(function() {
+        updateCountUnscanned();
+    },10000);
 });
 
 var viewIncomingByEmailId = function(email_id) {
@@ -83,5 +129,14 @@ makeAjaxCallWithCallback = function(route,data,callback) {
         success: function(msg){
             callback(msg);
         }
+    });
+}
+
+updateCountUnscanned = function() {
+
+    makeAjaxCallWithCallback('/email_incoming/ajaxCountUnscanned',{},function(msg) {
+            msg = $.parseJSON(msg);
+            console.log(msg.count_unscanned);
+            $('#count_unscanned span').html(msg.count_unscanned);
     });
 }

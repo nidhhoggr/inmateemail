@@ -29,17 +29,33 @@ class email_incomingActions extends sfActions
     $this->setTemplate('view');
   }
 
+  private function ajaxActionEmail($email_id,$action) {
+
+      $email = Doctrine_Core::getTable('Email')->find($email_id);
+      $email->$action = 1;
+      $email->save();
+
+      $email = Email::getNextUnscannedEmail('incoming');
+
+      echo json_encode(array('email_id'=>$email->id));
+      die();
+  }
+
   public function executeAjaxApproveEmail(sfWebRequest $request) {
  
       $email_id = $request->getParameter('email_id'); 
-       
-      $email = Doctrine_Core::getTable('Email')->find($email_id);
-      $email->scanned = 1;
-      $email->save();
+      $this->ajaxActionEmail($email_id,'approved');
+  }
 
-      $email = Email::getNextUnscannedEmail('outgoing');
- 
-      echo json_encode(array('email_id'=>$email->id));
+  public function executeAjaxDisapproveEmail(sfWebRequest $request) {
+
+      $email_id = $request->getParameter('email_id');
+      $this->ajaxActionEmail($email_id,'disapproved');
+  }
+
+  public function executeAjaxCountUnscanned(sfWebRequest $request) {
+      $count_unscanned = Email::countUnscanned();
+      echo json_encode(compact('count_unscanned'));
       die();
   }
 }

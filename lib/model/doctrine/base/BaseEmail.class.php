@@ -9,7 +9,8 @@
  * @property enum $email_type
  * @property integer $inmate_id
  * @property integer $contact_id
- * @property boolean $scanned
+ * @property boolean $approved
+ * @property boolean $disapproved
  * @property timestamp $date_scanned
  * @property string $subject
  * @property clob $message
@@ -25,7 +26,8 @@
  * @method enum                getEmailType()     Returns the current record's "email_type" value
  * @method integer             getInmateId()      Returns the current record's "inmate_id" value
  * @method integer             getContactId()     Returns the current record's "contact_id" value
- * @method boolean             getScanned()       Returns the current record's "scanned" value
+ * @method boolean             getApproved()      Returns the current record's "approved" value
+ * @method boolean             getDisapproved()   Returns the current record's "disapproved" value
  * @method timestamp           getDateScanned()   Returns the current record's "date_scanned" value
  * @method string              getSubject()       Returns the current record's "subject" value
  * @method clob                getMessage()       Returns the current record's "message" value
@@ -40,7 +42,8 @@
  * @method Email               setEmailType()     Sets the current record's "email_type" value
  * @method Email               setInmateId()      Sets the current record's "inmate_id" value
  * @method Email               setContactId()     Sets the current record's "contact_id" value
- * @method Email               setScanned()       Sets the current record's "scanned" value
+ * @method Email               setApproved()      Sets the current record's "approved" value
+ * @method Email               setDisapproved()   Sets the current record's "disapproved" value
  * @method Email               setDateScanned()   Sets the current record's "date_scanned" value
  * @method Email               setSubject()       Sets the current record's "subject" value
  * @method Email               setMessage()       Sets the current record's "message" value
@@ -84,7 +87,12 @@ abstract class BaseEmail extends sfDoctrineRecord
              'type' => 'integer',
              'length' => 8,
              ));
-        $this->hasColumn('scanned', 'boolean', null, array(
+        $this->hasColumn('approved', 'boolean', null, array(
+             'type' => 'boolean',
+             'notnull' => true,
+             'default' => false,
+             ));
+        $this->hasColumn('disapproved', 'boolean', null, array(
              'type' => 'boolean',
              'notnull' => true,
              'default' => false,

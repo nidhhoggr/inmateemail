@@ -5,8 +5,8 @@ $(function() {
         makeAjaxCall('/inbox/view',{id:email_incoming_id});
     });
 
-    $('.email_outgoing').live('click', function() {
-        var email_outgoing_id = $(this).data('email-outgoing-id');
+    $('.email_outgoing td[id!=delete-queued-email]').live('click', function() {
+        var email_outgoing_id = $(this).parent().data('email-outgoing-id');
         makeAjaxCall('/outbox/view',{id:email_outgoing_id});
     });
 
@@ -58,8 +58,19 @@ $(function() {
         makeAjaxCall('/contacts/index',{});
     });
 
+    $('#delete-queued-email').live('click', function(e) {
+
+        var parent_row = $(this).parent();
+
+        var id = parent_row.data('email-outgoing-id');
+
+        makeAjaxCallWithCallback('/outbox/ajaxCancelOutgoing',{id:id}, function() {
+ 
+            $(parent_row).fadeOut(500, function() { $().remove(parent_row); });
+        });
+    });
+
     setInterval(function() {
-        console.log('updating balance');
         updateBalance();
     },5000);
 });

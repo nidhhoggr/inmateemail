@@ -15,7 +15,7 @@ generator:
       actions: ~
       fields:  ~
       list:
-        display: [inmate,sufficient,scanned,sender]
+        display: [inmate,sufficient,approved,disapproved,sender]
       filter:  ~
       form:    ~
       edit:    ~

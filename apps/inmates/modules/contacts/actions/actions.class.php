@@ -12,9 +12,10 @@ class contactsActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->contacts = Doctrine_Core::getTable('Contact')
-      ->createQuery('a')
-      ->execute();
+    $this->contacts = Doctrine_Query::create()
+    ->from('Contact c, c.InmateContact ic')
+    ->where('ic.inmate_id = ?',InmateTable::loggedIn()->getId())
+    ->execute();
   }
 
   public function executeGetContactEmail(sfWebRequest $request) {
@@ -45,12 +46,53 @@ class contactsActions extends sfActions
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $contact = $form->save();
 
-      $this->redirect('contacts/index');
+    $contact = $request->getParameter('contact');
+
+    $fetch_email = ContactTable::getByEmailAddress($contact['email_address']);
+
+    if($fetch_email) {
+
+        //if($fetch_email->myUser::getLoggedIn()
+        //is this association of the same user?
+        if(count($fetch_email['InmateContact'])) {
+
+            if($fetch_email['InmateContact'][0]['inmate_id'] == InmateTable::loggedIn()->getId())
+                $this->redirect('contacts/index');
+        }
+
+        if($inmate = InmateTable::loggedIn()) {
+
+            $ic = new InmateContact;
+
+            $ic->inmate_id = $inmate->id;
+            $ic->contact_id = $fetch_email['id'];
+            $ic->save();
+        }
+
+        //otherwise lets create it
+        $this->redirect('contacts/index');
+    }
+    //otherwise process the form
+    else {
+
+        $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+
+        if ($form->isValid()) {
+
+            $contact = $form->save();
+
+            if($inmate = InmateTable::loggedIn()) {
+
+                $ic = new InmateContact;
+
+                $ic->inmate_id = $inmate->id;
+                $ic->contact_id = $contact->id; 
+                $ic->save();
+            }
+
+            $this->redirect('contacts/index');
+        }
     }
   }
 }

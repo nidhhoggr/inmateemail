@@ -31,7 +31,7 @@ abstract class BaseContactForm extends BaseFormDoctrine
       'email_address' => new sfValidatorString(array('max_length' => 128)),
       'first_name'    => new sfValidatorString(array('max_length' => 32)),
       'last_name'     => new sfValidatorString(array('max_length' => 32)),
-      'phone_number'  => new sfValidatorInteger(array('required' => false)),
+      'phone_number'  => new sfValidatorString(array('max_length' => 32, 'required' => false)),
       'is_approved'   => new sfValidatorBoolean(array('required' => false)),
       'created_at'    => new sfValidatorDateTime(),
       'updated_at'    => new sfValidatorDateTime(),

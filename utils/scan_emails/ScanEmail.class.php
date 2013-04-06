@@ -44,8 +44,7 @@ class ScanEmail {
     }
 
     private function buildTag(Keyword $keyword) {
-        $cssClass = $keyword->getFlag()->getCssClass();
         $color = $keyword->getFlag()->getColor();
-        return '<span class="'.$cssClass.'" style="color:'.$color.'" >'.$keyword.'</span>';
+        return '<span title="'.$keyword->getDescription().'" style="color:'.$color.'" >'.$keyword.'</span>';
     }
 }

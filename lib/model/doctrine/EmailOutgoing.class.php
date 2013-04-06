@@ -32,8 +32,12 @@ class EmailOutgoing extends BaseEmailOutgoing
         return $this->getEmail()->getInmate();
     }
 
-    public function getScanned() {
-        return $this->getEmail()->getScanned();
+    public function getApproved() {
+        return $this->getEmail()->getApproved();
+    }
+
+    public function getDisapproved() {
+        return $this->getEmail()->getDisapproved();
     }
 
     public function getSufficient() {
@@ -45,6 +49,7 @@ class EmailOutgoing extends BaseEmailOutgoing
         return Doctrine_Query::create()
         ->from('EmailOutgoing eo, eo.Email e')
         ->where('eo.sent = ?',false)
+        ->andWhere('eo.scanned = ?',false)
         ->execute();
 
     }
@@ -66,12 +71,18 @@ class EmailOutgoing extends BaseEmailOutgoing
         ->fetchOne();
     }
 
-    public function getByScanAndCount($scanned,$count) {
 
-        return Doctrine_Query::create()
-        ->from('EmailOutgoing ei, ei.Email e')
-        ->where('e.scanned = ?',$scanned)
-        ->limit($count)
-        ->execute();
+    //this will not retrieve cancelled emails
+    public function getByScanAndCount($scanned,$count=false) {
+
+        $q = Doctrine_Query::create()
+        ->from('EmailOutgoing eo, eo.Email e')
+        ->where('e.approved = ?',$scanned)
+        ->andWhere('e.disapproved = ?',$scanned)
+        ->andWhere('eo.cancelled = ?',false);
+
+        if($count) $q = $q->limit($count);        
+
+        return $q->execute();
     }
 }

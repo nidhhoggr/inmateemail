@@ -17,6 +17,7 @@ class outboxActions extends sfActions
     $this->email_outgoings = Doctrine_Query::create()
       ->from('EmailOutgoing eo, eo.Email e')
       ->where('e.inmate_id = ?',InmateTable::loggedIn()->getId())
+      ->andWhere('eo.cancelled = ?',false)
       ->orderBy('e.created_at DESC')
       ->execute();
   }
@@ -61,6 +62,15 @@ class outboxActions extends sfActions
       $account_balance = InmateTable::getCurrentBalance();
       $pending_charges = Inmate::calculatePendingChargesByLoggedIn();
       echo json_encode(compact('account_balance','pending_charges'));
+      die();
+  }
+
+  public function executeAjaxCancelOutgoing(sfWebRequest $request) {
+
+      $id = $request->getParameter('id');
+      $eo = Doctrine_Core::getTable('EmailOutgoing')->find($id);
+      $eo->cancelled = true;
+      $eo->save();
       die();
   }
 

@@ -66,7 +66,7 @@ Contact:
     email_address:       {type: string(128), notnull: true}
     first_name:          {type: string(32), notnull: true }
     last_name:           {type: string(32), notnull: true }
-    phone_number:        {type: integer(10) }
+    phone_number:        {type: string(32) }
     is_approved:         {type: boolean, notnull: true, default: false} 
   relations:
     Inmate:
@@ -87,7 +87,8 @@ Email:
     email_type:          {type: enum, values: [incoming, outgoing]} 
     inmate_id:           {type: integer,notnull:true}
     contact_id:          {type: integer}
-    scanned:             {type: boolean, notnull: true, default: false} 
+    approved:            {type: boolean, notnull: true, default: false} 
+    disapproved:         {type: boolean, notnull: true, default: false} 
     date_scanned:        {type: timestamp}
     subject:             {type: string(128),notnull: true} 
     message:             {type: clob,notnull: true}
@@ -100,6 +101,7 @@ EmailOutgoing:
     email_id:            {type: integer, notnull: true}
     recipient_email:     {type: string(128),notnull:true}
     sent:                {type: boolean, notnull: true, default: false}
+    cancelled:           {type: boolean, notnull: true, default: false}
   relations:
     Email:
       onDelete: CASCADE

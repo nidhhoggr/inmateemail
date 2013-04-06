@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.23, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.1.63, for debian-linux-gnu (i686)
 --
--- Host: localhost    Database: zmijevik_inmateemail
+-- Host: localhost    Database: inmateemail
 -- ------------------------------------------------------
--- Server version	5.5.23-55
+-- Server version	5.1.63-0ubuntu0.11.10.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,16 +24,16 @@
 CREATE TABLE `audit_logger` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL,
-  `module` varchar(96) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `action` varchar(96) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `module` varchar(96) DEFAULT NULL,
+  `action` varchar(96) DEFAULT NULL,
   `object_id` bigint(20) DEFAULT NULL,
-  `params` longtext COLLATE utf8_unicode_ci,
+  `params` longtext,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `audit_logger_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,12 +54,12 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `config` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8_unicode_ci,
-  `config_key` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `config_value` text COLLATE utf8_unicode_ci,
+  `title` varchar(32) DEFAULT NULL,
+  `description` text,
+  `config_key` varchar(32) DEFAULT NULL,
+  `config_value` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,15 +105,15 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contact` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `email_address` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `first_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `phone_number` bigint(20) DEFAULT NULL,
+  `email_address` varchar(128) NOT NULL,
+  `first_name` varchar(32) NOT NULL,
+  `last_name` varchar(32) NOT NULL,
+  `phone_number` varchar(32) DEFAULT NULL,
   `is_approved` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +122,7 @@ CREATE TABLE `contact` (
 
 LOCK TABLES `contact` WRITE;
 /*!40000 ALTER TABLE `contact` DISABLE KEYS */;
-INSERT INTO `contact` (`id`, `email_address`, `first_name`, `last_name`, `phone_number`, `is_approved`, `created_at`, `updated_at`) VALUES (1,'cstraka@hotmail.com','Chris','Straka',1232343456,1,'2013-02-21 11:19:49','2013-02-21 11:19:49'),(2,'zmijevik@hotmail.com','Joseph','Persie',2343345456,0,'2013-03-12 23:42:01','2013-03-12 23:42:01'),(3,'Mrrrflorida@yahoo.com','Mr Teriffic','ParkerBurg',3216380916,0,'2013-03-15 15:44:29','2013-03-15 15:44:29');
+INSERT INTO `contact` (`id`, `email_address`, `first_name`, `last_name`, `phone_number`, `is_approved`, `created_at`, `updated_at`) VALUES (1,'cstraka@hotmail.com','Chris','Straka','1232343456',1,'2013-02-21 11:19:49','2013-02-21 11:19:49'),(2,'zmijevik@hotmail.com','Joseph','Persie','2343345456',0,'2013-03-12 23:42:01','2013-03-12 23:42:01'),(3,'abgvatreb@hotmail.com','Jim','Jon','407-323-3947',0,'2013-04-05 08:37:21','2013-04-05 08:37:21');
 /*!40000 ALTER TABLE `contact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,13 +134,14 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `email` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `email_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email_type` varchar(255) DEFAULT NULL,
   `inmate_id` bigint(20) NOT NULL,
   `contact_id` bigint(20) DEFAULT NULL,
-  `scanned` tinyint(1) NOT NULL DEFAULT '0',
+  `approved` tinyint(1) NOT NULL DEFAULT '0',
+  `disapproved` tinyint(1) NOT NULL DEFAULT '0',
   `date_scanned` datetime DEFAULT NULL,
-  `subject` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `message` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `subject` varchar(128) NOT NULL,
+  `message` longtext NOT NULL,
   `sufficient` tinyint(1) NOT NULL DEFAULT '0',
   `points` bigint(20) DEFAULT NULL,
   `created_at` datetime NOT NULL,
@@ -150,7 +151,7 @@ CREATE TABLE `email` (
   KEY `contact_id_idx` (`contact_id`),
   CONSTRAINT `email_contact_id_contact_id` FOREIGN KEY (`contact_id`) REFERENCES `contact` (`id`),
   CONSTRAINT `email_inmate_id_inmate_id` FOREIGN KEY (`inmate_id`) REFERENCES `inmate` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +160,7 @@ CREATE TABLE `email` (
 
 LOCK TABLES `email` WRITE;
 /*!40000 ALTER TABLE `email` DISABLE KEYS */;
-INSERT INTO `email` (`id`, `email_type`, `inmate_id`, `contact_id`, `scanned`, `date_scanned`, `subject`, `message`, `sufficient`, `points`, `created_at`, `updated_at`) VALUES (2,'incoming',1,2,1,NULL,'commecary','i need some cach for commecary please update my email balance as well',1,NULL,'2013-02-22 13:13:26','2013-03-15 13:43:11'),(14,'outgoing',1,2,1,NULL,'still alive','are you still alive respond to my email!',1,NULL,'2013-02-22 23:33:07','2013-03-15 13:43:31'),(16,'incoming',1,2,1,NULL,'10293847','i am going to <span class=\"flag_violence\" style=\"color:orange\" >punch</span> and <span class=\"flag_violence\" style=\"color:orange\" >stab</span> you to <span class=\"flag_violence\" style=\"color:orange\" >kill</span> you bitch you are a <span class=\"flag_profane\" style=\"color:red\" >cunt</span> 		 	 		 ',1,4,'2013-03-12 23:48:13','2013-03-15 14:35:20'),(17,'incoming',2,2,1,NULL,'43247329','give me the fucking commecary shit brains 		 	   		  ',1,NULL,'2013-03-13 00:11:23','2013-03-15 14:36:14'),(25,'outgoing',1,2,1,NULL,'test','test',1,NULL,'2013-03-13 19:19:29','2013-03-15 13:44:01'),(26,'outgoing',1,2,1,NULL,'Test','test',1,NULL,'2013-03-13 19:23:44','2013-03-15 13:44:15'),(27,'outgoing',1,2,1,NULL,'Again','again?',1,NULL,'2013-03-13 19:38:24','2013-03-15 14:44:28'),(31,'incoming',1,2,1,NULL,'10293847','this is a test 		 	   		  ',1,NULL,'2013-03-13 20:37:02','2013-03-15 14:43:16'),(32,'incoming',1,2,1,NULL,'10293847','test 		 	   		  ',1,NULL,'2013-03-13 21:09:01','2013-03-15 16:01:51'),(34,'incoming',1,2,1,NULL,'10293847','this is fucking ridiculous 		 	   		  ',1,NULL,'2013-03-13 21:39:01','2013-03-15 16:03:49'),(37,'incoming',1,2,1,NULL,'10293847','this is a test 		 	   		  ',1,NULL,'2013-03-14 22:44:02','2013-03-15 16:04:01'),(41,'outgoing',1,2,1,NULL,'test','fuck <span class=\"flag_profane\" style=\"color:red\" >shit</span> <span class=\"flag_profane\" style=\"color:red\" >piss</span> <span class=\"flag_profane\" style=\"color:red\" >ass</span> <span class=\"flag_profane\" style=\"color:red\" >cunt</span> <span class=\"flag_violence\" style=\"color:orange\" >kill</span> punch',1,5,'2013-03-14 23:11:50','2013-03-15 16:02:14'),(42,'outgoing',1,2,1,NULL,'testing','fuck <span class=\"flag_profane\" style=\"color:red\" >shit</span> <span class=\"flag_profane\" style=\"color:red\" >piss</span> <span class=\"flag_profane\" style=\"color:red\" >ass</span> <span class=\"flag_profane\" style=\"color:red\" >cunt</span> punch',1,4,'2013-03-15 13:37:12','2013-03-15 16:02:56'),(43,'incoming',1,2,1,NULL,'10293847',' <span class=\"flag_profane\" style=\"color:red\" >fuck</span> <span class=\"flag_profane\" style=\"color:red\" >shit</span> <span class=\"flag_profane\" style=\"color:red\" >piss</span> <span class=\"flag_profane\" style=\"color:red\" >ass</span> <span class=\"flag_profane\" style=\"color:red\" >cunt</span> <span class=\"flag_violence\" style=\"color:orange\" >punch</span> 		 	 		 ',1,6,'2013-03-15 13:49:02','2013-03-15 16:04:06'),(44,'outgoing',2,3,1,NULL,'please break me out','i need a shank from one of your <span class=\"flag_gang\" style=\"color:green\" >blood</span> friends.\r\n\r\nplease send soon\r\n',1,1,'2013-03-15 15:45:38','2013-03-15 16:03:26'),(45,'incoming',2,3,1,NULL,'43247329','\n\nok,   please transfer $250 to my wife for said request\n\ncrips rule ...  <span class=\"flag_gang\" style=\"color:green\" >bloods</span> suck and are fucking gay\n\n\n\n\n________________________________\n from: \"mailbox@emailforinmates.com\" \nto: mrrrflorida@yahoo.com \nsent: friday, march 15, 2013 4:46 pm\nsubject: message from timkiller parker: please break me out\n \n\nthe inmate by the name of \'timkiller parker\' sent you the following message entitled please break me out.\n/i need a shank from one of your <span class=\"flag_gang\" style=\"color:green\" >blood</span> friends.\n\nplease send soon ',1,2,'2013-03-15 15:50:01','2013-04-02 03:00:26'),(46,'incoming',2,3,0,NULL,'43247329','\n\nplease send me something in the mail ...  i hate ur in jail u loser\n',0,NULL,'2013-03-15 16:10:04','2013-03-15 16:10:04'),(47,'outgoing',2,3,0,NULL,'i need money!!!','i need $$$  bad,  pease send care package ....    i feel like Granny doesnt love me anymore',0,NULL,'2013-03-15 16:13:43','2013-03-15 16:13:43');
+INSERT INTO `email` (`id`, `email_type`, `inmate_id`, `contact_id`, `approved`, `disapproved`, `date_scanned`, `subject`, `message`, `sufficient`, `points`, `created_at`, `updated_at`) VALUES (2,'incoming',1,2,1,0,NULL,'commecary','i need some cach for commecary please update my email balance as well',1,NULL,'2013-02-22 13:13:26','2013-03-15 13:43:11'),(14,'outgoing',1,2,1,0,NULL,'still alive','are you still alive respond to my email!',1,NULL,'2013-02-22 23:33:07','2013-03-15 13:43:31'),(16,'incoming',1,2,1,0,NULL,'10293847','i am going to <span class=\"flag_violence\" style=\"color:orange\" >punch</span> and <span class=\"flag_violence\" style=\"color:orange\" >stab</span> you to <span class=\"flag_violence\" style=\"color:orange\" >kill</span> you bitch you are a <span class=\"flag_profane\" style=\"color:red\" >cunt</span> 		 	 		 ',1,4,'2013-03-12 23:48:13','2013-03-15 14:35:20'),(17,'incoming',2,2,1,0,NULL,'43247329','give me the fucking commecary shit brains 		 	   		  ',1,NULL,'2013-03-13 00:11:23','2013-03-15 14:36:14'),(25,'outgoing',1,2,1,0,NULL,'test','test',1,NULL,'2013-03-13 19:19:29','2013-03-15 13:44:01'),(26,'outgoing',1,2,1,0,NULL,'Test','test',1,NULL,'2013-03-13 19:23:44','2013-03-15 13:44:15'),(27,'outgoing',1,2,1,0,NULL,'Again','again?',1,NULL,'2013-03-13 19:38:24','2013-03-15 14:44:28'),(31,'incoming',1,2,1,0,NULL,'10293847','this is a test 		 	   		  ',1,NULL,'2013-03-13 20:37:02','2013-04-02 05:55:18'),(32,'incoming',1,2,0,1,NULL,'10293847','test 		 	   		  ',1,NULL,'2013-03-13 21:09:01','2013-04-02 05:42:38'),(34,'incoming',1,2,0,1,NULL,'10293847','this is fucking ridiculous 		 	   		  ',1,NULL,'2013-03-13 21:39:01','2013-04-02 05:55:19'),(37,'incoming',1,2,0,1,NULL,'10293847','this is a test 		 	   		  ',1,NULL,'2013-03-14 22:44:02','2013-04-02 05:42:43'),(41,'outgoing',1,2,0,1,NULL,'test','fuck <span class=\"flag_profane\" style=\"color:red\" >shit</span> <span class=\"flag_profane\" style=\"color:red\" >piss</span> <span class=\"flag_profane\" style=\"color:red\" >ass</span> <span class=\"flag_profane\" style=\"color:red\" >cunt</span> <span class=\"flag_violence\" style=\"color:orange\" >kill</span> punch',1,5,'2013-03-14 23:11:50','2013-04-02 05:55:26'),(42,'outgoing',1,2,0,1,NULL,'testing','fuck <span class=\"flag_profane\" style=\"color:red\" >shit</span> <span class=\"flag_profane\" style=\"color:red\" >piss</span> <span class=\"flag_profane\" style=\"color:red\" >ass</span> <span class=\"flag_profane\" style=\"color:red\" >cunt</span> punch',1,4,'2013-03-15 13:37:12','2013-04-02 05:53:26'),(43,'incoming',1,2,1,0,NULL,'10293847',' <span class=\"flag_profane\" style=\"color:red\" >fuck</span> <span class=\"flag_profane\" style=\"color:red\" >shit</span> <span class=\"flag_profane\" style=\"color:red\" >piss</span> <span class=\"flag_profane\" style=\"color:red\" >ass</span> <span class=\"flag_profane\" style=\"color:red\" >cunt</span> <span class=\"flag_violence\" style=\"color:orange\" >punch</span> 		 	 		 ',1,6,'2013-03-15 13:49:02','2013-04-02 05:55:20'),(44,'outgoing',2,3,0,0,NULL,'please break me out','i need a shank from one of your <span class=\"flag_gang\" style=\"color:green\" >blood</span> friends.\r\n\r\nplease send soon\r\n',1,1,'2013-03-15 15:45:38','2013-04-02 05:53:28'),(45,'incoming',2,3,0,0,NULL,'43247329','\n\nok,   please transfer $250 to my wife for said request\n\ncrips rule ...  <span class=\"flag_gang\" style=\"color:green\" >bloods</span> suck and are fucking gay\n\n\n\n\n________________________________\n from: \"mailbox@emailforinmates.com\" \nto: mrrrflorida@yahoo.com \nsent: friday, march 15, 2013 4:46 pm\nsubject: message from timkiller parker: please break me out\n \n\nthe inmate by the name of \'timkiller parker\' sent you the following message entitled please break me out.\n/i need a shank from one of your <span class=\"flag_gang\" style=\"color:green\" >blood</span> friends.\n\nplease send soon ',1,2,'2013-03-15 15:50:01','2013-04-02 03:00:26'),(46,'incoming',2,3,0,0,NULL,'43247329','\n\nplease send me something in the mail ...  i hate ur in jail u loser\n',0,NULL,'2013-03-15 16:10:04','2013-03-15 16:10:04'),(47,'outgoing',2,3,0,0,NULL,'i need money!!!','i need $$$  bad,  pease send care package ....    i feel like Granny doesnt love me anymore',0,NULL,'2013-03-15 16:13:43','2013-03-15 16:13:43'),(48,'outgoing',1,2,0,0,NULL,'Testing','tets',1,NULL,'2013-04-05 08:55:13','2013-04-05 08:55:13');
 /*!40000 ALTER TABLE `email` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,15 +173,15 @@ UNLOCK TABLES;
 CREATE TABLE `email_incoming` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `email_id` bigint(20) NOT NULL,
-  `sender_email` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `sender_name` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sender_email` varchar(128) NOT NULL,
+  `sender_name` varchar(128) DEFAULT NULL,
   `inmate_viewed` tinyint(1) NOT NULL DEFAULT '0',
   `date_sender_sent` datetime DEFAULT NULL,
   `date_inmate_viewed` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `email_id_idx` (`email_id`),
   CONSTRAINT `email_incoming_email_id_email_id` FOREIGN KEY (`email_id`) REFERENCES `email` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,7 +209,7 @@ CREATE TABLE `email_keyword` (
   KEY `keyword_id_idx` (`keyword_id`),
   CONSTRAINT `email_keyword_email_id_email_id` FOREIGN KEY (`email_id`) REFERENCES `email` (`id`) ON DELETE CASCADE,
   CONSTRAINT `email_keyword_keyword_id_keyword_id` FOREIGN KEY (`keyword_id`) REFERENCES `keyword` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -230,12 +231,12 @@ UNLOCK TABLES;
 CREATE TABLE `email_outgoing` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `email_id` bigint(20) NOT NULL,
-  `recipient_email` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `recipient_email` varchar(128) NOT NULL,
   `sent` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `email_id_idx` (`email_id`),
   CONSTRAINT `email_outgoing_email_id_email_id` FOREIGN KEY (`email_id`) REFERENCES `email` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -244,7 +245,7 @@ CREATE TABLE `email_outgoing` (
 
 LOCK TABLES `email_outgoing` WRITE;
 /*!40000 ALTER TABLE `email_outgoing` DISABLE KEYS */;
-INSERT INTO `email_outgoing` (`id`, `email_id`, `recipient_email`, `sent`) VALUES (2,2,'zmijevik@hotmail.com',1),(12,14,'zmijevik@hotmail.com',1),(16,25,'zmijevik@hotmail.com',1),(17,26,'zmijevik@hotmail.com',1),(18,27,'zmijevik@hotmail.com',1),(24,41,'zmijevik@hotmail.com',1),(25,42,'zmijevik@hotmail.com',1),(26,44,'Mrrrflorida@yahoo.com',1),(27,47,'Mrrrflorida@yahoo.com',1);
+INSERT INTO `email_outgoing` (`id`, `email_id`, `recipient_email`, `sent`) VALUES (2,2,'zmijevik@hotmail.com',1),(12,14,'zmijevik@hotmail.com',1),(16,25,'zmijevik@hotmail.com',1),(17,26,'zmijevik@hotmail.com',1),(18,27,'zmijevik@hotmail.com',1),(24,41,'zmijevik@hotmail.com',1),(25,42,'zmijevik@hotmail.com',1),(26,44,'Mrrrflorida@yahoo.com',1),(27,47,'Mrrrflorida@yahoo.com',1),(28,48,'zmijevik@hotmail.com',0);
 /*!40000 ALTER TABLE `email_outgoing` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,13 +257,13 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `flag` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8_unicode_ci,
-  `color` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cssclass` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(32) DEFAULT NULL,
+  `description` text,
+  `color` varchar(32) DEFAULT NULL,
+  `cssclass` varchar(32) DEFAULT NULL,
   `weight` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -294,7 +295,7 @@ CREATE TABLE `inmate` (
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `inmate_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -322,7 +323,7 @@ CREATE TABLE `inmate_contact` (
   KEY `contact_id_idx` (`contact_id`),
   CONSTRAINT `inmate_contact_contact_id_contact_id` FOREIGN KEY (`contact_id`) REFERENCES `contact` (`id`),
   CONSTRAINT `inmate_contact_inmate_id_inmate_id` FOREIGN KEY (`inmate_id`) REFERENCES `inmate` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -331,7 +332,7 @@ CREATE TABLE `inmate_contact` (
 
 LOCK TABLES `inmate_contact` WRITE;
 /*!40000 ALTER TABLE `inmate_contact` DISABLE KEYS */;
-INSERT INTO `inmate_contact` (`id`, `inmate_id`, `contact_id`) VALUES (1,1,1);
+INSERT INTO `inmate_contact` (`id`, `inmate_id`, `contact_id`) VALUES (1,1,1),(3,2,2),(6,1,2),(7,1,3);
 /*!40000 ALTER TABLE `inmate_contact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,13 +345,13 @@ UNLOCK TABLES;
 CREATE TABLE `keyword` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `flag_id` bigint(20) NOT NULL,
-  `name` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8_unicode_ci,
+  `name` varchar(32) DEFAULT NULL,
+  `description` text,
   `weight` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `flag_id_idx` (`flag_id`),
   CONSTRAINT `keyword_flag_id_flag_id` FOREIGN KEY (`flag_id`) REFERENCES `flag` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -371,14 +372,14 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `officer` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `badge_number` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `badge_number` varchar(32) DEFAULT NULL,
   `user_id` bigint(20) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `officer_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -400,14 +401,14 @@ UNLOCK TABLES;
 CREATE TABLE `sf_guard_forgot_password` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL,
-  `unique_key` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `unique_key` varchar(255) DEFAULT NULL,
   `expires_at` datetime NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `sf_guard_forgot_password_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -427,13 +428,13 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sf_guard_group` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8_unicode_ci,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -461,7 +462,7 @@ CREATE TABLE `sf_guard_group_permission` (
   KEY `sf_guard_group_permission_permission_id_sf_guard_permission_id` (`permission_id`),
   CONSTRAINT `sf_guard_group_permission_group_id_sf_guard_group_id` FOREIGN KEY (`group_id`) REFERENCES `sf_guard_group` (`id`) ON DELETE CASCADE,
   CONSTRAINT `sf_guard_group_permission_permission_id_sf_guard_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `sf_guard_permission` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -482,13 +483,13 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sf_guard_permission` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8_unicode_ci,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -510,14 +511,14 @@ UNLOCK TABLES;
 CREATE TABLE `sf_guard_remember_key` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) DEFAULT NULL,
-  `remember_key` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ip_address` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `remember_key` varchar(32) DEFAULT NULL,
+  `ip_address` varchar(50) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_id`),
   CONSTRAINT `sf_guard_remember_key_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -538,16 +539,16 @@ UNLOCK TABLES;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sf_guard_user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `middle_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `prefix` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `suffix` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `username` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `algorithm` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'sha1',
-  `salt` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `middle_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `prefix` varchar(16) DEFAULT NULL,
+  `suffix` varchar(16) DEFAULT NULL,
+  `email_address` varchar(255) DEFAULT NULL,
+  `username` varchar(128) NOT NULL,
+  `algorithm` varchar(128) NOT NULL DEFAULT 'sha1',
+  `salt` varchar(128) DEFAULT NULL,
+  `password` varchar(128) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT '1',
   `is_super_admin` tinyint(1) DEFAULT '0',
   `last_login` datetime DEFAULT NULL,
@@ -556,7 +557,7 @@ CREATE TABLE `sf_guard_user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `is_active_idx_idx` (`is_active`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -565,7 +566,7 @@ CREATE TABLE `sf_guard_user` (
 
 LOCK TABLES `sf_guard_user` WRITE;
 /*!40000 ALTER TABLE `sf_guard_user` DISABLE KEYS */;
-INSERT INTO `sf_guard_user` (`id`, `first_name`, `middle_name`, `last_name`, `prefix`, `suffix`, `email_address`, `username`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `created_at`, `updated_at`) VALUES (1,'John',NULL,'Doe',NULL,NULL,'john.doe@gmail.com','admin','sha1','66f64897c80c82281f7201c7b7435b10','847dc164501174e5d9280e30ae71083b036fac19',1,1,'2013-03-15 16:08:00','2013-02-21 08:51:34','2013-03-15 16:08:00'),(2,'JosephPsyco','','Persie','','',NULL,'10293847','sha1','e3205e830f8b1a81afaa706c6f2f94e3','e3204fb8d19ccd794339b2ad4020e2d6acb61a80',1,0,'2013-03-15 13:49:10','2013-02-21 08:57:15','2013-03-15 15:10:00'),(3,'sgt','','baker','','','','sgtbaker','sha1','470916fdbdb0d8b30199b6ac358fd27a','43f479839538b3c5581feefc7ea66097ff2cd311',1,1,'2013-04-02 02:59:05','2013-02-21 11:18:53','2013-04-02 02:59:05'),(4,'TimKiller','','Parker','','',NULL,'43247329','sha1','37deb933cb4323e864dffe988c32562a','b4b6eebc3b66966b51c62c69ed50fe6565ef8973',1,0,'2013-03-15 16:11:29','2013-02-22 23:34:10','2013-03-15 16:11:29');
+INSERT INTO `sf_guard_user` (`id`, `first_name`, `middle_name`, `last_name`, `prefix`, `suffix`, `email_address`, `username`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `created_at`, `updated_at`) VALUES (1,'John',NULL,'Doe',NULL,NULL,'john.doe@gmail.com','admin','sha1','66f64897c80c82281f7201c7b7435b10','847dc164501174e5d9280e30ae71083b036fac19',1,1,'2013-04-02 06:04:51','2013-02-21 08:51:34','2013-04-02 06:04:51'),(2,'JosephPsyco','','Persie','','',NULL,'10293847','sha1','e3205e830f8b1a81afaa706c6f2f94e3','e3204fb8d19ccd794339b2ad4020e2d6acb61a80',1,0,'2013-04-05 08:36:52','2013-02-21 08:57:15','2013-04-05 08:36:52'),(3,'sgt','','baker','','','','sgtbaker','sha1','470916fdbdb0d8b30199b6ac358fd27a','43f479839538b3c5581feefc7ea66097ff2cd311',1,1,'2013-04-02 05:34:16','2013-02-21 11:18:53','2013-04-02 05:34:16'),(4,'TimKiller','','Parker','','',NULL,'43247329','sha1','37deb933cb4323e864dffe988c32562a','b4b6eebc3b66966b51c62c69ed50fe6565ef8973',1,0,'2013-03-15 16:11:29','2013-02-22 23:34:10','2013-03-15 16:11:29');
 /*!40000 ALTER TABLE `sf_guard_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -584,7 +585,7 @@ CREATE TABLE `sf_guard_user_group` (
   KEY `sf_guard_user_group_group_id_sf_guard_group_id` (`group_id`),
   CONSTRAINT `sf_guard_user_group_group_id_sf_guard_group_id` FOREIGN KEY (`group_id`) REFERENCES `sf_guard_group` (`id`) ON DELETE CASCADE,
   CONSTRAINT `sf_guard_user_group_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -612,7 +613,7 @@ CREATE TABLE `sf_guard_user_permission` (
   KEY `sf_guard_user_permission_permission_id_sf_guard_permission_id` (`permission_id`),
   CONSTRAINT `sf_guard_user_permission_permission_id_sf_guard_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `sf_guard_permission` (`id`) ON DELETE CASCADE,
   CONSTRAINT `sf_guard_user_permission_user_id_sf_guard_user_id` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -633,4 +634,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-04-02  3:19:21
+-- Dump completed on 2013-04-05  9:45:18

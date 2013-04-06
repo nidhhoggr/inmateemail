@@ -19,6 +19,7 @@ abstract class BaseEmailOutgoingForm extends BaseFormDoctrine
       'email_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Email'), 'add_empty' => false)),
       'recipient_email' => new sfWidgetFormInputText(),
       'sent'            => new sfWidgetFormInputCheckbox(),
+      'cancelled'       => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
@@ -26,6 +27,7 @@ abstract class BaseEmailOutgoingForm extends BaseFormDoctrine
       'email_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Email'))),
       'recipient_email' => new sfValidatorString(array('max_length' => 128)),
       'sent'            => new sfValidatorBoolean(array('required' => false)),
+      'cancelled'       => new sfValidatorBoolean(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('email_outgoing[%s]');

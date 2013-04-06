@@ -26,17 +26,27 @@ class email_outgoingActions extends sfActions
     $this->email = $email_outgoing;
   }
 
-  public function executeAjaxApproveEmail(sfWebRequest $request) {
-
-      $email_id = $request->getParameter('email_id');
+  private function ajaxActionEmail($email_id,$action) {
 
       $email = Doctrine_Core::getTable('Email')->find($email_id);
-      $email->scanned = 1;
+      $email->$action = 1;
       $email->save();
 
       $email = Email::getNextUnscannedEmail('outgoing');
 
       echo json_encode(array('email_id'=>$email->id));
       die();
+  }
+
+  public function executeAjaxApproveEmail(sfWebRequest $request) {
+
+      $email_id = $request->getParameter('email_id');
+      $this->ajaxActionEmail($email_id,'approved');
+  }
+
+  public function executeAjaxDisapproveEmail(sfWebRequest $request) {
+
+      $email_id = $request->getParameter('email_id');
+      $this->ajaxActionEmail($email_id,'disapproved');
   }
 }

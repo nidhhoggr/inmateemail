@@ -45,8 +45,8 @@
                                 <div id="account_holder">
                                     <?=myUser::getLoggedIn()?>
                                 </div>
-                                <div id="account_balance">
-                                    Unscanned Emails:<?=Email::getByScan(false)->count()?>
+                                <div id="count_unscanned">
+                                    Unscanned Emails:<span><?=Email::countUnscanned()?></span>
                                 </div>
                                 <? endif; ?>
                             </div>

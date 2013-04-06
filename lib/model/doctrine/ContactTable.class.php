@@ -16,4 +16,14 @@ class ContactTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Contact');
     }
+
+    public static function getByEmailAddress($email_address) {
+
+        $contact = Doctrine_Query::create()
+        ->from('Contact c, c.InmateContact ic')
+        ->where('c.email_address = ?',$email_address)
+        ->fetchArray();
+
+        return end($contact);
+    }
 }

@@ -9,17 +9,20 @@
  * @property integer $email_id
  * @property string $recipient_email
  * @property boolean $sent
+ * @property boolean $cancelled
  * @property Email $Email
  * 
  * @method integer       getId()              Returns the current record's "id" value
  * @method integer       getEmailId()         Returns the current record's "email_id" value
  * @method string        getRecipientEmail()  Returns the current record's "recipient_email" value
  * @method boolean       getSent()            Returns the current record's "sent" value
+ * @method boolean       getCancelled()       Returns the current record's "cancelled" value
  * @method Email         getEmail()           Returns the current record's "Email" value
  * @method EmailOutgoing setId()              Sets the current record's "id" value
  * @method EmailOutgoing setEmailId()         Sets the current record's "email_id" value
  * @method EmailOutgoing setRecipientEmail()  Sets the current record's "recipient_email" value
  * @method EmailOutgoing setSent()            Sets the current record's "sent" value
+ * @method EmailOutgoing setCancelled()       Sets the current record's "cancelled" value
  * @method EmailOutgoing setEmail()           Sets the current record's "Email" value
  * 
  * @package    projectname
@@ -47,6 +50,11 @@ abstract class BaseEmailOutgoing extends sfDoctrineRecord
              'length' => 128,
              ));
         $this->hasColumn('sent', 'boolean', null, array(
+             'type' => 'boolean',
+             'notnull' => true,
+             'default' => false,
+             ));
+        $this->hasColumn('cancelled', 'boolean', null, array(
              'type' => 'boolean',
              'notnull' => true,
              'default' => false,

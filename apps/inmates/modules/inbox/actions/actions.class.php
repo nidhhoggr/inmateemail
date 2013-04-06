@@ -17,7 +17,8 @@ class inboxActions extends sfActions
     $this->email_incomings = Doctrine_Query::create()
       ->from('EmailIncoming ei, ei.Email e')
       ->where('e.inmate_id = ?',InmateTable::loggedIn()->getId())
-      ->where('e.sufficient = ?',true)
+      ->andWhere('e.sufficient = ?',true)
+      ->andWhere('e.disapproved = ?',false)
       ->orderBy('e.created_at DESC')
       ->execute();
   }

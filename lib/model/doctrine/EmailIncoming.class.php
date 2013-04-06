@@ -31,10 +31,17 @@ class EmailIncoming extends BaseEmailIncoming
         return $this->getEmail()->getInmate();
     }
 
-    public function getScanned() {
-        return $this->getEmail()->getScanned();
-    }
 
+    public function getApproved() {
+
+        return $this->getEmail()->getApproved();
+    }   
+
+    public function getDisapproved() {
+
+        return $this->getEmail()->getDisapproved();
+    }
+ 
     public function getSufficient() {
         return $this->getEmail()->getSufficient();
     }
@@ -56,12 +63,15 @@ class EmailIncoming extends BaseEmailIncoming
         ->fetchOne();
     }
 
-    public function getByScanAndCount($scanned,$count) {
+    public function getByScanAndCount($scanned,$count=false) {
 
-        return Doctrine_Query::create()
+        $q = Doctrine_Query::create()
         ->from('EmailIncoming ei, ei.Email e')
-        ->where('e.scanned = ?',$scanned)
-        ->limit($count)
-        ->execute();
+        ->where('e.approved = ?',$scanned)
+        ->andWhere('e.disapproved = ?',$scanned);
+
+        if($count) $q = $q->limit($count);       
+
+        return $q->execute();
     }
 }
