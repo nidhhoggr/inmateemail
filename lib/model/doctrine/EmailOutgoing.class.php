@@ -49,7 +49,8 @@ class EmailOutgoing extends BaseEmailOutgoing
         return Doctrine_Query::create()
         ->from('EmailOutgoing eo, eo.Email e')
         ->where('eo.sent = ?',false)
-        ->andWhere('eo.scanned = ?',false)
+        ->andWhere('e.disapproved = ?',false)
+        ->andWhere('eo.cancelled = ?',false)
         ->execute();
 
     }
