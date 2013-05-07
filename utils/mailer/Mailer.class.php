@@ -36,6 +36,7 @@ class Mailer {
             ->setFrom($this->noreply_email)
             ->setSubject('Insufficient Funds')
             ->setHtml('The inmate you sent an email to \''.$inmate->getFullName().'\' does not have sufficient funds to view the email.<br />Please replenish the inmates account to allow the inmate to view your email.');
+            //provide a link to the ecommerce side
         }
         else if($direction == "outgoing") {
 

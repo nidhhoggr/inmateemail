@@ -70,8 +70,10 @@ $(function() {
         });
     });
 
+    //make updates
     setInterval(function() {
         updateBalance();
+        updateOutboxIndex();
     },5000);
 });
 
@@ -104,5 +106,13 @@ updateBalance = function() {
             msg = $.parseJSON(msg);
             $('#account_balance span').html('$'+msg.account_balance);
             $('#pending_charges span').html('$'+msg.pending_charges);
+    });
+}
+
+updateOutboxIndex = function() {
+
+    
+    makeAjaxCallWithCallback('/outbox/index',{},function(msg) {
+            $('msg').html(msg);
     });
 }
