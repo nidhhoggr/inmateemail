@@ -41,4 +41,9 @@ class inboxActions extends sfActions
     $this->email = $email_incoming;
     $this->setTemplate('view');
   }
+
+  public function executeAjaxKeepAlive(sfWebRequest $request) {
+      echo 'OK';
+      die();
+  }
 }

@@ -12,9 +12,9 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    [main.css,jquery-ui]
 
-  javascripts:    [jquery,inmates]
+  javascripts:    [jquery,jquery-ui,inmates,jquery-idle-timeout/src/jquery.idletimeout.js,jquery-idle-timeout/src/jquery.idletimer.js,inmate_idleTimeConfig]
 
   has_layout:     true
   layout:         layout

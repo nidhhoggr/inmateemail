@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [main.css,jquery-ui]
 
-  javascripts:    [jquery,jquery-ui-tools,officers]
+  javascripts:    [jquery,jquery-ui-tools,officers,jquery-idle-timeout/src/jquery.idletimeout.js,jquery-idle-timeout/src/jquery.idletimer.js,officer_idleTimeConfig]
 
   has_layout:     true
   layout:         layout

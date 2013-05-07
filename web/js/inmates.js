@@ -1,17 +1,22 @@
+var current_interface, current_bal_info; 
+
 $(function() {
 
     $('.email_incoming').live('click', function() {
         var email_incoming_id = $(this).data('email-incoming-id');
+        current_interface = 'view-email';
         makeAjaxCall('/inbox/view',{id:email_incoming_id});
     });
 
     $('.email_outgoing td[id!=delete-queued-email]').live('click', function() {
         var email_outgoing_id = $(this).parent().data('email-outgoing-id');
+        current_interface = 'view-email';
         makeAjaxCall('/outbox/view',{id:email_outgoing_id});
     });
 
     $('#compose-message').live('click', function(e) {
         e.preventDefault();
+        current_interface = 'compose-message';
         makeAjaxCall('/outbox/new',{});
     });
 
@@ -22,6 +27,7 @@ $(function() {
         makeAjaxCallWithCallback('/outbox/create',form_data,function(msg) {
             updateBalance(); 
             $('#inmate-content').html(msg);
+            current_interface = 'inbox';
         });
     });
 
@@ -41,20 +47,24 @@ $(function() {
 
     $('#back-inbox').live('click', function(e) {
         e.preventDefault(); 
+        current_interface = 'inbox';
         makeAjaxCall('/inbox/index',{});
     });
 
     $('#back-outbox').live('click', function(e) {
         e.preventDefault();
+        current_interface = 'outbox';
         makeAjaxCall('/outbox/index',{});
     });
 
     $('#create-contact').live('click', function(e) {
         e.preventDefault();
+        current_interface = 'create-contact';
         makeAjaxCall('/contacts/new',{});
     });
     $('#back-contacts').live('click', function(e) {
         e.preventDefault();
+        current_interface = 'contacts';
         makeAjaxCall('/contacts/index',{});
     });
 
@@ -73,9 +83,48 @@ $(function() {
     //make updates
     setInterval(function() {
         updateBalance();
-        updateOutboxIndex();
     },5000);
 });
+
+    updateBalance = function() {
+
+        var account_balance = $('#account_balance span').text();
+        var pending_charges = $('#pending_charges span').text();
+
+        $.post('/outbox/ajaxInmateBalance',function(msg) {
+            msg = $.parseJSON(msg);
+
+            var act_bal = '$'+msg.account_balance;
+            var pen_cha = '$'+msg.pending_charges;
+
+            $('#account_balance span').html(act_bal);
+            $('#pending_charges span').html(pen_cha);
+
+            current_bal_info = {
+                'bal':account_balance != act_bal,
+                'pen':pending_charges != pen_cha
+            }
+
+        })
+        .done(function() {
+             updateTemplates();
+        });
+    }
+
+updateTemplates = function() {
+
+    if(current_bal_info.bal || current_bal_info.pen) {
+
+        console.log(current_bal_info);
+        console.log('updating' + current_interface);
+
+        if(current_interface == 'outbox')
+            updateOutboxIndex();
+
+        if(current_interface == 'inbox')
+            updateInboxIndex();
+    }
+}
 
 makeAjaxCall = function(route,data) {
 
@@ -100,19 +149,16 @@ makeAjaxCallWithCallback = function(route,data,callback) {
     });
 }
 
-updateBalance = function() {
+updateOutboxIndex = function() {
 
-    makeAjaxCallWithCallback('/outbox/ajaxInmateBalance',{},function(msg) {
-            msg = $.parseJSON(msg);
-            $('#account_balance span').html('$'+msg.account_balance);
-            $('#pending_charges span').html('$'+msg.pending_charges);
+    makeAjaxCallWithCallback('/outbox/index',{},function(msg) {
+            $('#inmate-content').html(msg);
     });
 }
 
-updateOutboxIndex = function() {
+updateInboxIndex = function() {
 
-    
-    makeAjaxCallWithCallback('/outbox/index',{},function(msg) {
-            $('msg').html(msg);
+    makeAjaxCallWithCallback('/inbox/index',{},function(msg) {
+            $('#inmate-content').html(msg);
     });
 }
