@@ -1,3 +1,5 @@
+var pg_trans = false;
+
 $(function() {
 
     $('.email_incoming').live('click', function() {
@@ -41,6 +43,7 @@ $(function() {
             email_id: email_id
         }
 
+        pg_trans = "slow";
         makeAjaxCallWithCallback('/email_outgoing/ajaxApproveEmail',args,function(msg) {
             msg = $.parseJSON(msg);
             viewOutgoingByEmailId(msg.email_id);
@@ -56,6 +59,7 @@ $(function() {
             email_id: email_id
         }
 
+        pg_trans = "slow";
         makeAjaxCallWithCallback('/email_outgoing/ajaxDisapproveEmail',args,function(msg) {
             msg = $.parseJSON(msg);
             viewOutgoingByEmailId(msg.email_id);
@@ -71,6 +75,8 @@ $(function() {
             email_id: email_id
         }
 
+        pg_trans = "slow";
+
         makeAjaxCallWithCallback('/email_incoming/ajaxApproveEmail',args,function(msg) {
             msg = $.parseJSON(msg);
             viewIncomingByEmailId(msg.email_id);
@@ -85,6 +91,8 @@ $(function() {
         var args = {
             email_id: email_id
         }
+   
+        pg_trans = "slow";
 
         makeAjaxCallWithCallback('/email_incoming/ajaxDisapproveEmail',args,function(msg) {
             msg = $.parseJSON(msg);
@@ -101,11 +109,17 @@ $(function() {
 });
 
 var viewIncomingByEmailId = function(email_id) {
-    makeAjaxCall('/email_incoming/view',{id:email_id});
+    if(email_id != null)
+      makeAjaxCall('/email_incoming/view',{id:email_id});
+    else 
+      $('.email_approval').html('All of the incoming emails have been scanned!');
 }
 
 var viewOutgoingByEmailId = function(email_id) {
-    makeAjaxCall('/email_outgoing/view',{id:email_id});
+    if(email_id != null)
+      makeAjaxCall('/email_outgoing/view',{id:email_id});
+    else
+      $('.email_approval').html('All of the outgoing emails have been scanned!');
 }
 
 
@@ -116,7 +130,13 @@ var makeAjaxCall = function(route,data) {
         data: data,
         url: officers_url + route,
         success: function(msg){
-            $('#officer-content').html(msg);
+ 
+            if(pg_trans)
+              $('#officer-content').hide().html(msg).fadeIn(pg_trans);
+            else
+              $('#officer-content').html(msg);
+
+            pg_trans = false;
         }
     });
 }
@@ -136,7 +156,7 @@ updateCountUnscanned = function() {
 
     makeAjaxCallWithCallback('/email_incoming/ajaxCountUnscanned',{},function(msg) {
             msg = $.parseJSON(msg);
-            console.log(msg.count_unscanned);
-            $('#count_unscanned span').html(msg.count_unscanned);
+        console.log(msg);     
+        $('#count_unscanned span').html(msg.count_unscanned);
     });
 }
