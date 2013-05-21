@@ -6,7 +6,7 @@ class ScanEmail {
         $message = array();
         $pointCount = 0;
 
-         $clean_msg = Email::cleanMessage($email->getMessage());
+         $clean_msg = ' ' . Email::cleanMessage($email->getMessage()) . ' ';
 
 
         //split the message into an array of words
