@@ -52,7 +52,7 @@ class Mailer {
     public function sendByInmate(Inmate $inmate, EmailOutgoing $email) {
         $mail = new SendGrid\Mail();
 
-        $message = 'The inmate by the name of \''.$inmate->getFullName().'\' sent you the following message entitled '.$email->getEmail()->getSubject().'.<br /></br /><!--email_starts_here-->'.Email::cleanMessage($email->getEmail()->getMessage()).'<!--email_ends_here--><br /><br />In order to respond to the inmate you must provide the following inmate email number as the subject of the email: ' . $inmate->getEmailNumber() . '<br /><br />' . 'Response Link: <a href="mailto:mailbox@emailforinmates.com?Subject='.$inmate->getEmailNumber().'>Mailto Link</a>';
+        $message = 'The inmate by the name of \''.$inmate->getFullName().'\' sent you the following message entitled '.$email->getEmail()->getSubject().'.<br /></br /><!--email_starts_here-->'.Email::cleanMessage($email->getEmail()->getMessage()).'<!--email_ends_here--><br /><br /><hr /><br /><br />In order to respond to the inmate you must provide the following inmate email number as the subject of the email: ' . $inmate->getEmailNumber() . '<br /><br />' . 'Response Link: <a href="mailto:mailbox@emailforinmates.com?Subject='.$inmate->getEmailNumber().'">Mailto Link</a>';
 
         $mail->addTo($email->getRecipientEmail())
             ->setFrom($this->mailbox_email)
