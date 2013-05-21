@@ -13,6 +13,7 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('sfJQueryDateTimeFormWidgetPlugin');
     $this->enablePlugins('sfSelectTimeInputJQueryTimePickerPlugin');
     $this->enablePlugins('sfFormExtraPlugin');
+    $this->enablePlugins('jqGridAdminTemplatePlugin');
   }
 
   public function getEnvironmentRootUrl() {

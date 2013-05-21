@@ -8,19 +8,35 @@ class ScanEmail {
 
          $clean_msg = Email::cleanMessage($email->getMessage());
 
+
+        //split the message into an array of words
         foreach (preg_split("/\s/", $clean_msg) as $word) {
 
     	    $message[$word] = 1;
         } 
 
+        //loop through keyword
         foreach($this->getKeywords() as $keyword) {
+
+            $derivatives = array('','er','ing','s','ed','able');
        
-            if(isset($message[$keyword->name])) {
-                $pointCount += substr_count($clean_msg,' '.$keyword->name.' ');
-                $this->createReference($keyword,$email);
-                $tag = $this->buildTag($keyword);
-                $clean_msg = str_replace(' '.$keyword->name.' ',' '.$tag.' ',$clean_msg);
-            } 
+            //loop through derivates
+            foreach($derivatives as $drv) {
+
+                $keyword_drv = $keyword->name . $drv;
+
+                //if the keyword exists in the message
+                if(isset($message[$keyword_drv])) {
+
+                    //increment the points by the count of occurences
+                    $pointCount += substr_count($clean_msg,' '.$keyword_drv.' ');
+
+                    $this->createReference($keyword,$email);
+                    $tag = $this->buildTag($keyword, $keyword_drv);
+                    $clean_msg = str_replace(' '.$keyword_drv.' ',' '.$tag.' ',$clean_msg);
+                } 
+
+            }
         }
 
         if($pointCount) {
@@ -43,8 +59,8 @@ class ScanEmail {
         $ek->save();
     }
 
-    private function buildTag(Keyword $keyword) {
+    private function buildTag(Keyword $keyword, $literal) {
         $color = $keyword->getFlag()->getColor();
-        return '<span title="'.$keyword->getDescription().'" style="color:'.$color.'" >'.$keyword.'</span>';
+        return '<span title="'.$keyword->getDescription().'" style="color:'.$color.'" >'.$literal.'</span>';
     }
 }
