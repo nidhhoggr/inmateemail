@@ -69,8 +69,12 @@ class outboxActions extends sfActions
 
       $id = $request->getParameter('id');
       $eo = Doctrine_Core::getTable('EmailOutgoing')->find($id);
-      $eo->cancelled = true;
-      $eo->save();
+      //make sure the email hasnt been sent yet
+      if(!$eo->getEmail()->getSent()) {
+
+          $eo->cancelled = true;
+          $eo->save();
+      }
       die();
   }
 
