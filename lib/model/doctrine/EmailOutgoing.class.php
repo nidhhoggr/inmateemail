@@ -86,4 +86,29 @@ class EmailOutgoing extends BaseEmailOutgoing
 
         return $q->execute();
     }
+
+    public static function getReenqueableEmails() {
+
+        $q = Doctrine_Query::create()
+        ->from('EmailOutgoing eo, eo.Email e')
+        ->where('e.disapproved = ?',false)
+        ->andWhere('e.sufficient = ?',false)
+        ->andWhere('eo.cancelled = ?',false)
+        ->andWhere('eo.sent = ?',true);
+
+        return $q->execute();
+    }
+
+    public static function getReenqueueableEmailsByInmateId($inmate_id) {
+
+        $q = Doctrine_Query::create()
+        ->from('EmailOutgoing eo, eo.Email e, e.Inmate i')
+        ->where('e.disapproved = ?',false)
+        ->andWhere('e.sufficient = ?',false)
+        ->andWhere('eo.cancelled = ?',false)
+        ->andWhere('eo.sent = ?',true)
+        ->andWhere('i.id = ?',$inmate_id);
+
+        return $q->execute();
+    }
 }
