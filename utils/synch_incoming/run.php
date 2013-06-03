@@ -40,7 +40,7 @@ foreach($mailbox->searchMailBox('UNSEEN') as $mailId) {
             $e = new Email();
 
             //does the inmate have sufficient funds?
-            if((float)$currentBalance - $receive_email_price > 0) {
+            if((float)$currentBalance - $receive_email_price >= 0) {
                 $e->sufficient = true;
                 $inmate->balance = $inmate->balance - $receive_email_price;
                 $inmate->save();
